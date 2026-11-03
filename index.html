@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Entre Nosotros · Psicoterapia">
+<meta property="og:description" content="Psicoterapia clínica individual, de pareja y de familia. Lic. Eric Terlecki, Rosario y online.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#14424a">
+<title>Entre Nosotros</title>
+<meta name="description" content="Entre Nosotros · Psicoterapia clínica con enfoque humanista, integrativo y trascendente. Lic. Eric Terlecki, Rosario.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600&display=swap">
+<style>
+html,body{margin:0}body{-webkit-font-smoothing:antialiased}img{max-width:100%}[hidden]{display:none!important}
+/* Layout: banda de marca en azul petróleo arriba, secciones abiertas en crema con ritmo de dos columnas, cierre en petróleo con contacto */
+:root{
+  --petrol:#14424a;        /* fondo de marca, igual en ambos temas */
+  --petrol-deep:#0e3138;
+  --cream:#f1e7d6;
+  --terra:#c4683f;
+  --bg:#f7f2e9;
+  --surface:#efe6d6;
+  --fg:#1d2f33;
+  --muted:#56686b;
+  --line:#d9cdb9;
+  --accent:#b35a33;
+  --font-display:"Gloock", Georgia, "Times New Roman", serif;
+  --font-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --s1:.875rem; --s2:1rem; --s3:1.25rem; --s4:1.75rem; --s5:2.5rem; --s6:clamp(2.6rem,7vw,4.6rem);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f262b; --surface:#163339; --fg:#ece3d3; --muted:#a3b3b2; --line:#29484e; --accent:#e08a60; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f262b; --surface:#163339; --fg:#ece3d3; --muted:#a3b3b2; --line:#29484e; --accent:#e08a60; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:var(--s2);line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--petrol)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+.eyebrow{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+
+/* Navegación */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--petrol);color:var(--cream);border-bottom:1px solid rgba(241,231,214,.12)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-size:1.2rem}
+.brand svg{width:40px;height:32px}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:.9rem}
+.nav ul a{text-decoration:none;opacity:.85}
+.nav ul a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+@media (max-width:720px){.nav ul{display:none}}
+.nav .cta-mini{font-size:.85rem;font-weight:600;text-decoration:none;background:var(--terra);color:#fff;padding:8px 14px;border-radius:999px;white-space:nowrap}
+
+/* Hero */
+.hero{background:var(--petrol);color:var(--cream);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;padding-block:64px 80px}
+.hero h1{font-size:var(--s6);letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--terra)}
+.hero p.lead{margin-top:20px;font-size:1.15rem;max-width:34ch;color:rgba(241,231,214,.85)}
+.hero .meta{margin-top:28px;font-size:.85rem;letter-spacing:.06em;color:rgba(241,231,214,.7)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.95rem;border:1.5px solid transparent;cursor:pointer;font-family:inherit}
+.btn-terra{background:var(--terra);color:#fff}
+.btn-terra:hover{background:#ad5631}
+.btn-ghost{border-color:rgba(241,231,214,.5);color:var(--cream);background:transparent}
+.btn-ghost:hover{border-color:var(--cream)}
+.hero-mark{position:relative;justify-self:center;width:min(100%,380px);aspect-ratio:1;max-width:100%}
+.hero-mark svg{width:100%;height:100%}
+.hero-mark .dot{transform-origin:60px 50px;animation:latido 4.5s ease-in-out infinite}
+@keyframes latido{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+@media (prefers-reduced-motion: reduce){.hero-mark .dot{animation:none}}
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr;padding-block:40px 56px}
+  .hero-mark{order:-1;width:180px}
+}
+
+/* Secciones */
+section.block{padding-block:80px}
+section.block + section.block{border-top:1px solid var(--line)}
+.split{display:grid;grid-template-columns:1fr 1.4fr;gap:48px}
+.split > *{min-width:0}
+@media (max-width:820px){.split{grid-template-columns:1fr;gap:24px}section.block{padding-block:56px}}
+.block h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-top:10px}
+.prose{display:flex;flex-direction:column;gap:16px;max-width:62ch;color:var(--fg)}
+.prose .big{font-family:var(--font-display);font-size:1.45rem;line-height:1.35}
+
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.pillars div{padding:22px 22px 0 0}
+.pillars div + div{padding-left:22px;border-left:1px solid var(--line)}
+.pillars h3{font-size:1.3rem}
+.pillars p{color:var(--muted);margin-top:6px;font-size:.95rem}
+@media (max-width:720px){
+  .pillars{grid-template-columns:1fr}
+  .pillars div,.pillars div + div{padding:18px 0;border-left:0;border-bottom:1px solid var(--line)}
+}
+
+/* Servicios */
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px}
+.service{background:var(--surface);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.service h3{font-size:1.35rem}
+.service p{color:var(--muted);font-size:.95rem}
+.service .tag{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+@media (max-width:620px){.services{grid-template-columns:1fr}}
+.modal-note{margin-top:20px;font-size:.95rem;color:var(--muted)}
+
+/* Para pensar */
+.topics{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.topic{font:inherit;font-size:.9rem;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.topic[aria-pressed="true"]{background:var(--petrol);border-color:var(--petrol);color:var(--cream)}
+.thought{margin-top:28px;background:var(--petrol);color:var(--cream);border-radius:18px;padding:36px clamp(20px,4vw,48px);display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.thought svg{width:64px;height:52px}
+.thought blockquote{margin:0;font-family:var(--font-display);font-size:clamp(1.3rem,2.6vw,1.75rem);line-height:1.35}
+.thought .t-label{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:10px}
+.thought .t-body{margin-top:14px;color:rgba(241,231,214,.8);font-size:.98rem;max-width:58ch}
+@media (max-width:620px){.thought{grid-template-columns:1fr}}
+.ig-row{margin-top:20px;font-size:.95rem;color:var(--muted)}
+.ig-row a{color:var(--accent);font-weight:600}
+
+/* App */
+.app-card{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;background:var(--surface);border-radius:18px;padding:clamp(24px,4vw,44px)}
+.app-card > *{min-width:0}
+.app-card ul{margin:16px 0 0;padding-left:1.1em;color:var(--muted)}
+.app-card li + li{margin-top:6px}
+.phone{justify-self:center;width:200px;max-width:100%;aspect-ratio:9/17;border-radius:28px;background:var(--petrol);padding:18px 14px;display:flex;flex-direction:column;gap:10px;color:var(--cream)}
+.phone .ph-top{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-size:.95rem}
+.phone .ph-top svg{width:28px;height:22px}
+.phone .ph-row{background:rgba(241,231,214,.1);border-radius:10px;padding:10px;font-size:.72rem;line-height:1.35}
+.phone .ph-row b{display:block;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);margin-bottom:4px}
+.phone .scale{display:flex;gap:4px;margin-top:6px}
+.phone .scale span{flex:1;height:8px;border-radius:4px;background:rgba(241,231,214,.2)}
+.phone .scale span.on{background:var(--terra)}
+@media (max-width:720px){.app-card{grid-template-columns:1fr}}
+
+/* Sobre mí */
+.creds{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.creds li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.creds li span:last-child{color:var(--muted);font-size:.9rem}
+
+/* Contacto */
+.contact{background:var(--petrol);color:var(--cream)}
+.contact .wrap{padding-block:72px}
+.contact h2{font-size:clamp(2rem,4.5vw,3rem)}
+.contact .intro{margin-top:14px;max-width:48ch;color:rgba(241,231,214,.82)}
+.channels{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:36px;border-top:1px solid rgba(241,231,214,.18)}
+.channel{padding:20px 0;border-bottom:1px solid rgba(241,231,214,.18);display:flex;flex-direction:column;gap:6px;min-width:0}
+.channel:nth-child(odd){padding-right:24px}
+.channel:nth-child(even){padding-left:24px;border-left:1px solid rgba(241,231,214,.18)}
+.channel .lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);font-weight:600}
+.channel .val{font-family:var(--font-display);font-size:1.35rem;user-select:all;overflow-wrap:anywhere}
+.channel .acts{display:flex;gap:14px;font-size:.88rem;flex-wrap:wrap}
+.channel .acts a,.channel .acts button{color:rgba(241,231,214,.85);background:none;border:0;padding:0;font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:620px){
+  .channels{grid-template-columns:1fr}
+  .channel:nth-child(odd),.channel:nth-child(even){padding:18px 0;border-left:0}
+}
+footer{background:var(--petrol-deep);color:rgba(241,231,214,.65);font-size:.85rem}
+footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--terra);color:#fff;padding:10px 18px;border-radius:999px;font-size:.9rem;font-weight:600;z-index:20}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <mask id="cutL"><rect width="120" height="100" fill="#fff"/><circle cx="53" cy="50" r="25" fill="#000"/></mask>
+    <mask id="cutR"><rect width="120" height="100" fill="#fff"/><circle cx="67" cy="50" r="25" fill="#000"/></mask>
+    <symbol id="logo" viewBox="0 0 120 100">
+      <circle cx="40" cy="50" r="28" fill="#f1e7d6" mask="url(#cutL)"/>
+      <circle cx="80" cy="50" r="28" fill="#c4683f" mask="url(#cutR)"/>
+      <circle class="dot" cx="60" cy="50" r="6" fill="#c4683f"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><svg aria-hidden="true"><use href="#logo"/></svg>Entre Nosotros</a>
+    <ul>
+      <li><a href="#enfoque">Enfoque</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#para-pensar">Para pensar</a></li>
+      <li><a href="#quien-soy">Quién soy</a></li>
+    </ul>
+    <a class="cta-mini" href="#contacto">Pedir turno</a>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--terra)">Psicoterapia · Rosario y online</p>
+      <h1 style="margin-top:14px">Lo que nos pasa se piensa mejor <em>entre nosotros</em>.</h1>
+      <p class="lead">Un espacio de psicoterapia y de divulgación para comprender lo que sentimos, cuidar nuestros vínculos y encontrar sentido en cada proceso.</p>
+      <div class="btns">
+        <a class="btn btn-terra" href="https://wa.me/5493416601847" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <a class="btn btn-ghost" href="#enfoque">Conocer el espacio</a>
+      </div>
+      <p class="meta">Lic. Eric Terlecki · Psicólogo · Mg. en Psicooncología</p>
+    </div>
+    <div class="hero-mark" aria-hidden="true">
+      <svg viewBox="0 0 120 100">
+        <circle cx="40" cy="50" r="28" fill="#f1e7d6" mask="url(#cutL)"/>
+        <circle cx="80" cy="50" r="28" fill="#c4683f" mask="url(#cutR)"/>
+        <circle class="dot" cx="60" cy="50" r="6" fill="#c4683f"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="block" id="enfoque">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">El enfoque</p>
+          <h2>Dos personas, un encuentro y algo que nace en el medio.</h2>
+        </div>
+        <div class="prose">
+          <p class="big">Las dos medialunas del logo representan a quien consulta y a quien acompaña. El punto del centro es lo que se construye en ese encuentro.</p>
+          <p>Trabajo desde la psicoterapia clínica con una mirada humanista, integrativa y trascendente. Eso significa escuchar a la persona entera: su historia, sus emociones, sus vínculos y también las preguntas por el sentido que aparecen en los momentos difíciles.</p>
+        </div>
+      </div>
+      <div class="pillars">
+        <div><h3>Humanista</h3><p>La persona en el centro, con su capacidad de crecer y elegir.</p></div>
+        <div><h3>Integrativo</h3><p>Herramientas de distintos modelos, elegidas según cada proceso.</p></div>
+        <div><h3>Trascendente</h3><p>Lugar para el sentido, los valores y lo espiritual de cada quien.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="servicios">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Servicios</p>
+          <h2>Formas de trabajar juntos</h2>
+        </div>
+        <div>
+          <div class="services">
+            <article class="service"><span class="tag">Individual</span><h3>Psicoterapia individual</h3><p>Un espacio propio para ordenar lo que pasa, atravesar crisis y conocerse más.</p></article>
+            <article class="service"><span class="tag">Pareja</span><h3>Terapia de pareja</h3><p>Para mejorar la comunicación, revisar acuerdos y cuidar el vínculo.</p></article>
+            <article class="service"><span class="tag">Familia</span><h3>Terapia familiar</h3><p>Para acompañar cambios, conflictos y etapas que mueven a toda la familia.</p></article>
+            <article class="service"><span class="tag">Grupos</span><h3>Conferencias y talleres</h3><p>Encuentros para instituciones, escuelas y grupos de jóvenes y adultos.</p></article>
+          </div>
+          <p class="modal-note">Atención presencial en el consultorio de Rizzuto 3451, Rosario, o de forma virtual desde cualquier lugar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="para-pensar">
+    <div class="wrap">
+      <p class="eyebrow">Para pensar</p>
+      <h2>Psicoeducación para el día a día</h2>
+      <p style="margin-top:12px;color:var(--muted);max-width:60ch">Ideas breves sobre los temas que comparto en Instagram. Elegí uno.</p>
+      <div class="topics" role="group" aria-label="Temas" id="topics"></div>
+      <div class="thought" aria-live="polite">
+        <svg aria-hidden="true"><use href="#logo"/></svg>
+        <div>
+          <p class="t-label" id="t-label"></p>
+          <blockquote id="t-quote"></blockquote>
+          <p class="t-body" id="t-body"></p>
+        </div>
+      </div>
+      <p class="ig-row">Más contenido en Instagram: <a href="https://www.instagram.com/entrenosotros.psicoterapia/" target="_blank" rel="noopener">@entrenosotros.psicoterapia</a></p>
+    </div>
+  </section>
+
+  <section class="block" id="app">
+    <div class="wrap">
+      <div class="app-card">
+        <div>
+          <p class="eyebrow">Para pacientes</p>
+          <h2 style="margin-top:10px;font-size:clamp(1.7rem,3.5vw,2.3rem)">Registro diario y semanal</h2>
+          <p style="margin-top:12px;color:var(--muted)">Una app sencilla para anotar entre sesión y sesión cómo te sentiste, qué pasó y qué te ayudó. Se instala en el celular como cualquier aplicación.</p>
+          <ul>
+            <li>Registro de emociones e intensidad</li>
+            <li>Situaciones, pensamientos y recursos</li>
+            <li>Resumen semanal para llevar a la sesión</li>
+          </ul>
+          <div class="btns"><a class="btn btn-terra" href="https://entrenos-gwfs.vercel.app" target="_blank" rel="noopener">Abrir la app</a></div>
+        </div>
+        <div class="phone" aria-hidden="true">
+          <div class="ph-top"><svg><use href="#logo"/></svg>Mi registro</div>
+          <div class="ph-row"><b>Hoy</b>¿Cómo me siento?<div class="scale"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div></div>
+          <div class="ph-row"><b>Situación</b>Charla difícil en el trabajo</div>
+          <div class="ph-row"><b>Qué me ayudó</b>Caminar y respirar antes de responder</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="quien-soy">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Quién soy</p>
+          <h2>Eric Terlecki</h2>
+        </div>
+        <div class="prose">
+          <p>Soy psicólogo en Rosario. Acompaño a personas, parejas y familias en psicoterapia clínica, y comparto contenido de psicoeducación y motivación con la idea de que cuidar la salud mental sea algo cercano y cotidiano.</p>
+          <ul class="creds">
+            <li><span>Licenciado en Psicología</span><span>Título de grado</span></li>
+            <li><span>Especialista en Psicoterapia Clínica</span><span>Especialización</span></li>
+            <li><span>Magíster en Psicooncología</span><span>Maestría</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--terra)">Contacto</p>
+    <h2 style="margin-top:10px">Empecemos a conversar</h2>
+    <p class="intro">Escribime para consultar disponibilidad, modalidad u honorarios. Respondo personalmente.</p>
+    <div class="channels">
+      <div class="channel"><span class="lbl">WhatsApp</span><span class="val">341 660-1847</span><span class="acts"><a href="https://wa.me/5493416601847" target="_blank" rel="noopener">Abrir chat</a><button type="button" data-copy="341 660-1847">Copiar</button></span></div>
+      <div class="channel"><span class="lbl">Mail</span><span class="val">ericterlecki@gmail.com</span><span class="acts"><button type="button" data-copy="ericterlecki@gmail.com">Copiar</button></span></div>
+      <div class="channel"><span class="lbl">Instagram</span><span class="val">@entrenosotros.psicoterapia</span><span class="acts"><a href="https://www.instagram.com/entrenosotros.psicoterapia/" target="_blank" rel="noopener">Ver perfil</a></span></div>
+      <div class="channel"><span class="lbl">Consultorio</span><span class="val">Rizzuto 3451, Rosario</span><span class="acts"><a href="https://www.google.com/maps/search/?api=1&query=Rizzuto+3451+Rosario+Santa+Fe" target="_blank" rel="noopener">Ver en el mapa</a><span style="color:rgba(241,231,214,.6)">· También online</span></span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>Entre Nosotros · Lic. Eric Terlecki</span><span>Si estás en una emergencia, llamá al 107 o acercate a la guardia más cercana.</span></div>
+</footer>
+
+<div class="toast" id="toast" hidden>Copiado</div>
+
+<script>
+const temas = [
+  {k:"Resiliencia", q:"Caerse no borra el camino recorrido.", b:"La resiliencia no es no sufrir. Es la capacidad de atravesar lo que duele, pedir ayuda y volver a ponerse de pie, a veces distinto/a de como éramos antes."},
+  {k:"Momento presente", q:"Lo único que podemos habitar es este momento.", b:"Gran parte de la angustia vive en el pasado que repasamos o en el futuro que anticipamos. Volver al cuerpo y a la respiración nos devuelve al único lugar donde podemos actuar: ahora."},
+  {k:"Esperanza", q:"La esperanza también se entrena.", b:"No es esperar que todo salga bien. Es sostener la posibilidad de que algo bueno todavía puede pasar y dar hoy un pequeño paso en esa dirección."},
+  {k:"Autovaloración", q:"Hablate como le hablarías a alguien que querés.", b:"La forma en que nos tratamos por dentro influye en cómo sentimos y decidimos. Notar la autocrítica y cambiarla por una voz más amable es un aprendizaje posible."},
+  {k:"Empatía", q:"Comprender al otro empieza por escucharlo sin apuro.", b:"Empatizar no es estar de acuerdo en todo. Es hacer el esfuerzo de mirar desde el lugar del otro antes de responder."},
+  {k:"Procesos", q:"Cada proceso tiene su propio tiempo.", b:"Los cambios importantes no son lineales. Hay avances, pausas y retrocesos, y todo eso también es parte del camino."}
+];
+const wrap = document.getElementById("topics");
+function show(i){
+  wrap.querySelectorAll("button").forEach((b,j)=>b.setAttribute("aria-pressed", j===i ? "true":"false"));
+  document.getElementById("t-label").textContent = temas[i].k;
+  document.getElementById("t-quote").textContent = temas[i].q;
+  document.getElementById("t-body").textContent = temas[i].b;
+}
+temas.forEach((t,i)=>{
+  const b=document.createElement("button");
+  b.type="button"; b.className="topic"; b.id="tema-"+i; b.textContent=t.k;
+  b.addEventListener("click",()=>show(i));
+  wrap.appendChild(b);
+});
+show(0);
+
+const toast=document.getElementById("toast"); let tt;
+function flash(msg){toast.textContent=msg;toast.hidden=false;clearTimeout(tt);tt=setTimeout(()=>toast.hidden=true,1800);}
+document.querySelectorAll("[data-copy]").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const txt=btn.dataset.copy;
+    const fallback=()=>{const v=btn.closest(".channel").querySelector(".val");const r=document.createRange();r.selectNodeContents(v);const s=getSelection();s.removeAllRanges();s.addRange(r);flash("Seleccionado, copialo con Ctrl+C");};
+    try{navigator.clipboard.writeText(txt).then(()=>flash("Copiado"),fallback);}catch(e){fallback();}
+  });
+});
+</script>
+
+</body>
+</html>
