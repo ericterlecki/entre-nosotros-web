@@ -241,6 +241,26 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 .calm summary{cursor:pointer;font-weight:600;color:var(--accent)}
 .calm details p{white-space:pre-line;margin-top:8px;color:var(--fg)}
 .calm-note{margin-top:24px;font-size:.9rem;color:var(--muted);max-width:70ch}
+
+/* Quién soy · CV */
+.who-photo{margin-top:24px;width:150px;aspect-ratio:238/250;border-radius:16px;overflow:hidden;background:var(--surface);box-shadow:0 14px 30px -20px rgba(22,56,66,.7)}
+.who-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.who-mat{margin-top:12px;font-size:.85rem;color:var(--muted)}
+.now{margin-top:8px;display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
+.now li{font-size:.85rem;padding:6px 12px;border-radius:999px;background:var(--surface)}
+.cv-more{margin-top:40px;border-top:1px solid var(--line);padding-top:20px}
+.cv-more > summary{cursor:pointer;font-family:var(--font-display);font-size:1.35rem;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cv-more > summary::-webkit-details-marker{display:none}
+.cv-more > summary::after{content:"+";font-family:var(--font-body);font-size:1.4rem;color:var(--accent);transition:transform .2s}
+.cv-more[open] > summary::after{transform:rotate(45deg)}
+.cv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px 48px;margin-top:28px}
+.cv-grid > *{min-width:0}
+@media (max-width:760px){.cv-grid{grid-template-columns:1fr;gap:28px}}
+.cv-grid h3{font-size:1.15rem;color:var(--accent);font-family:var(--font-body);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}
+.tl{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column}
+.tl li{display:grid;grid-template-columns:7.5em 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.93rem}
+.tl li b{font-weight:600;color:var(--muted);font-size:.85rem;font-variant-numeric:tabular-nums}
+@media (max-width:420px){.tl li{grid-template-columns:1fr;gap:2px}}
 </style>
 </head>
 <body>
@@ -542,16 +562,77 @@ Estoy acá. Estoy a salvo.</p></details>
         <div>
           <p class="eyebrow">Quién soy</p>
           <h2>Eric Terlecki</h2>
+          <div class="who-photo"><img src="cv/eric-terlecki.jpg" width="238" height="250" loading="lazy" alt="Eric Terlecki"></div>
+          <p class="who-mat">Licenciado en Psicología · Mat. N.º 4331</p>
         </div>
         <div class="prose">
-          <p>Soy psicólogo en Rosario. Acompaño a personas, parejas y familias en psicoterapia clínica, y comparto contenido de psicoeducación y motivación con la idea de que cuidar la salud mental sea algo cercano y cotidiano.</p>
+          <p class="big">Con valores humanos, experiencia vital y formación en psicoterapia clínica, busco acompañar procesos personales desde una perspectiva trascendente e integral.</p>
+          <p>Soy psicólogo en Rosario. Desde hace más de veinte años acompaño a personas, parejas y familias en psicoterapia clínica, y comparto contenido de psicoeducación y motivación con la idea de que cuidar la salud mental sea algo cercano y cotidiano.</p>
           <ul class="creds">
-            <li><span>Licenciado en Psicología</span><span>Título de grado</span></li>
-            <li><span>Especialista en Psicoterapia Clínica</span><span>Especialización</span></li>
-            <li><span>Magíster en Psicooncología</span><span>Maestría</span></li>
+            <li><span>Licenciado en Psicología</span><span>Universidad Católica de La Plata</span></li>
+            <li><span>Especialización en psicoterapia cognitiva integrativa</span><span>Fundación Aiglé</span></li>
+            <li><span>Maestría en Psicooncología</span><span>Universidad Favaloro · en curso</span></li>
           </ul>
+          <div>
+            <p class="pe-tag">Actualmente</p>
+            <ul class="now">
+              <li>Psicoterapeuta clínico</li>
+              <li>Docente universitario</li>
+              <li>Psicólogo del Seminario «San Carlos Borromeo»</li>
+              <li>Maestrando en Psicooncología</li>
+            </ul>
+          </div>
         </div>
       </div>
+      <details class="cv-more">
+        <summary>Trayectoria completa</summary>
+        <div class="cv-grid">
+          <div>
+            <h3>Clínica</h3>
+            <ul class="tl">
+              <li><b>Desde 2005</b><span>Psicoterapia individual, de pareja, familiar y grupal en consultorio particular: niños, adolescentes, adultos y adultos mayores.</span></li>
+              <li><b>2025–2026</b><span>Psicólogo del Seminario Arquidiocesano «San Carlos Borromeo», Capitán Bermúdez.</span></li>
+              <li><b>2010–2024</b><span>Tratamientos psicoterapéuticos con pacientes oncológicos y sus familias.</span></li>
+              <li><b>2020–2024</b><span>Procesos psicoterapéuticos virtuales internacionales durante la pandemia de Covid-19.</span></li>
+              <li><b>2017–2022</b><span>Psicoterapia grupal para trastornos de ansiedad y depresión.</span></li>
+              <li><b>2008–2019</b><span>Evaluación de pacientes con deterioro cognitivo. Asociación Rorschach.</span></li>
+              <li><b>2004–2018</b><span>Psicodiagnósticos y talleres grupales. Pre-noviciado, Seminario Salesiano de Funes.</span></li>
+              <li><b>2007</b><span>Gabinete psicopedagógico. Colegio Nuestra Señora de la Asunción, Rosario.</span></li>
+            </ul>
+            <h3 style="margin-top:32px">Talleres y trabajo comunitario</h3>
+            <ul class="tl">
+              <li><b>2022</b><span>Taller para padres en proceso de duelo. Fundación Cuatro Vientos, Rosario.</span></li>
+              <li><b>2010–2021</b><span>Talleres de ESI en instituciones educativas de Santa Fe, Entre Ríos, Córdoba y Formosa.</span></li>
+              <li><b>2018–2019</b><span>Comunidad Padre Misericordioso: talleres con personas transgénero en el Centro de vida del barrio Ludueña y equipo terapéutico para el tratamiento de adicciones. Rosario.</span></li>
+              <li><b>2010–2013</b><span>Taller grupal para pacientes con leucemia y sus familias. Fundación ALMA.</span></li>
+              <li><b>2005</b><span>Talleres grupales en rugby infantil. URR.</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Formación</h3>
+            <ul class="tl">
+              <li><b>En curso</b><span>Maestría en Psicooncología. Universidad Favaloro, CABA.</span></li>
+              <li><b>2021</b><span>Taller de Gestalt con Joan Garriga. CABA.</span></li>
+              <li><b>2010–2012</b><span>Posgrado de especialización en psicología cognitiva, modelo integrativo. Fundación Aiglé, dir. Héctor Fernández Álvarez.</span></li>
+              <li><b>2004</b><span>Licenciatura en Psicología. Universidad Católica de La Plata, unidad académica Rosario.</span></li>
+              <li><b>2003</b><span>Practicanato clínico. Rosario.</span></li>
+              <li><b>2001</b><span>Formación en terapia gestáltica. Instituto Tendrel, Rosario.</span></li>
+              <li><b>2000</b><span>Seminario de terapia cognitiva posracionalista con el Lic. Juan Balbi. Rosario.</span></li>
+            </ul>
+            <h3 style="margin-top:32px">Docencia</h3>
+            <ul class="tl">
+              <li><b>2022–2025</b><span>Docente de Psicología. UCA Rosario, curso de acompañantes de adultos mayores.</span></li>
+              <li><b>2020–2025</b><span>Docente de antropología y psicología. Proyecto de acompañamiento salesiano de jóvenes, Córdoba.</span></li>
+              <li><b>2018–2022</b><span>Docente de antropología. Curso de formación misionera, Arquidiócesis de Rosario.</span></li>
+            </ul>
+            <h3 style="margin-top:32px">Gestión</h3>
+            <ul class="tl">
+              <li><b>2005–2026</b><span>Responsable de producción y recursos humanos. Ind. M. García Conde, Rosario.</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pe-actions"><a class="btn btn-line" href="cv/eric-terlecki-cv.pdf" download="eric-terlecki-cv.pdf">Descargar CV (PDF)</a></div>
+      </details>
     </div>
   </section>
 </main>
