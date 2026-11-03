@@ -259,23 +259,23 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 @media (max-width:720px){.pl-how{grid-template-columns:1fr}}
 
 /* Dinámicas para trabajo personal */
-.din-list{list-style:none;padding:0;margin:40px 0 0;display:flex;flex-direction:column;gap:24px}
-.din{background:var(--surface);border-radius:18px;padding:clamp(20px,3.5vw,40px);display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:clamp(24px,4vw,48px);align-items:start;scroll-margin-top:80px}
+.din-filters{margin-top:28px}
+.din-grid{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:20px}
+.din{background:var(--surface);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:80px}
 .din > *{min-width:0}
-.din figure{margin:0}
-.din img{display:block;width:100%;height:auto;border-radius:10px;background:#fff;box-shadow:0 16px 32px -20px rgba(22,56,66,.75)}
-.din h3{font-size:clamp(1.5rem,3vw,1.9rem);margin-top:6px}
-.din .lead-in{margin-top:10px;color:var(--muted);max-width:58ch}
-.din-cols{display:grid;grid-template-columns:1fr 1.3fr;gap:28px;margin-top:24px}
-.din-cols > *{min-width:0}
-.din-cols h4{margin:0;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent)}
-.din-cols ul{margin:10px 0 0;padding-left:1.1em;font-size:.93rem;color:var(--fg)}
-.din-cols li + li{margin-top:4px}
-.din-cols .pe-steps{margin-top:10px}
-.din-quote{margin-top:24px;padding-left:16px;border-left:2px solid var(--terra);font-family:var(--font-display);font-size:1.15rem;line-height:1.4}
-.din .pe-actions{margin-top:24px}
-.din .pl-meta{font-size:.8rem;color:var(--muted);margin-top:10px}
-@media (max-width:820px){.din{grid-template-columns:1fr}.din figure{max-width:280px;width:100%;justify-self:center}.din-cols{grid-template-columns:1fr;gap:20px}}
+.din figure{margin:0;aspect-ratio:4/3;background:#e9e3d6;position:relative}
+.din figure img{position:absolute;inset:18px;width:calc(100% - 36px);height:calc(100% - 36px);object-fit:contain;filter:drop-shadow(0 10px 14px rgba(22,56,66,.28))}
+.din-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.din h3{font-size:1.4rem;margin-top:6px}
+.din-body > p{margin-top:8px;color:var(--muted);font-size:.93rem}
+.din .pl-meta{font-size:.8rem;margin-top:10px}
+.din details{margin-top:14px;font-size:.92rem}
+.din summary{cursor:pointer;font-weight:600;color:var(--accent)}
+.din details .pe-steps{margin-top:10px;font-size:.9rem}
+.din details .din-q{margin-top:12px;padding-left:12px;border-left:2px solid var(--terra);color:var(--muted);font-size:.88rem}
+.din .pe-actions{margin-top:auto;padding-top:18px;gap:8px}
+.din .btn{padding:9px 16px;font-size:.88rem}
+.din-note{margin-top:24px;font-size:.9rem;color:var(--muted);max-width:70ch}
 
 /* Quién soy · CV */
 .who-photo{margin-top:24px;width:150px;aspect-ratio:238/250;border-radius:16px;overflow:hidden;background:var(--surface);box-shadow:0 14px 30px -20px rgba(22,56,66,.7)}
@@ -639,43 +639,91 @@ Estoy acá. Estoy a salvo.</p></details>
     <div class="wrap">
       <p class="eyebrow">Dinámicas</p>
       <h2>Dinámicas para trabajo personal</h2>
-      <p style="margin-top:12px;color:var(--muted);max-width:62ch">Propuestas para hacer con las manos, a tu ritmo, y darle forma a lo que a veces cuesta poner en palabras. Podés hacerlas en casa o en un taller, y traerlas a sesión para seguir pensándolas juntos.</p>
-      <ul class="din-list">
-        <li class="din" id="vasija-de-mis-cicatrices">
-          <figure><img src="dinamicas/vasija-de-mis-cicatrices.jpg" width="910" height="1287" loading="lazy" alt="Lámina Vasija de mis cicatrices: una vasija dibujada con grietas para completar, con la consigna inspirada en el kintsugi."></figure>
-          <div>
-            <p class="pe-tag">Heridas y fortalezas · Kintsugi</p>
-            <h3>Vasija de mis cicatrices</h3>
-            <p class="lead-in">El kintsugi es un arte japonés que repara la cerámica rota uniendo sus pedazos con oro: las grietas no se esconden, se vuelven parte de su belleza. Esta dinámica propone mirar las propias heridas de la misma manera.</p>
-            <div class="din-cols">
-              <div>
-                <h4>Qué necesitás</h4>
-                <ul>
-                  <li>La lámina impresa en A4</li>
-                  <li>Papelitos de colores para rasgar</li>
-                  <li>Papel dorado o pintura dorada</li>
-                  <li>Plasticola y una lapicera</li>
-                </ul>
-              </div>
-              <div>
-                <h4>Cómo hacerla</h4>
-                <ol class="pe-steps" aria-label="Pasos">
-                  <li><span>1</span>Rellená la vasija pegando papelitos de colores rasgados.</li>
-                  <li><span>2</span>Sobre las grietas, pegá papel dorado o pintalas de oro.</li>
-                  <li><span>3</span>Junto a cada grieta, escribí una herida que atravesaste.</li>
-                  <li><span>4</span>En el oro, escribí la fuerza que esa herida te dejó.</li>
-                </ol>
-              </div>
-            </div>
-            <p class="din-quote">Lo que se rompió y se reparó también cuenta mi historia.</p>
+      <p style="margin-top:12px;color:var(--muted);max-width:62ch">Propuestas para escucharte y darle forma, con las manos, a lo que a veces cuesta poner en palabras. Están ordenadas en tres miradas: hacia vos, hacia tus vínculos y hacia tu historia. Podés hacerlas en casa o en un taller.</p>
+      <ol class="pl-how">
+        <li><b>Elegí un momento tranquilo</b>Imprimí la lámina y buscá un rato sin apuros, con lo que necesites a mano.</li>
+        <li><b>Con calma y con verdad</b>Nadie va a leer lo que escribas o dibujes si vos no querés. No hace falta completarlo todo.</li>
+        <li><b>Llevalo al acompañamiento</b>Lo que quieras profundizar, traelo a sesión y lo seguimos pensando juntos.</li>
+      </ol>
+      <div class="topics din-filters" role="group" aria-label="Filtrar dinámicas" id="din-filters">
+        <button type="button" class="topic" data-f="todas" aria-pressed="true">Todas</button>
+        <button type="button" class="topic" data-f="conmigo" aria-pressed="false">Conmigo mismo/a</button>
+        <button type="button" class="topic" data-f="demas" aria-pressed="false">Con los demás</button>
+        <button type="button" class="topic" data-f="historia" aria-pressed="false">Mi historia</button>
+      </div>
+      <ul class="din-grid">
+        <li class="din" id="mi-termometro-afectivo" data-cat="conmigo">
+          <figure><img src="dinamicas/mi-termometro-afectivo.jpg" width="827" height="1170" loading="lazy" alt="Lámina Mi termómetro afectivo"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Conmigo mismo/a</p>
+            <h3>Mi termómetro afectivo</h3>
+            <p>¿Me quiero? ¿Me escucho? Nueve frases para mirar cómo me relaciono con la persona que veo en el espejo.</p>
+            <p class="pl-meta">Para imprimir · A4 vertical · Lapicera</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>Leé cada frase con calma.</li><li><span>2</span>Marcá con una X: casi nunca, a veces o seguido.</li><li><span>3</span>Escribí qué te llama la atención de tus respuestas.</li></ol><p class="din-q">¿En qué frase me gustaría moverme un casillero?</p></details>
             <div class="pe-actions">
-              <a class="btn btn-terra" href="dinamicas/vasija-de-mis-cicatrices.pdf" download="vasija-de-mis-cicatrices.pdf">Descargar lámina (PDF)</a>
+              <a class="btn btn-terra" href="dinamicas/mi-termometro-afectivo.pdf" download="mi-termometro-afectivo.pdf">Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="mi-termometro-afectivo" data-title="Mi termómetro afectivo" data-text="¿Me quiero? ¿Me escucho?">Compartir</button>
+            </div>
+          </div>
+        </li>
+        <li class="din" id="mi-universo-afectivo" data-cat="demas">
+          <figure><img src="dinamicas/mi-universo-afectivo.jpg" width="827" height="1170" loading="lazy" alt="Lámina Mi universo afectivo"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Con los demás</p>
+            <h3>Mi universo afectivo</h3>
+            <p>¿A quién siento cerca? Un mapa de órbitas para ubicar a las personas que hoy forman parte de tu vida afectiva.</p>
+            <p class="pl-meta">Para imprimir · A4 vertical · Lápices de colores</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>En el centro estás vos.</li><li><span>2</span>Dibujá un planeta en cada órbita: cada uno es una persona que hoy sentís cercana (viva o no).</li><li><span>3</span>Escribí su nombre al lado.</li></ol><p class="din-q">¿Para quién soy yo un planeta cercano?</p></details>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="dinamicas/mi-universo-afectivo.pdf" download="mi-universo-afectivo.pdf">Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="mi-universo-afectivo" data-title="Mi universo afectivo" data-text="¿A quién siento cerca?">Compartir</button>
+            </div>
+          </div>
+        </li>
+        <li class="din" id="mi-historia-personal" data-cat="historia">
+          <figure><img src="dinamicas/mi-historia-personal.jpg" width="1170" height="827" loading="lazy" alt="Lámina Mi historia personal"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Mi historia</p>
+            <h3>Mi historia personal</h3>
+            <p>Tres vasos para mirar tu pasado, tu presente y tu futuro: lo que fue más difícil, lo que te llenó y lo que soñás.</p>
+            <p class="pl-meta">Para imprimir · A4 horizontal · Lapicera</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>En el pasado y el presente, trazá una línea como si fuera un líquido.</li><li><span>2</span>Abajo, lo lleno: lo más positivo. Arriba, lo vacío: lo más negativo.</li><li><span>3</span>Escribí una o dos palabras en cada recuadro.</li><li><span>4</span>En el futuro, completá solo lo lleno: sueños, anhelos y proyectos.</li></ol><p class="din-q">Mirá cada tiempo con ojos de fe: Dios estuvo, está y va a estar.</p></details>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="dinamicas/mi-historia-personal.pdf" download="mi-historia-personal.pdf">Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="mi-historia-personal" data-title="Mi historia personal" data-text="Mi historia es un camino.">Compartir</button>
+            </div>
+          </div>
+        </li>
+        <li class="din" id="mi-genograma" data-cat="historia">
+          <figure><img src="dinamicas/mi-genograma.jpg" width="1170" height="827" loading="lazy" alt="Lámina Mi genograma"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Mi historia</p>
+            <h3>Mi genograma</h3>
+            <p>Un dibujo de tu familia, como un árbol genealógico: quiénes la forman y cómo se vinculan, generación por generación.</p>
+            <p class="pl-meta">Para imprimir · A4 horizontal · Lapicera</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>Usá los símbolos: círculo para mujer, cuadrado para varón, una línea para la pareja.</li><li><span>2</span>Cada franja es una generación, de la más antigua (arriba) a la más reciente.</li><li><span>3</span>Dentro de cada franja, de izquierda a derecha, del/de la mayor al/a la menor.</li></ol><p class="din-q">¿Hay algo que se repite de generación en generación?</p></details>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="dinamicas/mi-genograma.pdf" download="mi-genograma.pdf">Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="mi-genograma" data-title="Mi genograma" data-text="Mi historia también es parte de quién soy.">Compartir</button>
+            </div>
+          </div>
+        </li>
+        <li class="din" id="vasija-de-mis-cicatrices" data-cat="historia">
+          <figure><img src="dinamicas/vasija-de-mis-cicatrices.jpg" width="910" height="1287" loading="lazy" alt="Lámina Vasija de mis cicatrices"></figure>
+          <div class="din-body">
+            <p class="pe-tag">Mi historia</p>
+            <h3>Vasija de mis cicatrices</h3>
+            <p>Inspirada en el kintsugi, el arte japonés que repara la cerámica con oro: las grietas no se esconden, se vuelven parte de su belleza.</p>
+            <p class="pl-meta">Para imprimir · A4 vertical · Papelitos de colores, papel o pintura dorada, plasticola</p>
+            <details><summary>Ver la consigna</summary><ol class="pe-steps"><li><span>1</span>Rellená la vasija pegando papelitos de colores rasgados.</li><li><span>2</span>Sobre las grietas, pegá papel dorado o pintalas de oro.</li><li><span>3</span>Junto a cada grieta, escribí una herida que atravesaste.</li><li><span>4</span>En el oro, escribí la fuerza que esa herida te dejó.</li></ol><p class="din-q">Lo que se rompió y se reparó también cuenta mi historia.</p></details>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="dinamicas/vasija-de-mis-cicatrices.pdf" download="vasija-de-mis-cicatrices.pdf">Descargar PDF</a>
               <button class="btn btn-line" type="button" data-share="vasija-de-mis-cicatrices" data-title="Vasija de mis cicatrices" data-text="Lo que se rompió y se reparó también cuenta mi historia.">Compartir</button>
             </div>
-            <p class="pl-meta">PDF para imprimir · 1 página A4 · No hace falta escribir sobre todas las heridas: elegí las que hoy puedas mirar.</p>
           </div>
         </li>
       </ul>
+      <p class="din-note">Las dinámicas son recursos para el trabajo personal y no reemplazan una consulta profesional. Si alguna te moviliza más de lo esperado, frená y hablalo con alguien de confianza o en sesión.</p>
     </div>
   </section>
 
@@ -950,6 +998,11 @@ document.querySelectorAll(".car").forEach(car=>{
   track.addEventListener("keydown",e=>{if(e.key==="ArrowRight"){e.preventDefault();go(cur+1);}if(e.key==="ArrowLeft"){e.preventDefault();go(cur-1);}});
   sync();
 });
+document.querySelectorAll("#din-filters [data-f]").forEach(b=>b.addEventListener("click",()=>{
+  const f=b.dataset.f;
+  document.querySelectorAll("#din-filters [data-f]").forEach(x=>x.setAttribute("aria-pressed",x===b));
+  document.querySelectorAll(".din").forEach(c=>c.hidden=!(f==="todas"||c.dataset.cat===f));
+}));
 document.querySelectorAll("[data-share]").forEach(btn=>{
   btn.addEventListener("click",()=>{
     const url=location.origin+location.pathname+"#"+btn.dataset.share;
