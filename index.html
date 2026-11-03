@@ -64,6 +64,32 @@ p{margin:0}
 @media (max-width:720px){.nav ul{display:none}}
 .nav .cta-mini{font-size:.85rem;font-weight:600;text-decoration:none;background:var(--terra);color:var(--petrol);padding:8px 14px;border-radius:999px;white-space:nowrap}
 
+/* Buscador */
+.search{position:relative;flex:0 1 210px;min-width:150px}
+.search input{width:100%;font:inherit;font-size:.88rem;color:var(--cream);background:rgba(242,235,219,.08);border:1px solid rgba(242,235,219,.35);border-radius:10px;padding:7px 36px 7px 12px;outline:none}
+.search input::placeholder{color:rgba(242,235,219,.65)}
+.search input:focus{border-color:var(--terra);background:rgba(242,235,219,.14)}
+.search input::-webkit-search-cancel-button{display:none}
+.search button.s-go{position:absolute;right:3px;top:50%;transform:translateY(-50%);width:30px;height:30px;display:grid;place-items:center;background:none;border:0;color:var(--cream);cursor:pointer;border-radius:8px}
+.search button.s-go:hover{color:var(--terra)}
+.search svg{width:18px;height:18px}
+.nav .s-results{display:block;gap:0;font-size:inherit}
+.s-results{position:absolute;right:0;top:calc(100% + 8px);width:min(400px,calc(100vw - 32px));max-height:min(70vh,460px);overflow:auto;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.25);padding:6px;margin:0;list-style:none;z-index:20}
+.s-results li a{white-space:normal;display:block;padding:9px 12px;border-radius:10px;text-decoration:none;line-height:1.35}
+.s-results li a:hover,.s-results li a[aria-selected="true"]{background:var(--surface)}
+.s-results .s-cat{display:block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.s-results .s-t{display:block;font-weight:600;font-size:.93rem}
+.s-results .s-x{display:block;font-size:.8rem;color:var(--muted);margin-top:2px}
+.s-results mark{background:rgba(217,144,111,.35);color:inherit;border-radius:3px;padding:0 1px}
+.s-results .s-none{padding:12px;font-size:.88rem;color:var(--muted)}
+.s-hit{animation:shit 2.2s ease-out}
+@keyframes shit{0%,30%{box-shadow:0 0 0 3px var(--terra)}100%{box-shadow:0 0 0 3px transparent}}
+.nav ul a{white-space:nowrap}
+.nav .wrap{max-width:1240px}.brand{white-space:nowrap}.nav .s-results li a{white-space:normal;opacity:1}
+@media (max-width:1240px){.nav ul{gap:14px;font-size:.86rem}}
+@media (max-width:1180px){.nav .wrap{flex-wrap:wrap;row-gap:8px}.nav > .wrap > ul{order:3;width:100%;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.search{margin-left:auto}}
+@media (max-width:720px){.search{order:4;flex:1 1 100%;margin-left:0}.s-results{left:0;right:auto;width:100%}}
+
 /* Hero */
 .hero{background:var(--petrol);color:var(--cream);overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;padding-block:64px 80px}
@@ -323,6 +349,12 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
       <li><a href="#dinamicas">Dinámicas</a></li>
       <li><a href="#quien-soy">Quién soy</a></li>
     </ul>
+    <form class="search" role="search" id="search" autocomplete="off" onsubmit="return false">
+      <label for="s-in" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Buscar en el sitio</label>
+      <input type="search" id="s-in" placeholder="Buscar en el sitio" aria-controls="s-res" aria-expanded="false" aria-autocomplete="list" enterkeyhint="search">
+      <button type="submit" class="s-go" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></button>
+      <ul class="s-results" id="s-res" role="listbox" hidden></ul>
+    </form>
     <a class="cta-mini" href="#contacto">Pedir turno</a>
   </div>
 </nav>
@@ -1200,5 +1232,80 @@ document.querySelectorAll("[data-copy]").forEach(btn=>{
 });
 </script>
 
+
+<script>
+/* Buscador del sitio: indexa títulos y textos de cada sección y las frases */
+(function(){
+  const form=document.getElementById("search"), inp=document.getElementById("s-in"), res=document.getElementById("s-res");
+  const norm=t=>(t||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+  const esc=t=>t.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  let idx=null, sel=-1, cur=[];
+  function build(){
+    idx=[];
+    document.querySelectorAll("section.block[id], header.hero").forEach(sec=>{
+      const cat=(sec.querySelector(".eyebrow")||{}).textContent||"Inicio";
+      const h2=sec.querySelector("h2");
+      if(h2){const p=h2.nextElementSibling; idx.push({cat, t:h2.textContent.trim(), x:(p&&p.tagName==="P")?p.textContent.trim():"", el:sec, w:sec.textContent});}
+      sec.querySelectorAll("h3").forEach(h=>{
+        const box=h.closest(".pl,.din,.calm,.service,.pe-grid,li,article")||h.parentElement;
+        const p=[...box.querySelectorAll("p")].find(e=>!e.classList.contains("pe-tag")&&!e.classList.contains("pl-num")&&!e.classList.contains("pl-meta")&&e.textContent.trim().length>20);
+        idx.push({cat, t:h.textContent.trim(), x:p?p.textContent.trim():"", el:box, w:box.textContent});
+      });
+    });
+    if(typeof frases!=="undefined"){const pp=document.getElementById("para-pensar");
+      frases.forEach(f=>idx.push({cat:"Para pensar · "+f.k, t:"«"+f.q+"»", x:f.a, el:pp, w:f.q+" "+f.a+" "+f.k}));}
+    idx.forEach(o=>{o.nt=norm(o.t); o.nx=norm(o.x); o.nw=norm(o.w);});
+  }
+  function hl(text,terms){
+    let out=esc(text), n=norm(text);
+    const marks=[]; terms.forEach(t=>{let i=n.indexOf(t); if(i>-1) marks.push([i,i+t.length]);});
+    if(!marks.length) return out;
+    marks.sort((a,b)=>b[0]-a[0]);
+    let parts=[]; let last=text.length;
+    marks.filter((m,i,a)=>!a.some((o,j)=>j<i&&o[0]<m[1]&&m[0]<o[1])).forEach(([a,b])=>{parts.unshift(esc(text.slice(b,last))); parts.unshift("<mark>"+esc(text.slice(a,b))+"</mark>"); last=a;});
+    return esc(text.slice(0,last))+parts.join("");
+  }
+  function snippet(o,terms){
+    let x=o.x; if(!x) return "";
+    if(x.length>110){let i=Math.max(0,norm(x).indexOf(terms[0])-30); if(i>0){const sp=x.indexOf(" ",i); if(sp>-1&&sp<i+20) i=sp+1;} let e=x.lastIndexOf(" ",i+110); if(e<=i) e=i+110; x=(i>0?"…":"")+x.slice(i,e)+"…";}
+    return x;
+  }
+  function search(q){
+    if(!idx) build();
+    const terms=norm(q).split(/\s+/).filter(t=>t.length>1);
+    if(!terms.length){close();return;}
+    cur=idx.map(o=>{
+      if(!terms.every(t=>o.nw.includes(t)||o.nt.includes(t))) return null;
+      let s=0; terms.forEach(t=>{if(o.nt.startsWith(t))s+=6; if(o.nt.includes(t))s+=4; if(o.nx.includes(t))s+=2; s+=1;});
+      if(o.el.tagName==="SECTION") s+=0.5; return {o,s};
+    }).filter(Boolean).sort((a,b)=>b.s-a.s).slice(0,10).map(r=>r.o);
+    sel=-1;
+    res.innerHTML=cur.length?cur.map((o,i)=>'<li><a href="#" role="option" data-i="'+i+'"><span class="s-cat">'+esc(o.cat)+'</span><span class="s-t">'+hl(o.t,terms)+'</span>'+(o.x?'<span class="s-x">'+hl(snippet(o,terms),terms)+'</span>':'')+'</a></li>').join(""):'<li class="s-none">No encontré resultados para «'+esc(q)+'».</li>';
+    res.hidden=false; inp.setAttribute("aria-expanded","true");
+  }
+  function close(){res.hidden=true; res.innerHTML=""; inp.setAttribute("aria-expanded","false"); sel=-1;}
+  function go(i){
+    const o=cur[i]; if(!o) return; close(); inp.blur();
+    let el=o.el;
+    if(el.closest(".din") && el.offsetParent===null){const all=document.querySelector("#din-filters [data-f]"); if(all) all.click();}
+    el.style.scrollMarginTop=el.style.scrollMarginTop||"84px";
+    el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+    if(el.tagName!=="SECTION"){el.classList.remove("s-hit"); void el.offsetWidth; el.classList.add("s-hit");}
+  }
+  function mark(){res.querySelectorAll("a").forEach((a,i)=>a.setAttribute("aria-selected",i===sel)); const a=res.querySelectorAll("a")[sel]; if(a) a.scrollIntoView({block:"nearest"});}
+  let tm; inp.addEventListener("input",()=>{clearTimeout(tm); tm=setTimeout(()=>search(inp.value),120);});
+  inp.addEventListener("focus",()=>{if(inp.value.trim()) search(inp.value);});
+  inp.addEventListener("keydown",e=>{
+    const n=res.querySelectorAll("a").length;
+    if(e.key==="ArrowDown"&&n){e.preventDefault(); sel=(sel+1)%n; mark();}
+    else if(e.key==="ArrowUp"&&n){e.preventDefault(); sel=(sel-1+n)%n; mark();}
+    else if(e.key==="Escape"){close();}
+  });
+  form.addEventListener("submit",e=>{e.preventDefault(); if(res.hidden) search(inp.value); if(cur.length) go(sel>-1?sel:0);});
+  res.addEventListener("mousedown",e=>{const a=e.target.closest("a[data-i]"); if(a){e.preventDefault(); go(+a.dataset.i);}});
+  res.addEventListener("click",e=>e.preventDefault());
+  document.addEventListener("click",e=>{if(!form.contains(e.target)) close();});
+})();
+</script>
 </body>
 </html>
