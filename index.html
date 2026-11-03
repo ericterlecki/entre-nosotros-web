@@ -129,6 +129,33 @@ section.block + section.block{border-top:1px solid var(--line)}
 .ig-row{margin-top:20px;font-size:.95rem;color:var(--muted)}
 .ig-row a{color:var(--accent);font-weight:600}
 
+/* Psicoeducación */
+.pe-grid{display:grid;grid-template-columns:1fr minmax(0,440px);gap:56px;align-items:center}
+.pe-grid > *{min-width:0}
+.pe-piece{margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
+.pe-piece h3{font-size:1.6rem}
+.pe-piece p{margin-top:8px;color:var(--muted);max-width:46ch}
+.pe-steps{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:8px;font-size:.95rem}
+.pe-steps li{display:flex;gap:12px;align-items:baseline}
+.pe-steps li span{font-family:var(--font-display);color:var(--accent);min-width:1.2em}
+.pe-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn-line{border-color:var(--line);color:var(--fg);background:transparent}
+.btn-line:hover{border-color:var(--fg)}
+.car{position:relative}
+.car-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:16px;scrollbar-width:none;background:var(--surface);box-shadow:0 18px 40px -24px rgba(22,56,66,.55)}
+.car-track::-webkit-scrollbar{display:none}
+.car-track figure{margin:0;flex:0 0 100%;scroll-snap-align:start;aspect-ratio:4/5}
+.car-track img{display:block;width:100%;height:100%;object-fit:cover}
+.car-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+.car-dots{display:flex;gap:6px;flex-wrap:wrap}
+.car-dots button{width:8px;height:8px;padding:0;border-radius:4px;border:0;background:var(--line);cursor:pointer;transition:width .2s,background .2s}
+.car-dots button[aria-current="true"]{width:22px;background:var(--accent)}
+.car-nav{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted)}
+.car-nav button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--fg);font-size:1.1rem;cursor:pointer;display:grid;place-items:center}
+.car-nav button:hover:not(:disabled){border-color:var(--fg)}
+.car-nav button:disabled{opacity:.35;cursor:default}
+@media (max-width:820px){.pe-grid{grid-template-columns:1fr;gap:32px}.car{max-width:440px;width:100%;margin:0 auto}}
+
 /* App */
 .app-card{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;background:var(--surface);border-radius:18px;padding:clamp(24px,4vw,44px)}
 .app-card > *{min-width:0}
@@ -189,6 +216,7 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
     <ul>
       <li><a href="#enfoque">Enfoque</a></li>
       <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#psicoeducacion">Psicoeducación</a></li>
       <li><a href="#para-pensar">Para pensar</a></li>
       <li><a href="#quien-soy">Quién soy</a></li>
     </ul>
@@ -259,10 +287,56 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
     </div>
   </section>
 
+  <section class="block" id="psicoeducacion">
+    <div class="wrap">
+      <div class="pe-grid">
+        <div>
+          <p class="eyebrow">Psicoeducación</p>
+          <h2>Entender lo que sentimos para elegir qué hacer</h2>
+          <p style="margin-top:12px;color:var(--muted);max-width:52ch">Materiales breves para leer con calma, guardar y volver a ellos cuando hagan falta.</p>
+          <div class="pe-piece">
+            <h3>Emoción y reacción</h3>
+            <p>La emoción no es el problema; la reacción automática, a veces sí. Qué hacer con la culpa, la ansiedad, el enojo y la tristeza.</p>
+            <ol class="pe-steps" aria-label="Cuatro pasos">
+              <li><span>1</span>Nombrá lo que sentís</li>
+              <li><span>2</span>Observá el impulso</li>
+              <li><span>3</span>Identificá la necesidad</li>
+              <li><span>4</span>Elegí la acción</li>
+            </ol>
+            <div class="pe-actions">
+              <a class="btn btn-line" href="psicoeducacion/emocion-y-reaccion/emocion-y-reaccion.pdf" download>Descargar PDF</a>
+              <button class="btn btn-line" type="button" id="pe-share">Compartir</button>
+            </div>
+          </div>
+        </div>
+        <div class="car" id="car" aria-roledescription="carrusel" aria-label="Emoción y reacción">
+          <div class="car-track" id="car-track" tabindex="0">
+            <figure><img src="psicoeducacion/emocion-y-reaccion/01.jpg" width="1080" height="1350" alt="La emoción no es el problema. Tu reacción, sí. Qué hacer con la culpa, la ansiedad, el enojo y la tristeza."></figure>
+            <figure><img src="psicoeducacion/emocion-y-reaccion/02.jpg" width="1080" height="1350" loading="lazy" alt="Mirá lo que pasa cuando no distinguís una de la otra: 1, sentís una emoción; 2, aparece un impulso automático; 3, detrás hay una necesidad. Si no los separás, el impulso decide por vos. Si los ves, podés elegir otra acción."></figure>
+            <figure><img src="psicoeducacion/emocion-y-reaccion/03.jpg" width="1080" height="1350" loading="lazy" alt="Cuando sentís culpa. Tu impulso: ceder. Lo que buscás: aprobación. Lo que podés practicar: sostener tu decisión, aunque incomode."></figure>
+            <figure><img src="psicoeducacion/emocion-y-reaccion/04.jpg" width="1080" height="1350" loading="lazy" alt="Cuando sentís ansiedad. Tu impulso: sobrepensar. Lo que buscás: certeza. Lo que podés practicar: hacer lo que depende de vos y soltar el resto."></figure>
+            <figure><img src="psicoeducacion/emocion-y-reaccion/05.jpg" width="1080" height="1350" loading="lazy" alt="Cuando sentís enojo. Tu impulso: reaccionar. Lo que buscás: protección. Lo que podés practicar: parar antes de responder y decir lo que necesitás."></figure>
+            <figure><img src="psicoeducacion/emocion-y-reaccion/06.jpg" width="1080" height="1350" loading="lazy" alt="Cuando sentís tristeza. Tu impulso: aislarte. Lo que necesitás: conexión. Lo que podés practicar: permitirte sentir y pedir ayuda."></figure>
+            <figure><img src="psicoeducacion/emocion-y-reaccion/07.jpg" width="1080" height="1350" loading="lazy" alt="Para recordar, cuatro pasos: nombrá lo que sentís, observá el impulso, identificá la necesidad, elegí la acción."></figure>
+            <figure><img src="psicoeducacion/emocion-y-reaccion/08.jpg" width="1080" height="1350" loading="lazy" alt="No siempre podés elegir lo que sentís. Pero sí podés empezar a elegir qué hacer con eso. No es fácil, pero es simple. Y siempre decidís vos."></figure>
+          </div>
+          <div class="car-bar">
+            <div class="car-dots" id="car-dots"></div>
+            <div class="car-nav">
+              <span id="car-count" aria-live="polite">1 / 8</span>
+              <button type="button" id="car-prev" aria-label="Anterior">←</button>
+              <button type="button" id="car-next" aria-label="Siguiente">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="para-pensar">
     <div class="wrap">
       <p class="eyebrow">Para pensar</p>
-      <h2>Psicoeducación para el día a día</h2>
+      <h2>Ideas para el día a día</h2>
       <p style="margin-top:12px;color:var(--muted);max-width:60ch">Ideas breves sobre los temas que comparto en Instagram. Elegí uno.</p>
       <div class="topics" role="group" aria-label="Temas" id="topics"></div>
       <div class="thought" aria-live="polite">
@@ -371,6 +445,40 @@ show(0);
 
 const toast=document.getElementById("toast"); let tt;
 function flash(msg){toast.textContent=msg;toast.hidden=false;clearTimeout(tt);tt=setTimeout(()=>toast.hidden=true,1800);}
+
+/* Carrusel de psicoeducación */
+(()=>{
+  const track=document.getElementById("car-track");
+  const slides=[...track.children], n=slides.length;
+  const dots=document.getElementById("car-dots"), count=document.getElementById("car-count");
+  const prev=document.getElementById("car-prev"), next=document.getElementById("car-next");
+  let cur=0;
+  slides.forEach((s,i)=>{
+    s.setAttribute("aria-label",(i+1)+" de "+n);
+    const d=document.createElement("button");
+    d.type="button"; d.setAttribute("aria-label","Ir a la placa "+(i+1));
+    d.addEventListener("click",()=>go(i));
+    dots.appendChild(d);
+  });
+  function go(i){i=Math.max(0,Math.min(n-1,i));track.scrollTo({left:i*track.clientWidth,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});}
+  function sync(){
+    cur=Math.round(track.scrollLeft/track.clientWidth);
+    count.textContent=(cur+1)+" / "+n;
+    [...dots.children].forEach((d,j)=>d.setAttribute("aria-current",j===cur?"true":"false"));
+    prev.disabled=cur===0; next.disabled=cur===n-1;
+  }
+  let raf; track.addEventListener("scroll",()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(sync);});
+  prev.addEventListener("click",()=>go(cur-1));
+  next.addEventListener("click",()=>go(cur+1));
+  track.addEventListener("keydown",e=>{if(e.key==="ArrowRight"){e.preventDefault();go(cur+1);}if(e.key==="ArrowLeft"){e.preventDefault();go(cur-1);}});
+  sync();
+  document.getElementById("pe-share").addEventListener("click",()=>{
+    const url=location.origin+location.pathname+"#psicoeducacion";
+    const data={title:"Emoción y reacción · Entre Nosotros",text:"La emoción no es el problema. Tu reacción, sí.",url};
+    if(navigator.share){navigator.share(data).catch(()=>{});return;}
+    try{navigator.clipboard.writeText(url).then(()=>flash("Enlace copiado"),()=>flash(url));}catch(e){flash(url);}
+  });
+})();
 document.querySelectorAll("[data-copy]").forEach(btn=>{
   btn.addEventListener("click",()=>{
     const txt=btn.dataset.copy;
