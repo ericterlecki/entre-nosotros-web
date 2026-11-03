@@ -224,6 +224,23 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 .fr-ctrl{display:flex;gap:8px;flex:none}
 .fr-ctrl button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(242,235,219,.4);background:transparent;color:var(--cream);font-size:1.1rem;cursor:pointer;display:grid;place-items:center}
 .fr-ctrl button:hover{border-color:var(--cream)}
+
+/* Tarjetas de calma */
+.calm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px}
+.calm-grid > *{min-width:0}
+@media (max-width:760px){.calm-grid{grid-template-columns:1fr}}
+.calm{background:var(--surface);border-radius:18px;padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:minmax(0,180px) 1fr;gap:24px;align-items:start}
+@media (max-width:440px){.calm{grid-template-columns:1fr}.calm figure{max-width:220px;justify-self:center}}
+.calm figure{margin:0}
+.calm img{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 14px 30px -20px rgba(22,56,66,.7)}
+.calm h3{font-size:1.45rem;margin-top:6px}
+.calm p{margin-top:8px;color:var(--muted);font-size:.95rem}
+.calm .pe-actions{margin-top:18px;gap:8px}
+.calm .btn{padding:10px 16px;font-size:.9rem}
+.calm details{margin-top:14px;font-size:.9rem;color:var(--muted)}
+.calm summary{cursor:pointer;font-weight:600;color:var(--accent)}
+.calm details p{white-space:pre-line;margin-top:8px;color:var(--fg)}
+.calm-note{margin-top:24px;font-size:.9rem;color:var(--muted);max-width:70ch}
 </style>
 </head>
 <body>
@@ -246,6 +263,7 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#psicoeducacion">Psicoeducación</a></li>
       <li><a href="#para-pensar">Para pensar</a></li>
+      <li><a href="#calma">Calma</a></li>
       <li><a href="#quien-soy">Quién soy</a></li>
     </ul>
     <a class="cta-mini" href="#contacto">Pedir turno</a>
@@ -432,6 +450,65 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
         </div>
       </dialog>
       <p class="ig-row">Más contenido en Instagram: <a href="https://www.instagram.com/entrenosotros.psicoterapia/" target="_blank" rel="noopener">@entrenosotros.psicoterapia</a></p>
+    </div>
+  </section>
+
+  <section class="block" id="calma">
+    <div class="wrap">
+      <p class="eyebrow">Tarjetas de calma</p>
+      <h2>Para los momentos difíciles</h2>
+      <p style="margin-top:12px;color:var(--muted);max-width:60ch">Frases breves para leer despacio cuando la angustia o la ansiedad suben. Podés guardarlas en el celular, ponerlas de fondo de pantalla o imprimirlas y llevarlas con vos.</p>
+      <div class="calm-grid">
+        <article class="calm">
+          <figure><img src="tarjetas-de-calma/estoy-en-paz.jpg" width="1677" height="2382" loading="lazy" alt="Tarjeta de calma: Estoy acá. Estoy en paz."></figure>
+          <div>
+            <p class="pe-tag">Para imprimir · A5</p>
+            <h3>Estoy acá. Estoy en paz.</h3>
+            <p>Para volver al cuerpo, dejar pasar las emociones y recordar que no estás solo/a.</p>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="tarjetas-de-calma/estoy-en-paz.pdf" download>Descargar PDF</a>
+              <a class="btn btn-line" href="tarjetas-de-calma/estoy-en-paz.jpg" download>Guardar imagen</a>
+            </div>
+            <details><summary>Leer la tarjeta</summary><p>Respiro despacio.
+Siento mi cuerpo.
+
+Dejo estar mis emociones: vienen y pasan.
+
+Mis afectos son mi apoyo. Las personas que quiero y me quieren están en mí.
+
+Lo que viene es bueno. Doy un paso a la vez.
+
+Mi dignidad es mi esencia.
+
+Estoy acá. Estoy en paz.</p></details>
+          </div>
+        </article>
+        <article class="calm">
+          <figure><img src="tarjetas-de-calma/estoy-a-salvo.jpg" width="1170" height="2532" loading="lazy" alt="Tarjeta de calma: Estoy acá. Estoy a salvo."></figure>
+          <div>
+            <p class="pe-tag">Para el celular</p>
+            <h3>Estoy acá. Estoy a salvo.</h3>
+            <p>Para cuando la ansiedad se siente en el cuerpo: es incómoda, pero no es peligrosa, y pasa.</p>
+            <div class="pe-actions">
+              <a class="btn btn-terra" href="tarjetas-de-calma/estoy-a-salvo.jpg" download>Guardar en el celular</a>
+              <a class="btn btn-line" href="tarjetas-de-calma/estoy-a-salvo.pdf" download>Descargar PDF</a>
+            </div>
+            <details><summary>Leer la tarjeta</summary><p>Respiro despacio.
+Apoyo los pies en el piso.
+
+Lo que siento en el cuerpo es ansiedad. Es incómodo, pero no es peligroso. Puedo tragar. Puedo respirar.
+
+No necesito revisarme ni tener todo bajo control. Esta sensación sube, llega a un pico y después baja.
+
+Puedo parar. Puedo descansar. Puedo decir que no.
+
+Mi valor no depende de cuánto hago ni de cómo me siento hoy.
+
+Estoy acá. Estoy a salvo.</p></details>
+          </div>
+        </article>
+      </div>
+      <p class="calm-note">Contenido informativo, no reemplaza una consulta profesional. Ante síntomas físicos nuevos, conviene una consulta médica.</p>
     </div>
   </section>
 
