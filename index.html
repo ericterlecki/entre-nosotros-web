@@ -201,6 +201,29 @@ section.block + section.block{border-top:1px solid var(--line)}
 footer{background:var(--petrol-deep);color:rgba(242,235,219,.65);font-size:.85rem}
 footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--terra);color:var(--petrol);padding:10px 18px;border-radius:999px;font-size:.9rem;font-weight:600;z-index:20}
+
+/* Frases para mirar */
+.fr-head{margin-top:64px;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px}
+.fr-head h3{font-size:clamp(1.5rem,3vw,1.9rem)}
+.fr-head p{color:var(--muted);font-size:.95rem}
+.fr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
+@media (max-width:900px){.fr-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:620px){.fr-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
+.fr-card{all:unset;box-sizing:border-box;display:block;cursor:zoom-in;border-radius:12px;overflow:hidden;aspect-ratio:4/5;background:var(--surface);box-shadow:0 12px 28px -20px rgba(22,56,66,.6);transition:transform .2s}
+.fr-card:hover{transform:translateY(-3px)}
+.fr-card:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+.fr-card img{display:block;width:100%;height:100%;object-fit:cover}
+@media (prefers-reduced-motion: reduce){.fr-card{transition:none}.fr-card:hover{transform:none}}
+.fr-more{display:flex;justify-content:center;margin-top:24px}
+.fr-box{border:0;padding:0;background:transparent;max-width:min(92vw,520px);width:100%;color:var(--cream);overflow:visible}
+.fr-box::backdrop{background:rgba(15,38,43,.9)}
+.fr-box img{display:block;width:100%;height:auto;max-height:72vh;object-fit:contain;border-radius:12px}
+.fr-cap{margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.fr-cap p{font-size:.9rem;color:rgba(242,235,219,.85)}
+.fr-cap p span{color:var(--terra);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;display:block}
+.fr-ctrl{display:flex;gap:8px;flex:none}
+.fr-ctrl button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(242,235,219,.4);background:transparent;color:var(--cream);font-size:1.1rem;cursor:pointer;display:grid;place-items:center}
+.fr-ctrl button:hover{border-color:var(--cream)}
 </style>
 </head>
 <body>
@@ -390,6 +413,24 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
           <p class="t-body" id="t-body"></p>
         </div>
       </div>
+      <div class="fr-head">
+        <h3>Frases para mirar</h3>
+        <p id="fr-count"></p>
+      </div>
+      <div class="topics" role="group" aria-label="Filtrar frases por tema" id="fr-filters"></div>
+      <div class="fr-grid" id="fr-grid"></div>
+      <div class="fr-more"><button type="button" class="btn btn-line" id="fr-more">Ver más frases</button></div>
+      <dialog class="fr-box" id="fr-box" aria-label="Frase ampliada">
+        <img id="fr-img" alt="">
+        <div class="fr-cap">
+          <p id="fr-cap"></p>
+          <div class="fr-ctrl">
+            <button type="button" id="fr-prev" aria-label="Frase anterior">←</button>
+            <button type="button" id="fr-next" aria-label="Frase siguiente">→</button>
+            <button type="button" id="fr-close" aria-label="Cerrar">✕</button>
+          </div>
+        </div>
+      </dialog>
       <p class="ig-row">Más contenido en Instagram: <a href="https://www.instagram.com/entrenosotros.psicoterapia/" target="_blank" rel="noopener">@entrenosotros.psicoterapia</a></p>
     </div>
   </section>
@@ -485,6 +526,94 @@ temas.forEach((t,i)=>{
   wrap.appendChild(b);
 });
 show(0);
+
+
+/* Frases para mirar */
+const frases=[
+  {"k": "Resiliencia", "a": "Viktor Frankl", "q": "Cuando ya no podemos cambiar una situación, tenemos el desafío de cambiarnos a nosotros mismos."},
+  {"k": "Resiliencia", "a": "Albert Camus", "q": "En medio del invierno descubrí que había en mí un verano invencible."},
+  {"k": "Procesos", "a": "Rainer Maria Rilke", "q": "Ten paciencia con todo lo que aún no está resuelto en tu corazón."},
+  {"k": "Autovaloración", "a": "Carl Rogers", "q": "Cuando me acepto tal como soy, entonces puedo cambiar."},
+  {"k": "Emociones", "a": "Jon Kabat-Zinn", "q": "No puedes detener las olas, pero puedes aprender a surfear."},
+  {"k": "Empatía", "a": "Alfred Adler", "q": "Ver con los ojos de otro, escuchar con los oídos de otro, sentir con el corazón de otro."},
+  {"k": "Emociones", "a": "Pema Chödrön", "q": "Tú eres el cielo. Todo lo demás es solo el clima."},
+  {"k": "Momento presente", "a": "Séneca", "q": "No es que tengamos poco tiempo, sino que perdemos mucho."},
+  {"k": "Resiliencia", "a": "Friedrich Nietzsche", "q": "Quien tiene un porqué para vivir puede soportar casi cualquier cómo."},
+  {"k": "Esperanza", "a": "Martin Luther King Jr.", "q": "Debemos aceptar la decepción finita, pero nunca perder la esperanza infinita."},
+  {"k": "Procesos", "a": "Lao Tsé", "q": "Un viaje de mil millas comienza con un solo paso."},
+  {"k": "Autovaloración", "a": "Oscar Wilde", "q": "Amarse a uno mismo es el comienzo de un romance para toda la vida."},
+  {"k": "Momento presente", "a": "Marco Aurelio", "q": "Recuerda que cada uno vive solamente el presente, este instante fugaz."},
+  {"k": "Empatía", "a": "Dalái Lama", "q": "Si quieres que los demás sean felices, practica la compasión."},
+  {"k": "Emociones", "a": "Susan David", "q": "Las emociones son datos, no órdenes."},
+  {"k": "Momento presente", "a": "Thich Nhat Hanh", "q": "La vida solo está disponible en el momento presente."},
+  {"k": "Gratitud", "a": "Cicerón", "q": "La gratitud no es solo la mayor de las virtudes, sino la madre de todas las demás."},
+  {"k": "Gratitud", "a": "Epicteto", "q": "Sabio es quien no se entristece por lo que no tiene, sino que se alegra por lo que tiene."},
+  {"k": "Gratitud", "a": "Melody Beattie", "q": "La gratitud da sentido a nuestro pasado, trae paz al presente y crea una visión para el mañana."},
+  {"k": "Autocompasión", "a": "Jack Kornfield", "q": "Si tu compasión no te incluye a ti, está incompleta."},
+  {"k": "Autocompasión", "a": "Louise Hay", "q": "Te has estado criticando durante años y no ha funcionado. Intenta aprobarte y mira qué sucede."},
+  {"k": "Vínculos", "a": "Brené Brown", "q": "La conexión es la razón por la que estamos aquí."},
+  {"k": "Vínculos", "a": "Antoine de Saint-Exupéry", "q": "Lo esencial es invisible a los ojos."},
+  {"k": "Vínculos", "a": "Martin Buber", "q": "Toda vida verdadera es encuentro."},
+  {"k": "Resiliencia", "a": "Maya Angelou", "q": "No puedes controlar todo lo que te sucede, pero puedes decidir no dejar que te reduzca."},
+  {"k": "Esperanza", "a": "Ana Frank", "q": "Qué maravilloso es que nadie tenga que esperar ni un solo momento para empezar a mejorar el mundo."},
+  {"k": "Procesos", "a": "Antonio Machado", "q": "Caminante, no hay camino, se hace camino al andar."},
+  {"k": "Autovaloración", "a": "atribuida a Eleanor Roosevelt", "q": "Nadie puede hacerte sentir inferior sin tu consentimiento."},
+  {"k": "Empatía", "a": "Carl Jung", "q": "Conoce todas las teorías, domina todas las técnicas, pero al tocar un alma humana sé apenas otra alma humana."},
+  {"k": "Emociones", "a": "Daniel Siegel", "q": "Nombrarlo para calmarlo. Alegría, miedo, calma, enojo, tristeza, ilusión, ternura."},
+  {"k": "Gratitud", "a": "Thornton Wilder", "q": "Solo estamos vivos en la medida en que somos conscientes de nuestros tesoros."},
+  {"k": "Vínculos", "a": "Erich Fromm", "q": "El amor es una actividad, no un afecto pasivo."},
+  {"k": "Autocompasión", "a": "Kristin Neff", "q": "Con la autocompasión nos damos la misma amabilidad y cuidado que le daríamos a una buena amistad."},
+  {"k": "Autocompasión", "a": "Christopher Germer", "q": "Un momento de autocompasión puede cambiar tu día. Una serie de esos momentos puede cambiar el curso de tu vida."},
+  {"k": "Autocompasión", "a": "Buda, citado por Sharon Salzberg", "q": "Tú mismo, tanto como cualquier otro ser en el universo, mereces tu amor y tu afecto."},
+  {"k": "Autovaloración", "a": "Lucille Ball", "q": "Ámate primero y todo lo demás encaja."},
+  {"k": "Momento presente", "a": "Eckhart Tolle", "q": "Date cuenta de que el momento presente es todo lo que tienes."},
+  {"k": "Momento presente", "a": "Henry David Thoreau", "q": "Hay que vivir en el presente, lanzarse a cada ola, encontrar la eternidad en cada momento."},
+  {"k": "Momento presente", "a": "Ram Dass", "q": "Estar aquí ahora."},
+  {"k": "Momento presente", "a": "Horacio", "q": "Carpe diem. Aprovecha el día y confía lo menos posible en el mañana."}
+].map((f,i)=>({...f,n:String(i+1).padStart(2,"0")}));
+(function(){
+  const PASO=12, grid=document.getElementById("fr-grid"), filt=document.getElementById("fr-filters");
+  const more=document.getElementById("fr-more"), count=document.getElementById("fr-count");
+  const box=document.getElementById("fr-box"), img=document.getElementById("fr-img"), cap=document.getElementById("fr-cap");
+  const cats=["Todas",...[...new Set(frases.map(f=>f.k))].sort((a,b)=>a.localeCompare(b,"es"))];
+  let cat="Todas", visibles=PASO, lista=frases, cur=0;
+  const alt=f=>"«"+f.q+"» — "+f.a;
+  cats.forEach(c=>{
+    const b=document.createElement("button");
+    b.type="button"; b.className="topic"; b.textContent=c;
+    b.addEventListener("click",()=>{cat=c;visibles=PASO;render();});
+    filt.appendChild(b);
+  });
+  function render(){
+    filt.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.textContent===cat?"true":"false"));
+    lista=cat==="Todas"?frases:frases.filter(f=>f.k===cat);
+    grid.textContent="";
+    lista.slice(0,visibles).forEach((f,i)=>{
+      const b=document.createElement("button");
+      b.type="button"; b.className="fr-card"; b.setAttribute("aria-label","Ampliar: "+alt(f));
+      const im=new Image(); im.src="para-pensar/"+f.n+".jpg"; im.width=1080; im.height=1350; im.loading="lazy"; im.decoding="async"; im.alt="";
+      b.appendChild(im); b.addEventListener("click",()=>abrir(i));
+      grid.appendChild(b);
+    });
+    more.parentElement.hidden=visibles>=lista.length;
+    count.textContent=lista.length+(lista.length===1?" frase":" frases")+(cat==="Todas"?"":" · "+cat);
+  }
+  more.addEventListener("click",()=>{visibles+=PASO;render();});
+  function mostrar(){
+    const f=lista[cur]; img.src="para-pensar/"+f.n+".jpg"; img.alt=alt(f);
+    cap.innerHTML=""; const s=document.createElement("span"); s.textContent=f.k; cap.append(s,f.a.charAt(0).toUpperCase()+f.a.slice(1));
+  }
+  function abrir(i){cur=i;mostrar();if(typeof box.showModal==="function")box.showModal();else window.open(img.src,"_blank");}
+  const mover=d=>{cur=(cur+d+lista.length)%lista.length;mostrar();};
+  document.getElementById("fr-prev").addEventListener("click",()=>mover(-1));
+  document.getElementById("fr-next").addEventListener("click",()=>mover(1));
+  document.getElementById("fr-close").addEventListener("click",()=>box.close());
+  box.addEventListener("click",e=>{if(e.target===box)box.close();});
+  box.addEventListener("keydown",e=>{if(e.key==="ArrowRight")mover(1);if(e.key==="ArrowLeft")mover(-1);});
+  let x0=null; img.addEventListener("touchstart",e=>{x0=e.touches[0].clientX;},{passive:true});
+  img.addEventListener("touchend",e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)mover(dx<0?1:-1);x0=null;});
+  render();
+})();
 
 const toast=document.getElementById("toast"); let tt;
 function flash(msg){toast.textContent=msg;toast.hidden=false;clearTimeout(tt);tt=setTimeout(()=>toast.hidden=true,1800);}
