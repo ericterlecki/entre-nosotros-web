@@ -127,6 +127,12 @@ section.block.first{padding-block:56px}
 .first-list li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--terra);transform:translateY(-1px)}
 .first-card .btns{margin-top:20px;align-items:center}
 .first-card .pl-meta{font-size:.8rem;color:var(--muted)}
+.first-facts{grid-column:1/-1;border-top:1px solid var(--line);padding-top:22px}
+.first-facts h3{font-size:1.35rem}
+.first-facts dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:16px 24px;margin:14px 0 0}
+.first-facts dt{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.first-facts dd{margin:4px 0 0;font-size:.92rem;color:var(--fg)}
+.first-facts .btns{margin-top:20px}
 @media (max-width:620px){.first-card{grid-template-columns:1fr;gap:20px}.first-card figure{width:110px}}
 
 /* Secciones */
@@ -417,6 +423,19 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
             <span class="pl-meta">PDF para completar · 7 páginas</span>
           </div>
         </div>
+        <div class="first-facts">
+          <h3>La primera entrevista</h3>
+          <p class="lead2">Sólo es cuestión de acordar el horario. Según tu disponibilidad, buscamos un espacio para la próxima semana o la siguiente.</p>
+          <dl>
+            <div><dt>Dónde</dt><dd>Pasaje Rizzuto 3451 (a la altura de Uruguay al 1150), Rosario, o de forma virtual por Meet.</dd></div>
+            <div><dt>Duración y frecuencia</dt><dd>Encuentros de una hora aproximadamente, con frecuencia semanal o quincenal.</dd></div>
+            <div><dt>Horarios</dt><dd>Lunes a viernes de 8 a 21&nbsp;h.<br>Sábados de 8 a 13&nbsp;h.</dd></div>
+            <div><dt>Honorarios</dt><dd>Por sesión, con todos los medios de pago disponibles. No trabajo con obras sociales.</dd></div>
+          </dl>
+          <div class="btns">
+            <a class="btn btn-terra" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20coordinar%20una%20primera%20entrevista." target="_blank" rel="noopener">Coordinar por WhatsApp</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -455,7 +474,7 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
             <article class="service"><span class="tag">Familia</span><h3>Terapia familiar</h3><p>Para acompañar cambios, conflictos y etapas que mueven a toda la familia.</p></article>
             <article class="service"><span class="tag">Grupos</span><h3>Conferencias y talleres</h3><p>Encuentros para instituciones, escuelas y grupos de jóvenes y adultos.</p></article>
           </div>
-          <p class="modal-note">Atención presencial en el consultorio de Rizzuto 3451, Rosario, o de forma virtual desde cualquier lugar, por Meet o Zoom.</p>
+          <p class="modal-note">Atención presencial en el consultorio de Pasaje Rizzuto 3451, Rosario, o de forma virtual desde cualquier lugar, por Meet o Zoom.</p>
         </div>
       </div>
     </div>
@@ -1226,12 +1245,14 @@ Estoy acá. Estoy a salvo.</p></details>
   <div class="wrap">
     <p class="eyebrow" style="color:var(--terra)">Contacto</p>
     <h2 style="margin-top:10px">Empecemos a conversar</h2>
-    <p class="intro">Escribime para consultar disponibilidad, modalidad u honorarios. Respondo personalmente.</p>
+    <p class="intro">Escribime para coordinar una primera entrevista: según tu disponibilidad, buscamos un espacio para la próxima semana o la siguiente. Respondo personalmente.</p>
     <div class="channels">
       <div class="channel"><span class="lbl">WhatsApp</span><span class="val">341 660-1847</span><span class="acts"><a href="https://wa.me/5493416601847" target="_blank" rel="noopener">Abrir chat</a><button type="button" data-copy="341 660-1847">Copiar</button></span></div>
       <div class="channel"><span class="lbl">Mail</span><span class="val">ericterlecki@gmail.com</span><span class="acts"><button type="button" data-copy="ericterlecki@gmail.com">Copiar</button></span></div>
       <div class="channel"><span class="lbl">Instagram</span><span class="val">@entrenosotros.psicoterapia</span><span class="acts"><a href="https://www.instagram.com/entrenosotros.psicoterapia/" target="_blank" rel="noopener">Ver perfil</a></span></div>
-      <div class="channel"><span class="lbl">Consultorio</span><span class="val">Rizzuto 3451, Rosario</span><span class="acts"><a href="https://www.google.com/maps/search/?api=1&query=Rizzuto+3451+Rosario+Santa+Fe" target="_blank" rel="noopener">Ver en el mapa</a><span style="color:rgba(242,235,219,.6)">· También online</span></span></div>
+      <div class="channel"><span class="lbl">Consultorio</span><span class="val">Pasaje Rizzuto 3451, Rosario</span><span class="acts"><span style="color:rgba(242,235,219,.75)">A la altura de Uruguay al 1150</span><a href="https://www.google.com/maps/search/?api=1&query=Pasaje+Rizzuto+3451+Rosario+Santa+Fe" target="_blank" rel="noopener">Ver en el mapa</a><span style="color:rgba(242,235,219,.6)">· También virtual por Meet</span></span></div>
+      <div class="channel"><span class="lbl">Horarios</span><span class="val">Lun a vie 8 a 21 h · Sáb 8 a 13 h</span><span class="acts"><span style="color:rgba(242,235,219,.75)">Encuentros de una hora aproximadamente, semanales o quincenales</span></span></div>
+      <div class="channel"><span class="lbl">Honorarios</span><span class="val">Por sesión</span><span class="acts"><span style="color:rgba(242,235,219,.75)">Todos los medios de pago disponibles · No trabajo con obras sociales</span></span></div>
     </div>
   </div>
 </section>
