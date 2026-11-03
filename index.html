@@ -132,7 +132,12 @@ section.block + section.block{border-top:1px solid var(--line)}
 /* Psicoeducación */
 .pe-grid{display:grid;grid-template-columns:1fr minmax(0,440px);gap:56px;align-items:center}
 .pe-grid > *{min-width:0}
-.pe-piece{margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
+.pe-grid{margin-top:48px;scroll-margin-top:80px}
+.pe-grid + .pe-grid{margin-top:72px;padding-top:56px;border-top:1px solid var(--line)}
+@media (min-width:821px){.pe-grid.flip{grid-template-columns:minmax(0,440px) 1fr}.pe-grid.flip > .car{order:-1}}
+.pe-tag{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.pe-piece{padding-top:0}
+.pe-piece .pe-tag + h3{margin-top:6px}
 .pe-piece h3{font-size:1.6rem}
 .pe-piece p{margin-top:8px;color:var(--muted);max-width:46ch}
 .pe-steps{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:8px;font-size:.95rem}
@@ -289,12 +294,13 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 
   <section class="block" id="psicoeducacion">
     <div class="wrap">
-      <div class="pe-grid">
+      <p class="eyebrow">Psicoeducación</p>
+      <h2>Entender lo que sentimos para elegir qué hacer</h2>
+      <p style="margin-top:12px;color:var(--muted);max-width:52ch">Materiales breves para leer con calma, guardar y volver a ellos cuando hagan falta.</p>
+      <div class="pe-grid" id="emocion-y-reaccion">
         <div>
-          <p class="eyebrow">Psicoeducación</p>
-          <h2>Entender lo que sentimos para elegir qué hacer</h2>
-          <p style="margin-top:12px;color:var(--muted);max-width:52ch">Materiales breves para leer con calma, guardar y volver a ellos cuando hagan falta.</p>
           <div class="pe-piece">
+            <span class="pe-tag">Emociones</span>
             <h3>Emoción y reacción</h3>
             <p>La emoción no es el problema; la reacción automática, a veces sí. Qué hacer con la culpa, la ansiedad, el enojo y la tristeza.</p>
             <ol class="pe-steps" aria-label="Cuatro pasos">
@@ -305,12 +311,12 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
             </ol>
             <div class="pe-actions">
               <a class="btn btn-line" href="psicoeducacion/emocion-y-reaccion/emocion-y-reaccion.pdf" download>Descargar PDF</a>
-              <button class="btn btn-line" type="button" id="pe-share">Compartir</button>
+              <button class="btn btn-line" type="button" data-share="emocion-y-reaccion" data-title="Emoción y reacción" data-text="La emoción no es el problema. Tu reacción, sí.">Compartir</button>
             </div>
           </div>
         </div>
-        <div class="car" id="car" aria-roledescription="carrusel" aria-label="Emoción y reacción">
-          <div class="car-track" id="car-track" tabindex="0">
+        <div class="car" aria-roledescription="carrusel" aria-label="Emoción y reacción">
+          <div class="car-track" tabindex="0">
             <figure><img src="psicoeducacion/emocion-y-reaccion/01.jpg" width="1080" height="1350" alt="La emoción no es el problema. Tu reacción, sí. Qué hacer con la culpa, la ansiedad, el enojo y la tristeza."></figure>
             <figure><img src="psicoeducacion/emocion-y-reaccion/02.jpg" width="1080" height="1350" loading="lazy" alt="Mirá lo que pasa cuando no distinguís una de la otra: 1, sentís una emoción; 2, aparece un impulso automático; 3, detrás hay una necesidad. Si no los separás, el impulso decide por vos. Si los ves, podés elegir otra acción."></figure>
             <figure><img src="psicoeducacion/emocion-y-reaccion/03.jpg" width="1080" height="1350" loading="lazy" alt="Cuando sentís culpa. Tu impulso: ceder. Lo que buscás: aprobación. Lo que podés practicar: sostener tu decisión, aunque incomode."></figure>
@@ -321,11 +327,48 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
             <figure><img src="psicoeducacion/emocion-y-reaccion/08.jpg" width="1080" height="1350" loading="lazy" alt="No siempre podés elegir lo que sentís. Pero sí podés empezar a elegir qué hacer con eso. No es fácil, pero es simple. Y siempre decidís vos."></figure>
           </div>
           <div class="car-bar">
-            <div class="car-dots" id="car-dots"></div>
+            <div class="car-dots"></div>
             <div class="car-nav">
-              <span id="car-count" aria-live="polite">1 / 8</span>
-              <button type="button" id="car-prev" aria-label="Anterior">←</button>
-              <button type="button" id="car-next" aria-label="Siguiente">→</button>
+              <span class="car-count" aria-live="polite">1 / 8</span>
+              <button type="button" class="car-prev" aria-label="Anterior">←</button>
+              <button type="button" class="car-next" aria-label="Siguiente">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pe-grid flip" id="miedos-fobias-y-panico">
+        <div>
+          <div class="pe-piece">
+            <span class="pe-tag">Ansiedad</span>
+            <h3>Miedos, fobias y pánico</h3>
+            <p>El miedo nos cuida, pero a veces la alarma suena de más. Qué es una fobia, qué es un ataque de pánico y qué ayuda a atravesarlos.</p>
+            <ol class="pe-steps" aria-label="Qué ayuda">
+              <li><span>1</span>Entender la alarma</li>
+              <li><span>2</span>Respirar lento</li>
+              <li><span>3</span>Acercarse de a poco</li>
+            </ol>
+            <div class="pe-actions">
+              <a class="btn btn-line" href="psicoeducacion/miedos-fobias-y-panico/miedos-fobias-y-panico.pdf" download>Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="miedos-fobias-y-panico" data-title="Miedos, fobias y pánico" data-text="Cuando la alarma suena de más.">Compartir</button>
+            </div>
+          </div>
+        </div>
+        <div class="car" aria-roledescription="carrusel" aria-label="Miedos, fobias y pánico">
+          <div class="car-track" tabindex="0">
+            <figure><img src="psicoeducacion/miedos-fobias-y-panico/01.jpg" width="1080" height="1350" loading="lazy" alt="Ansiedad. ¿Ahora, ahora… cómo estás? Miedos, fobias y pánico: cuando la alarma suena de más."></figure>
+            <figure><img src="psicoeducacion/miedos-fobias-y-panico/02.jpg" width="1080" height="1350" loading="lazy" alt="El miedo nos cuida. Es una emoción básica: prepara al cuerpo para enfrentar un peligro o escapar de él. El problema aparece cuando la alarma suena sin un peligro real, o mucho más fuerte de lo necesario."></figure>
+            <figure><img src="psicoeducacion/miedos-fobias-y-panico/03.jpg" width="1080" height="1350" loading="lazy" alt="¿Qué es una fobia? Un miedo intenso a algo concreto: animales, alturas, volar, la sangre, lugares cerrados. Desproporcionado: mucho mayor que el peligro real, y muchas veces quien lo vive lo sabe. Que lleva a evitar, y esa evitación empieza a limitar la vida cotidiana."></figure>
+            <figure><img src="psicoeducacion/miedos-fobias-y-panico/04.jpg" width="1080" height="1350" loading="lazy" alt="¿Qué es un ataque de pánico? Una oleada repentina de miedo intenso que llega a su pico en pocos minutos: palpitaciones, falta de aire, mareo, temblor; sensación de irrealidad o de perder el control; miedo a morir o a volverse loco o loca. Es muy angustiante, pero no es peligroso y pasa. Ante síntomas nuevos, conviene una consulta médica."></figure>
+            <figure><img src="psicoeducacion/miedos-fobias-y-panico/05.jpg" width="1080" height="1350" loading="lazy" alt="Qué ayuda. Entender la alarma: saber qué pasa en el cuerpo baja el miedo al miedo. Respirar lento: exhalar más largo de lo que inhalás ayuda a calmar el cuerpo. Acercarse de a poco: evitar alivia hoy, pero agranda el miedo mañana; exponerse gradualmente, con acompañamiento profesional, lo achica."></figure>
+            <figure><img src="psicoeducacion/miedos-fobias-y-panico/06.jpg" width="1080" height="1350" loading="lazy" alt="¿Qué miedo está ocupando hoy más lugar del que quisieras? ¡Adelante!… paso a paso. Contenido informativo, no reemplaza una consulta profesional."></figure>
+          </div>
+          <div class="car-bar">
+            <div class="car-dots"></div>
+            <div class="car-nav">
+              <span class="car-count" aria-live="polite">1 / 6</span>
+              <button type="button" class="car-prev" aria-label="Anterior">←</button>
+              <button type="button" class="car-next" aria-label="Siguiente">→</button>
             </div>
           </div>
         </div>
@@ -447,11 +490,11 @@ const toast=document.getElementById("toast"); let tt;
 function flash(msg){toast.textContent=msg;toast.hidden=false;clearTimeout(tt);tt=setTimeout(()=>toast.hidden=true,1800);}
 
 /* Carrusel de psicoeducación */
-(()=>{
-  const track=document.getElementById("car-track");
+document.querySelectorAll(".car").forEach(car=>{
+  const track=car.querySelector(".car-track");
   const slides=[...track.children], n=slides.length;
-  const dots=document.getElementById("car-dots"), count=document.getElementById("car-count");
-  const prev=document.getElementById("car-prev"), next=document.getElementById("car-next");
+  const dots=car.querySelector(".car-dots"), count=car.querySelector(".car-count");
+  const prev=car.querySelector(".car-prev"), next=car.querySelector(".car-next");
   let cur=0;
   slides.forEach((s,i)=>{
     s.setAttribute("aria-label",(i+1)+" de "+n);
@@ -472,13 +515,15 @@ function flash(msg){toast.textContent=msg;toast.hidden=false;clearTimeout(tt);tt
   next.addEventListener("click",()=>go(cur+1));
   track.addEventListener("keydown",e=>{if(e.key==="ArrowRight"){e.preventDefault();go(cur+1);}if(e.key==="ArrowLeft"){e.preventDefault();go(cur-1);}});
   sync();
-  document.getElementById("pe-share").addEventListener("click",()=>{
-    const url=location.origin+location.pathname+"#psicoeducacion";
-    const data={title:"Emoción y reacción · Entre Nosotros",text:"La emoción no es el problema. Tu reacción, sí.",url};
+});
+document.querySelectorAll("[data-share]").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const url=location.origin+location.pathname+"#"+btn.dataset.share;
+    const data={title:btn.dataset.title+" · Entre Nosotros",text:btn.dataset.text,url};
     if(navigator.share){navigator.share(data).catch(()=>{});return;}
     try{navigator.clipboard.writeText(url).then(()=>flash("Enlace copiado"),()=>flash(url));}catch(e){flash(url);}
   });
-})();
+});
 document.querySelectorAll("[data-copy]").forEach(btn=>{
   btn.addEventListener("click",()=>{
     const txt=btn.dataset.copy;
