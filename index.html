@@ -242,6 +242,21 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 .calm summary{cursor:pointer;font-weight:600;color:var(--accent)}
 .calm details p{white-space:pre-line;margin-top:8px;color:var(--fg)}
 .calm-note{margin-top:24px;font-size:.9rem;color:var(--muted);max-width:70ch}
+/* Plantillas para pacientes */
+.pl-grid{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:20px}
+.pl{background:var(--surface);border-radius:18px;padding:20px;display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:start;scroll-margin-top:80px}
+.pl > *{min-width:0}
+.pl figure{margin:0}
+.pl img{display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 24px -18px rgba(22,56,66,.8)}
+.pl-num{font-family:var(--font-display);color:var(--accent);font-size:1.1rem;line-height:1}
+.pl h3{font-size:1.3rem;margin-top:6px}
+.pl p{margin-top:6px;color:var(--muted);font-size:.92rem}
+.pl .pl-meta{font-size:.8rem;margin-top:8px}
+.pl .btn{margin-top:14px;padding:9px 16px;font-size:.88rem}
+.pl-how{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;padding:0}
+.pl-how li{border-top:1px solid var(--line);padding-top:12px;font-size:.92rem;color:var(--muted)}
+.pl-how b{display:block;color:var(--fg);font-weight:600}
+@media (max-width:720px){.pl-how{grid-template-columns:1fr}}
 
 /* Quién soy · CV */
 .who-photo{margin-top:24px;width:150px;aspect-ratio:238/250;border-radius:16px;overflow:hidden;background:var(--surface);box-shadow:0 14px 30px -20px rgba(22,56,66,.7)}
@@ -285,6 +300,7 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
       <li><a href="#psicoeducacion">Psicoeducación</a></li>
       <li><a href="#para-pensar">Para pensar</a></li>
       <li><a href="#calma">Calma</a></li>
+      <li><a href="#plantillas">Plantillas</a></li>
       <li><a href="#quien-soy">Quién soy</a></li>
     </ul>
     <a class="cta-mini" href="#contacto">Pedir turno</a>
@@ -531,6 +547,71 @@ Estoy acá. Estoy a salvo.</p></details>
         </article>
       </div>
       <p class="calm-note">Contenido informativo, no reemplaza una consulta profesional. Ante síntomas físicos nuevos, conviene una consulta médica.</p>
+    </div>
+  </section>
+
+  <section class="block" id="plantillas">
+    <div class="wrap">
+      <p class="eyebrow">Plantillas</p>
+      <h2>Guías y registros para trabajar entre sesiones</h2>
+      <p style="margin-top:12px;color:var(--muted);max-width:62ch">Cada plantilla combina una parte de psicoeducación y una de autorregistro. Son recursos para usar dentro de un proceso psicológico clínico, no un tratamiento en sí: elegí la que responda a tu interés o necesidad.</p>
+      <ol class="pl-how">
+        <li><b>Abrila en el celular</b>Con una app que permita completar formularios PDF, por ejemplo Adobe Acrobat Reader.</li>
+        <li><b>Completala a tu ritmo</b>Tocá las opciones y escribí sólo lo necesario. Guardá los cambios.</li>
+        <li><b>Traela a sesión</b>Enviala por WhatsApp al 341 660-1847 antes de la próxima sesión y la trabajamos juntos.</li>
+      </ol>
+      <ul class="pl-grid">
+        <li class="pl" id="plantilla-ansiedad">
+          <figure><img src="plantillas/ansiedad.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Ansiedad"></figure>
+          <div>
+            <p class="pl-num">01</p>
+            <h3>Ansiedad</h3>
+            <p>Qué es la ansiedad, qué pasa en el cuerpo, el círculo de la ansiedad, la evitación y herramientas para atravesarla. Incluye tus disparadores, señales y apoyos, un registro breve y un resumen semanal.</p>
+            <p class="pl-meta">PDF para completar · 12 páginas</p>
+            <a class="btn btn-line" href="plantillas/ansiedad.pdf" download="ansiedad.pdf">Descargar PDF</a>
+          </div>
+        </li>
+        <li class="pl" id="plantilla-duelos-y-transiciones">
+          <figure><img src="plantillas/duelos-y-transiciones.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Duelos y transiciones"></figure>
+          <div>
+            <p class="pl-num">02</p>
+            <h3>Duelos y transiciones</h3>
+            <p>Qué es el duelo, cómo se transita y cuáles son tus puntos de apoyo. Para registrar cómo estás y los momentos más difíciles, a tu ritmo.</p>
+            <p class="pl-meta">PDF para completar · 11 páginas</p>
+            <a class="btn btn-line" href="plantillas/duelos-y-transiciones.pdf" download="duelos-y-transiciones.pdf">Descargar PDF</a>
+          </div>
+        </li>
+        <li class="pl" id="plantilla-gestion-del-estres">
+          <figure><img src="plantillas/gestion-del-estres.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Gestión del estrés"></figure>
+          <div>
+            <p class="pl-num">03</p>
+            <h3>Gestión del estrés</h3>
+            <p>Qué es el estrés, cómo reconocer sus señales y el modelo C.A.P.O. Incluye un test breve, registros de situaciones y un resumen semanal.</p>
+            <p class="pl-meta">PDF para completar · 11 páginas</p>
+            <a class="btn btn-line" href="plantillas/gestion-del-estres.pdf" download="gestion-del-estres.pdf">Descargar PDF</a>
+          </div>
+        </li>
+        <li class="pl" id="plantilla-limites-y-asertividad">
+          <figure><img src="plantillas/limites-y-asertividad.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Límites y comunicación asertiva"></figure>
+          <div>
+            <p class="pl-num">04</p>
+            <h3>Límites y comunicación asertiva</h3>
+            <p>Qué son los límites, los estilos de comunicación y cómo decir que no. Con un test breve, hojas para registrar situaciones y un resumen semanal.</p>
+            <p class="pl-meta">PDF para completar · 10 páginas</p>
+            <a class="btn btn-line" href="plantillas/limites-y-asertividad.pdf" download="limites-y-asertividad.pdf">Descargar PDF</a>
+          </div>
+        </li>
+        <li class="pl" id="plantilla-pareja-y-comunicacion">
+          <figure><img src="plantillas/pareja-y-comunicacion.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Pareja y comunicación sana"></figure>
+          <div>
+            <p class="pl-num">05</p>
+            <h3>Pareja y comunicación sana</h3>
+            <p>Diferencias, reclamos y pedidos, lenguajes del amor, espacios, historia y proyectos. Hojas para cada integrante y una para completar juntos.</p>
+            <p class="pl-meta">PDF para completar · 13 páginas</p>
+            <a class="btn btn-line" href="plantillas/pareja-y-comunicacion.pdf" download="pareja-y-comunicacion.pdf">Descargar PDF</a>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
