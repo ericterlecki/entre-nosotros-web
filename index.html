@@ -9,6 +9,16 @@
 <meta property="og:title" content="Entre Nosotros · Psicoterapia">
 <meta property="og:description" content="Psicoterapia clínica individual, de pareja y de familia. Lic. Eric Terlecki, Rosario. Presencial y virtual.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://entre-nosotros-web.vercel.app/">
+<meta property="og:site_name" content="Entre Nosotros">
+<meta property="og:locale" content="es_AR">
+<meta property="og:image" content="https://entre-nosotros-web.vercel.app/og-imagen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Entre Nosotros: lo que nos pasa se piensa mejor entre nosotros. Psicoterapia, Lic. Eric Terlecki.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://entre-nosotros-web.vercel.app/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Entre Nosotros · Psicoterapia", "url": "https://entre-nosotros-web.vercel.app/", "image": "https://entre-nosotros-web.vercel.app/og-imagen.jpg", "description": "Psicoterapia clínica individual, de pareja y de familia con enfoque humanista, integrativo y trascendente. Presencial en Rosario y virtual.", "telephone": "+54 9 341 660-1847", "email": "ericterlecki@gmail.com", "address": {"@type": "PostalAddress", "streetAddress": "Pasaje Rizzuto 3451", "addressLocality": "Rosario", "addressRegion": "Santa Fe", "addressCountry": "AR"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "21:00"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00"}], "areaServed": "Rosario, Santa Fe, Argentina", "sameAs": ["https://www.instagram.com/entrenosotros.psicoterapia/"], "founder": {"@type": "Person", "name": "Eric Terlecki", "jobTitle": "Licenciado en Psicología"}}</script>
 <meta name="theme-color" content="#1F4955">
 <title>Entre Nosotros</title>
 <meta name="description" content="Entre Nosotros · Psicoterapia clínica con enfoque humanista, integrativo y trascendente. Lic. Eric Terlecki, Rosario.">
@@ -42,7 +52,7 @@ html,body{margin:0}body{-webkit-font-smoothing:antialiased}img{max-width:100%}[h
   --bg:#0f262b; --surface:#163339; --fg:#ece3d3; --muted:#a3b3b2; --line:#29484e; --accent:#e08a60; color-scheme:dark;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--navh,112px) + 12px)}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:var(--s2);line-height:1.65}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--petrol)}
@@ -116,7 +126,7 @@ p{margin:0}
 
 /* Primer paso: guía Empezar terapia, destacada debajo del inicio */
 section.block.first{padding-block:56px}
-.first-card{display:grid;grid-template-columns:150px 1fr;gap:32px;align-items:center;background:var(--surface);border-left:4px solid var(--terra);border-radius:18px;padding:28px clamp(20px,4vw,40px);scroll-margin-top:80px}
+.first-card{display:grid;grid-template-columns:150px 1fr;gap:32px;align-items:center;background:var(--surface);border-left:4px solid var(--terra);border-radius:18px;padding:28px clamp(20px,4vw,40px)}
 .first-card > *{min-width:0}
 .first-card figure{margin:0}
 .first-card img{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 16px 30px -18px rgba(22,56,66,.85)}
@@ -165,7 +175,7 @@ section.block + section.block{border-top:1px solid var(--line)}
 .libre-list li span:last-child{color:rgba(242,235,219,.82);font-size:.95rem}
 @media (max-width:820px){.libre{grid-template-columns:1fr}.libre-list{grid-template-columns:1fr}}
 .ejes{display:flex;flex-direction:column;gap:16px;margin-top:20px}
-.eje{background:var(--surface);border-radius:16px;padding:clamp(20px,3.5vw,36px);display:grid;grid-template-columns:180px minmax(0,1fr);gap:8px 32px;scroll-margin-top:120px}
+.eje{background:var(--surface);border-radius:16px;padding:clamp(20px,3.5vw,36px);display:grid;grid-template-columns:180px minmax(0,1fr);gap:8px 32px}
 .eje-head{display:flex;flex-direction:column;gap:4px}
 .eje-n{font-family:var(--font-display);font-size:1rem;color:var(--accent)}
 .eje-head h3{font-size:1.6rem}
@@ -216,7 +226,7 @@ section.block + section.block{border-top:1px solid var(--line)}
 /* Psicoeducación */
 .pe-grid{display:grid;grid-template-columns:1fr minmax(0,440px);gap:56px;align-items:center}
 .pe-grid > *{min-width:0}
-.pe-grid{margin-top:48px;scroll-margin-top:80px}
+.pe-grid{margin-top:48px}
 .pe-grid + .pe-grid{margin-top:72px;padding-top:56px;border-top:1px solid var(--line)}
 @media (min-width:821px){.pe-grid.flip{grid-template-columns:minmax(0,440px) 1fr}.pe-grid.flip > .car{order:-1}}
 .pe-tag{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
@@ -341,7 +351,7 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 .calm-note{margin-top:24px;font-size:.9rem;color:var(--muted);max-width:70ch}
 /* Plantillas para pacientes */
 .pl-grid{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:20px}
-.pl{background:var(--surface);border-radius:18px;padding:20px;display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:start;scroll-margin-top:80px}
+.pl{background:var(--surface);border-radius:18px;padding:20px;display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:start}
 .pl > *{min-width:0}
 .pl figure{margin:0}
 .pl img{display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 12px 24px -18px rgba(22,56,66,.8)}
@@ -358,7 +368,7 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 /* Dinámicas para trabajo personal */
 .din-filters{margin-top:28px}
 .din-grid{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:20px}
-.din{background:var(--surface);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:80px}
+.din{background:var(--surface);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
 .din > *{min-width:0}
 .din figure{margin:0;aspect-ratio:4/3;background:#e9e3d6;position:relative}
 .din figure img{position:absolute;inset:18px;width:calc(100% - 36px);height:calc(100% - 36px);object-fit:contain;filter:drop-shadow(0 10px 14px rgba(22,56,66,.28))}
@@ -2396,6 +2406,10 @@ document.querySelectorAll("[data-copy]").forEach(btn=>{
   res.addEventListener("click",e=>e.preventDefault());
   document.addEventListener("click",e=>{if(!form.contains(e.target)) close();});
 })();
+</script>
+<script>
+/* Mide el menú fijo para que, al saltar a una sección, el título no quede tapado */
+(function(){const n=document.querySelector(".nav");if(!n)return;const set=()=>document.documentElement.style.setProperty("--navh",n.offsetHeight+"px");set();addEventListener("resize",set);if(window.ResizeObserver)new ResizeObserver(set).observe(n);})();
 </script>
 </body>
 </html>
