@@ -343,6 +343,52 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 .tl li{display:grid;grid-template-columns:7.5em 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.93rem}
 .tl li b{font-weight:600;color:var(--muted);font-size:.85rem;font-variant-numeric:tabular-nums}
 @media (max-width:420px){.tl li{grid-template-columns:1fr;gap:2px}}
+
+/* Menú del celular */
+.menu-btn{display:none;background:none;border:1px solid rgba(242,235,219,.35);color:var(--cream);border-radius:10px;width:40px;height:38px;cursor:pointer;align-items:center;justify-content:center;flex:none}
+.menu-btn svg{width:20px;height:20px}
+.mobile-menu{border-top:1px solid rgba(242,235,219,.12)}
+.mobile-menu ul{list-style:none;margin:0;padding:6px 0 14px;display:flex;flex-direction:column;gap:0;align-items:stretch;width:100%}
+.mobile-menu li{width:100%}
+.mobile-menu a{display:block;padding:11px 0;font-size:1.05rem;text-decoration:none;color:var(--cream);border-bottom:1px solid rgba(242,235,219,.1)}
+@media (max-width:720px){.menu-btn{display:inline-flex}}
+@media (min-width:721px){.mobile-menu{display:none!important}}
+/* Inicio: espacio en común */
+.hero .common{margin-top:20px;font-family:var(--font-display);font-size:clamp(1.15rem,2.2vw,1.4rem);line-height:1.4;max-width:38ch;color:var(--cream)}
+.hero .common b{font-weight:400;color:var(--terra)}
+/* Entrevistas iniciales */
+.first-steps{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.first-steps li{background:var(--surface);border-radius:14px;padding:14px 16px;font-size:.92rem;color:var(--muted)}
+.first-steps b{display:block;font-family:var(--font-display);font-weight:400;font-size:1.1rem;color:var(--fg);margin-bottom:4px}
+.first-steps .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--terra);color:var(--petrol);font-weight:600;font-size:.85rem;margin-bottom:8px}
+@media (max-width:720px){.first-steps{grid-template-columns:1fr}}
+/* Buscador de plantillas */
+.pl-tools{margin-top:32px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 20px}
+.pl-tools label{flex:1 1 320px;display:flex;flex-direction:column;gap:6px;font-size:.9rem;color:var(--muted)}
+.pl-tools input{font:inherit;font-size:1rem;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 14px;width:100%}
+.pl-tools input:focus{outline:2px solid var(--terra);outline-offset:1px}
+.pl-count{font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.pl-tools + .pl-grid{margin-top:20px}
+.pl-more{margin-top:22px;display:flex;justify-content:center}
+.pl-empty{margin-top:18px;color:var(--muted)}
+/* Emergencias */
+.sos{margin-top:40px;background:rgba(242,235,219,.07);border:1px solid rgba(242,235,219,.18);border-radius:16px;padding:22px clamp(18px,3vw,28px)}
+.sos .lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);font-weight:600}
+.sos h3{font-size:1.35rem;margin-top:6px}
+.sos > p{margin-top:6px;color:rgba(242,235,219,.78);font-size:.95rem;max-width:62ch}
+.sos-list{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.sos-list li{background:rgba(0,0,0,.16);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.sos-list .num{font-family:var(--font-display);font-size:1.6rem;line-height:1.1;font-variant-numeric:tabular-nums;user-select:all;white-space:nowrap}
+.sos-list .what{font-weight:600;font-size:.95rem}
+.sos-list .det{color:rgba(242,235,219,.72);font-size:.86rem}
+@media (max-width:760px){.sos-list{grid-template-columns:1fr}}
+footer a{color:var(--cream)}
+footer .wrap{padding-bottom:calc(22px + 64px)}
+/* WhatsApp flotante */
+.wa-float{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:7;display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:var(--petrol);text-decoration:none;font-weight:600;font-size:.92rem;padding:12px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(14,49,56,.28)}
+.wa-float svg{width:20px;height:20px}
+.toast{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+
 </style>
 </head>
 <body>
@@ -362,6 +408,7 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
     <a class="brand" href="#inicio"><svg aria-hidden="true"><use href="#logo"/></svg>Entre Nosotros</a>
     <ul>
       <li><a href="#enfoque">Enfoque</a></li>
+      <li><a href="#quien-soy">Quién soy</a></li>
       <li><a href="#empezar-terapia">Empezar</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#psicoeducacion">Psicoeducación</a></li>
@@ -369,7 +416,6 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
       <li><a href="#calma">Calma</a></li>
       <li><a href="#plantillas">Plantillas</a></li>
       <li><a href="#dinamicas">Dinámicas</a></li>
-      <li><a href="#quien-soy">Quién soy</a></li>
     </ul>
     <form class="search" role="search" id="search" autocomplete="off" onsubmit="return false">
       <label for="s-in" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Buscar en el sitio</label>
@@ -377,7 +423,27 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
       <button type="submit" class="s-go" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></button>
       <ul class="s-results" id="s-res" role="listbox" hidden></ul>
     </form>
-    <a class="cta-mini" href="#contacto">Pedir turno</a>
+    <a class="cta-mini" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20un%20turno." target="_blank" rel="noopener">Pedir turno</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <div class="wrap">
+      <ul>
+        <li><a href="#enfoque">Enfoque</a></li>
+        <li><a href="#quien-soy">Quién soy</a></li>
+        <li><a href="#empezar-terapia">Empezar</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#psicoeducacion">Psicoeducación</a></li>
+        <li><a href="#para-pensar">Para pensar</a></li>
+        <li><a href="#calma">Calma</a></li>
+        <li><a href="#plantillas">Plantillas</a></li>
+        <li><a href="#dinamicas">Dinámicas</a></li>
+        <li><a href="#app">App de registro</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 
@@ -387,6 +453,7 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
       <p class="hero-tag">¿Ahora, ahora… cómo estás?</p>
       <p class="eyebrow" style="color:var(--terra);margin-top:22px">Psicoterapia · Presencial y virtual</p>
       <h1 style="margin-top:14px">Lo que nos pasa se piensa mejor <em>entre nosotros</em>.</h1>
+      <p class="common">Un espacio de <b>construcción en común</b>: un ámbito virtual de encuentro y de divulgación de material psicoterapéutico.</p>
       <p class="lead">Un espacio para pensar lo que nos pasa, cuidar nuestros vínculos y encontrar sentido en cada proceso, acompañados.</p>
       <div class="btns">
         <a class="btn btn-terra" href="https://wa.me/5493416601847" target="_blank" rel="noopener">Escribir por WhatsApp</a>
@@ -425,6 +492,85 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
     </div>
   </section>
 
+  <section class="block" id="quien-soy">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Quién soy</p>
+          <h2>Eric Terlecki</h2>
+          <div class="who-photo"><img src="cv/eric-terlecki.jpg" width="238" height="250" loading="lazy" alt="Eric Terlecki"></div>
+          <p class="who-mat">Licenciado en Psicología · Mat. N.º 4331</p>
+        </div>
+        <div class="prose">
+          <p class="big">Con valores humanos, experiencia vital y formación en psicoterapia clínica, busco acompañar procesos personales desde una perspectiva trascendente e integral.</p>
+          <p>Soy psicólogo en Rosario. Desde hace más de veinte años acompaño a personas, parejas y familias en psicoterapia clínica, y comparto contenido de psicoeducación y motivación con la idea de que cuidar la salud mental sea algo cercano y cotidiano.</p>
+          <ul class="creds">
+            <li><span>Licenciado en Psicología</span><span>Universidad Católica de La Plata</span></li>
+            <li><span>Especialización en psicoterapia cognitiva integrativa</span><span>Fundación Aiglé</span></li>
+            <li><span>Maestría en Psicooncología</span><span>Universidad Favaloro</span></li>
+          </ul>
+          <div>
+            <p class="pe-tag">Actualmente</p>
+            <ul class="now">
+              <li>Psicoterapeuta clínico</li>
+              <li>Docente universitario</li>
+              <li>Psicólogo del Seminario «San Carlos Borromeo»</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <details class="cv-more">
+        <summary>Trayectoria completa</summary>
+        <div class="cv-grid">
+          <div>
+            <h3>Clínica</h3>
+            <ul class="tl">
+              <li><b>Desde 2005</b><span>Psicoterapia individual, de pareja, familiar y grupal en consultorio particular: niños, adolescentes, adultos y adultos mayores.</span></li>
+              <li><b>2025–2026</b><span>Psicólogo del Seminario Arquidiocesano «San Carlos Borromeo», Capitán Bermúdez.</span></li>
+              <li><b>2010–2024</b><span>Tratamientos psicoterapéuticos con pacientes oncológicos y sus familias.</span></li>
+              <li><b>2020–2024</b><span>Procesos psicoterapéuticos virtuales internacionales durante la pandemia de Covid-19.</span></li>
+              <li><b>2017–2022</b><span>Psicoterapia grupal para trastornos de ansiedad y depresión.</span></li>
+              <li><b>2008–2019</b><span>Evaluación de pacientes con deterioro cognitivo. Asociación Rorschach.</span></li>
+              <li><b>2004–2018</b><span>Psicodiagnósticos y talleres grupales. Pre-noviciado, Seminario Salesiano de Funes.</span></li>
+              <li><b>2007</b><span>Gabinete psicopedagógico. Colegio Nuestra Señora de la Asunción, Rosario.</span></li>
+            </ul>
+            <h3 style="margin-top:32px">Talleres y trabajo comunitario</h3>
+            <ul class="tl">
+              <li><b>2022</b><span>Taller para padres en proceso de duelo. Fundación Cuatro Vientos, Rosario.</span></li>
+              <li><b>2010–2021</b><span>Talleres de ESI en instituciones educativas de Santa Fe, Entre Ríos, Córdoba y Formosa.</span></li>
+              <li><b>2018–2019</b><span>Comunidad Padre Misericordioso: talleres con personas transgénero en el Centro de vida del barrio Ludueña y equipo terapéutico para el tratamiento de adicciones. Rosario.</span></li>
+              <li><b>2010–2013</b><span>Taller grupal para pacientes con leucemia y sus familias. Fundación ALMA.</span></li>
+              <li><b>2005</b><span>Talleres grupales en rugby infantil. URR.</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Formación</h3>
+            <ul class="tl">
+              <li><b></b><span>Maestría en Psicooncología. Universidad Favaloro, CABA.</span></li>
+              <li><b>2021</b><span>Taller de Gestalt con Joan Garriga. CABA.</span></li>
+              <li><b>2010–2012</b><span>Posgrado de especialización en psicología cognitiva, modelo integrativo. Fundación Aiglé, dir. Héctor Fernández Álvarez.</span></li>
+              <li><b>2004</b><span>Licenciatura en Psicología. Universidad Católica de La Plata, unidad académica Rosario.</span></li>
+              <li><b>2003</b><span>Practicanato clínico. Rosario.</span></li>
+              <li><b>2001</b><span>Formación en terapia gestáltica. Instituto Tendrel, Rosario.</span></li>
+              <li><b>2000</b><span>Seminario de terapia cognitiva posracionalista con el Lic. Juan Balbi. Rosario.</span></li>
+            </ul>
+            <h3 style="margin-top:32px">Docencia</h3>
+            <ul class="tl">
+              <li><b>2022–2025</b><span>Docente de Psicología. UCA Rosario, curso de acompañantes de adultos mayores.</span></li>
+              <li><b>2020–2025</b><span>Docente de antropología y psicología. Proyecto de acompañamiento salesiano de jóvenes, Córdoba.</span></li>
+              <li><b>2018–2022</b><span>Docente de antropología. Curso de formación misionera, Arquidiócesis de Rosario.</span></li>
+            </ul>
+            <h3 style="margin-top:32px">Gestión</h3>
+            <ul class="tl">
+              <li><b>2005–2026</b><span>Responsable de producción y recursos humanos. Ind. M. García Conde, Rosario.</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pe-actions"><a class="btn btn-line" href="cv/eric-terlecki-cv.pdf?v=2" download="eric-terlecki-cv.pdf">Descargar CV (PDF)</a></div>
+      </details>
+    </div>
+  </section>
+
   <section class="block first" id="empezar-terapia">
     <div class="wrap">
       <div class="first-card">
@@ -446,6 +592,12 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
         <div class="first-facts">
           <h3>La primera entrevista</h3>
           <p class="lead2">Sólo es cuestión de acordar el horario. Según tu disponibilidad, buscamos un espacio para la próxima semana o la siguiente.</p>
+          <p class="lead2" style="margin-top:10px">La primera entrevista forma parte de una serie de <b>tres entrevistas iniciales</b>, en las que exploramos los motivos de consulta. Después, definimos juntos el diseño, las metas y los medios del proceso psicoterapéutico.</p>
+          <ol class="first-steps">
+            <li><span class="n">1</span><b>Primer contacto</b>Me escribís y acordamos día, horario y modalidad.</li>
+            <li><span class="n">2</span><b>Tres entrevistas iniciales</b>Exploramos los motivos de consulta: qué te trae y qué esperás.</li>
+            <li><span class="n">3</span><b>Diseño del proceso</b>Definimos juntos el diseño, las metas y los medios del proceso.</li>
+          </ol>
           <dl>
             <div><dt>Dónde</dt><dd>Pasaje Rizzuto 3451 (a la altura de Uruguay al 1150), Rosario, o de forma virtual por Meet.</dd></div>
             <div><dt>Duración y frecuencia</dt><dd>Encuentros de una hora aproximadamente, con frecuencia semanal o quincenal.</dd></div>
@@ -706,6 +858,12 @@ Estoy acá. Estoy a salvo.</p></details>
         <li><b>Completala a tu ritmo</b>Tocá las opciones y escribí sólo lo necesario. Guardá los cambios.</li>
         <li><b>Traela a sesión</b>Enviala por WhatsApp al 341 660-1847 antes de la próxima sesión y la trabajamos juntos.</li>
       </ol>
+      <div class="pl-tools">
+        <label for="pl-q">Buscar una plantilla
+          <input id="pl-q" type="search" placeholder="Por ejemplo: sueño, pareja, enojo" autocomplete="off">
+        </label>
+        <span class="pl-count" id="pl-count" aria-live="polite">55 plantillas, en orden alfabético</span>
+      </div>
       <ul class="pl-grid">
         <li class="pl" id="plantilla-aceptacion-y-compromiso">
           <figure><img src="plantillas/aceptacion-y-compromiso.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Aceptación y compromiso (ACT)"></figure>
@@ -787,10 +945,30 @@ Estoy acá. Estoy a salvo.</p></details>
             <a class="btn btn-line" href="plantillas/busqueda-laboral.pdf" download="busqueda-laboral.pdf">Descargar PDF</a>
           </div>
         </li>
+        <li class="pl" id="plantilla-como-como-como-me-veo-como-me-trato">
+          <figure><img src="plantillas/como-como-como-me-veo-como-me-trato.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla ¿Cómo como? ¿Cómo me veo? ¿Cómo me trato?"></figure>
+          <div>
+            <p class="pl-num">09</p>
+            <h3>¿Cómo como? ¿Cómo me veo? ¿Cómo me trato?</h3>
+            <p>Para trabajar la relación con la comida y con el propio cuerpo, sin dietas ni culpa. Incluye registros de comidas, hambre emocional y una carta al propio cuerpo.</p>
+            <p class="pl-meta">PDF para completar · 22 páginas</p>
+            <a class="btn btn-line" href="plantillas/como-como-como-me-veo-como-me-trato.pdf" download="como-como-como-me-veo-como-me-trato.pdf">Descargar PDF</a>
+          </div>
+        </li>
+        <li class="pl" id="plantilla-conductas-que-me-cuesta-modificar">
+          <figure><img src="plantillas/conductas-que-me-cuesta-modificar.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Conductas que me cuesta modificar"></figure>
+          <div>
+            <p class="pl-num">10</p>
+            <h3>Conductas que me cuesta modificar</h3>
+            <p>Para hábitos o consumos que se repiten aunque hagan mal: sustancias, pantallas, compras o juego. Ayuda a frenar el impulso y apoyarse en otros/as, sólo por hoy.</p>
+            <p class="pl-meta">PDF para completar · 15 páginas</p>
+            <a class="btn btn-line" href="plantillas/conductas-que-me-cuesta-modificar.pdf" download="conductas-que-me-cuesta-modificar.pdf">Descargar PDF</a>
+          </div>
+        </li>
         <li class="pl" id="plantilla-cuando-el-cuerpo-me-preocupa">
           <figure><img src="plantillas/cuando-el-cuerpo-me-preocupa.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Cuando el cuerpo me preocupa"></figure>
           <div>
-            <p class="pl-num">09</p>
+            <p class="pl-num">11</p>
             <h3>Cuando el cuerpo me preocupa</h3>
             <p>Para el escaneo ansioso de síntomas físicos: por qué aparecen las sensaciones, el círculo del escaneo, cuando no podés parar y herramientas para el cuerpo. Con un registro diario breve y un resumen semanal.</p>
             <p class="pl-meta">PDF para completar · 7 páginas</p>
@@ -800,17 +978,37 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-sobrepensamiento">
           <figure><img src="plantillas/sobrepensamiento.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Cuando la mente no para"></figure>
           <div>
-            <p class="pl-num">10</p>
+            <p class="pl-num">12</p>
             <h3>Cuando la mente no para</h3>
             <p>Para el sobrepensamiento: la imaginación catastrófica, la incertidumbre, controlar y confiar, y planificar con flexibilidad. Con un registro breve, tu área de control y un resumen semanal.</p>
             <p class="pl-meta">PDF para completar · 10 páginas</p>
             <a class="btn btn-line" href="plantillas/sobrepensamiento.pdf" download="sobrepensamiento.pdf">Descargar PDF</a>
           </div>
         </li>
+        <li class="pl" id="plantilla-cuestionario-phq-9">
+          <figure><img src="plantillas/cuestionario-phq-9.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Cuestionario de ánimo PHQ-9"></figure>
+          <div>
+            <p class="pl-num">13</p>
+            <h3>Cuestionario de ánimo PHQ-9</h3>
+            <p>Un cuestionario breve de nueve preguntas sobre el estado de ánimo (desgano, tristeza, sueño, energía). Explica cómo leer el puntaje e incluye una hoja para seguir los resultados en el tiempo.</p>
+            <p class="pl-meta">PDF para completar · 5 páginas</p>
+            <a class="btn btn-line" href="plantillas/cuestionario-phq-9.pdf" download="cuestionario-phq-9.pdf">Descargar PDF</a>
+          </div>
+        </li>
+        <li class="pl" id="plantilla-cuestionario-gad-7">
+          <figure><img src="plantillas/cuestionario-gad-7.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Cuestionario de ansiedad GAD-7"></figure>
+          <div>
+            <p class="pl-num">14</p>
+            <h3>Cuestionario de ansiedad GAD-7</h3>
+            <p>Un cuestionario breve de siete preguntas para medir cuánto te viene afectando la ansiedad. Explica cómo leer el puntaje e incluye una hoja para seguir los resultados en el tiempo.</p>
+            <p class="pl-meta">PDF para completar · 4 páginas</p>
+            <a class="btn btn-line" href="plantillas/cuestionario-gad-7.pdf" download="cuestionario-gad-7.pdf">Descargar PDF</a>
+          </div>
+        </li>
         <li class="pl" id="plantilla-cuidar-a-quien-cuida">
           <figure><img src="plantillas/cuidar-a-quien-cuida.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Cuidar a quien cuida"></figure>
           <div>
-            <p class="pl-num">11</p>
+            <p class="pl-num">15</p>
             <h3>Cuidar a quien cuida</h3>
             <p>Para quienes cuidan a otros: qué es la fatiga por compasión, sus señales de alerta, la empatía que agota y la que sostiene, y cómo pedir ayuda y poner límites. Con tu situación de cuidado, tus señales, un registro diario y un resumen semanal.</p>
             <p class="pl-meta">PDF para completar · 12 páginas</p>
@@ -820,7 +1018,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-culpa-y-reparacion">
           <figure><img src="plantillas/culpa-y-reparacion.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Culpa, responsabilidad y reparación"></figure>
           <div>
-            <p class="pl-num">12</p>
+            <p class="pl-num">16</p>
             <h3>Culpa, responsabilidad y reparación</h3>
             <p>La culpa que orienta y la que sólo castiga, la reparación, los ideales y cómo integrar los errores. Con un registro de culpa, tu brújula de valores y un resumen.</p>
             <p class="pl-meta">PDF para completar · 8 páginas</p>
@@ -830,7 +1028,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-duelos-y-transiciones">
           <figure><img src="plantillas/duelos-y-transiciones.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Duelos y transiciones"></figure>
           <div>
-            <p class="pl-num">13</p>
+            <p class="pl-num">17</p>
             <h3>Duelos y transiciones</h3>
             <p>Qué es el duelo, cómo se transita y cuáles son tus puntos de apoyo. Para registrar cómo estás y los momentos más difíciles, a tu ritmo.</p>
             <p class="pl-meta">PDF para completar · 12 páginas</p>
@@ -840,7 +1038,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-camino-del-cambio">
           <figure><img src="plantillas/camino-del-cambio.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla El camino del cambio"></figure>
           <div>
-            <p class="pl-num">14</p>
+            <p class="pl-num">18</p>
             <h3>El camino del cambio</h3>
             <p>Las etapas del cambio, la distancia entre lo real y lo ideal y la procrastinación. Incluye tu etapa, un plan en pasos pequeños y posibles y un registro.</p>
             <p class="pl-meta">PDF para completar · 12 páginas</p>
@@ -850,17 +1048,37 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-celular-y-estudio">
           <figure><img src="plantillas/celular-y-estudio.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla El celular y el estudio"></figure>
           <div>
-            <p class="pl-num">15</p>
+            <p class="pl-num">19</p>
             <h3>El celular y el estudio</h3>
             <p>Para adolescentes y jóvenes: por qué cuesta soltar el celu, cómo funciona la atención y cómo estudiar mejor. Con un test, un plan de estudio, registros de cada sesión y un resumen semanal.</p>
             <p class="pl-meta">PDF para completar · 11 páginas</p>
             <a class="btn btn-line" href="plantillas/celular-y-estudio.pdf" download="celular-y-estudio.pdf">Descargar PDF</a>
           </div>
         </li>
+        <li class="pl" id="plantilla-el-sentido-de-mi-vida">
+          <figure><img src="plantillas/el-sentido-de-mi-vida.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla El sentido de mi vida"></figure>
+          <div>
+            <p class="pl-num">20</p>
+            <h3>El sentido de mi vida</h3>
+            <p>Preguntas sobre el propósito, los valores, la espiritualidad y lo que cada persona quiere dejar en otros/as. Incluye ejercicios como el ikigai.</p>
+            <p class="pl-meta">PDF para completar · 13 páginas</p>
+            <a class="btn btn-line" href="plantillas/el-sentido-de-mi-vida.pdf" download="el-sentido-de-mi-vida.pdf">Descargar PDF</a>
+          </div>
+        </li>
+        <li class="pl" id="plantilla-elaborar-y-seguir-adelante">
+          <figure><img src="plantillas/elaborar-y-seguir-adelante.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Elaborar y seguir adelante"></figure>
+          <div>
+            <p class="pl-num">21</p>
+            <h3>Elaborar y seguir adelante</h3>
+            <p>Para después de un hecho que impactó fuerte, como un accidente, un diagnóstico o una pérdida. Ayuda a manejar los recuerdos intrusivos, avanzar de a poco y registrar los logros.</p>
+            <p class="pl-meta">PDF para completar · 20 páginas</p>
+            <a class="btn btn-line" href="plantillas/elaborar-y-seguir-adelante.pdf" download="elaborar-y-seguir-adelante.pdf">Descargar PDF</a>
+          </div>
+        </li>
         <li class="pl" id="plantilla-empatia">
           <figure><img src="plantillas/empatia.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Empatía"></figure>
           <div>
-            <p class="pl-num">16</p>
+            <p class="pl-num">22</p>
             <h3>Empatía</h3>
             <p>Qué es la empatía y en qué se diferencia de la lástima, sus tres tipos, qué pasa en el cerebro, cuándo duele y cómo desarrollarla. Con tu relación con la empatía y un registro para practicar la escucha empática y cuidarte mientras acompañás.</p>
             <p class="pl-meta">PDF para completar · 9 páginas</p>
@@ -870,7 +1088,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-estudio-y-atencion">
           <figure><img src="plantillas/estudio-y-atencion.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Estudio y atención"></figure>
           <div>
-            <p class="pl-num">17</p>
+            <p class="pl-num">23</p>
             <h3>Estudio y atención</h3>
             <p>Cómo funciona la atención, técnicas de estudio que funcionan, la técnica Pomodoro y qué hacer cuando cuesta empezar. Con un plan de estudio, un registro de cada sesión y un resumen semanal.</p>
             <p class="pl-meta">PDF para completar · 10 páginas</p>
@@ -880,7 +1098,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-gestion-del-estres">
           <figure><img src="plantillas/gestion-del-estres.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Gestión del estrés"></figure>
           <div>
-            <p class="pl-num">18</p>
+            <p class="pl-num">24</p>
             <h3>Gestión del estrés</h3>
             <p>Qué es el estrés, cómo reconocer sus señales y el modelo C.A.P.O. Incluye un test breve, registros de situaciones y un resumen semanal.</p>
             <p class="pl-meta">PDF para completar · 11 páginas</p>
@@ -890,7 +1108,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-habilidades-dbt">
           <figure><img src="plantillas/habilidades-dbt.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Habilidades DBT"></figure>
           <div>
-            <p class="pl-num">19</p>
+            <p class="pl-num">25</p>
             <h3>Habilidades DBT</h3>
             <p>Habilidades para atravesar emociones intensas: mindfulness, tolerancia al malestar, regulación emocional y vínculos. Con un plan para momentos difíciles, una tarjeta diaria, el análisis en cadena y un resumen.</p>
             <p class="pl-meta">PDF para completar · 14 páginas</p>
@@ -900,7 +1118,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-habilidades-sociales">
           <figure><img src="plantillas/habilidades-sociales.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Habilidades sociales"></figure>
           <div>
-            <p class="pl-num">20</p>
+            <p class="pl-num">26</p>
             <h3>Habilidades sociales</h3>
             <p>Para adolescentes y jóvenes: qué son las habilidades sociales y las tres necesidades de Schutz (pertenecer, decidir y acercarse). Incluye un test de tus necesidades, un mapa de tus grupos, registros de situaciones y un desafío semanal.</p>
             <p class="pl-meta">PDF para completar · 12 páginas</p>
@@ -910,7 +1128,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-juego-y-apuestas-online">
           <figure><img src="plantillas/juego-y-apuestas-online.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Juego y apuestas online"></figure>
           <div>
-            <p class="pl-num">21</p>
+            <p class="pl-num">27</p>
             <h3>Juego y apuestas online</h3>
             <p>Cuándo el juego se vuelve un problema, por qué engancha el juego online, la impulsividad, los pensamientos trampa y qué hacer antes, durante y después. Incluye tus razones y disparadores, un registro de ganas, un calendario semanal y tu plan de prevención.</p>
             <p class="pl-meta">PDF para completar · 13 páginas</p>
@@ -920,7 +1138,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-formas-del-amor">
           <figure><img src="plantillas/formas-del-amor.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Las formas del amor"></figure>
           <div>
-            <p class="pl-num">22</p>
+            <p class="pl-num">28</p>
             <h3>Las formas del amor</h3>
             <p>Los siete tipos de amor y cómo se combinan en una pareja, con el triángulo del amor de Robert Sternberg. Con tu mapa del amor, tu triángulo, los gestos de amor de la semana y preguntas para conversar en pareja.</p>
             <p class="pl-meta">PDF para completar · 9 páginas</p>
@@ -930,7 +1148,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-limites-y-asertividad">
           <figure><img src="plantillas/limites-y-asertividad.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Límites y comunicación asertiva"></figure>
           <div>
-            <p class="pl-num">23</p>
+            <p class="pl-num">29</p>
             <h3>Límites y comunicación asertiva</h3>
             <p>Qué son los límites, los estilos de comunicación y cómo decir que no. Con un test breve, hojas para registrar situaciones y un resumen semanal.</p>
             <p class="pl-meta">PDF para completar · 10 páginas</p>
@@ -940,17 +1158,27 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-seis-sombreros">
           <figure><img src="plantillas/seis-sombreros.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Los seis sombreros para pensar"></figure>
           <div>
-            <p class="pl-num">24</p>
+            <p class="pl-num">30</p>
             <h3>Los seis sombreros para pensar</h3>
             <p>La técnica de Edward de Bono para mirar una misma situación desde seis ángulos y decidir sin reducirla sólo a la emoción o sólo a la lógica. Incluye un ejemplo práctico y hojas para pensar una situación propia con cada sombrero.</p>
             <p class="pl-meta">PDF para completar · 8 páginas</p>
             <a class="btn btn-line" href="plantillas/seis-sombreros.pdf" download="seis-sombreros.pdf">Descargar PDF</a>
           </div>
         </li>
+        <li class="pl" id="plantilla-manejo-del-enojo-y-las-emociones">
+          <figure><img src="plantillas/manejo-del-enojo-y-las-emociones.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Manejo del enojo y las emociones"></figure>
+          <div>
+            <p class="pl-num">31</p>
+            <h3>Manejo del enojo y las emociones</h3>
+            <p>Usa un semáforo para frenar el enojo a tiempo y responder en lugar de reaccionar. Incluye registros de los enojos y sus disparadores.</p>
+            <p class="pl-meta">PDF para completar · 14 páginas</p>
+            <a class="btn btn-line" href="plantillas/manejo-del-enojo-y-las-emociones.pdf" download="manejo-del-enojo-y-las-emociones.pdf">Descargar PDF</a>
+          </div>
+        </li>
         <li class="pl" id="plantilla-proyecto-de-vida">
           <figure><img src="plantillas/proyecto-de-vida.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Mi proyecto de vida"></figure>
           <div>
-            <p class="pl-num">25</p>
+            <p class="pl-num">32</p>
             <h3>Mi proyecto de vida</h3>
             <p>Para jóvenes: el guion de vida, los mandatos, la maduración, el miedo al error y la visualización. Hojas sobre mandatos, valores y proyecto, y registros.</p>
             <p class="pl-meta">PDF para completar · 13 páginas</p>
@@ -960,17 +1188,27 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-mi-universo-afectivo">
           <figure><img src="plantillas/mi-universo-afectivo.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Mi universo afectivo"></figure>
           <div>
-            <p class="pl-num">26</p>
+            <p class="pl-num">33</p>
             <h3>Mi universo afectivo</h3>
             <p>Afectos sanos y no sanos, reciprocidad, confianza y cómo expresar el cariño. Para mapear tus vínculos, reflexionar y decir “sos importante”.</p>
             <p class="pl-meta">PDF para completar · 9 páginas</p>
             <a class="btn btn-line" href="plantillas/mi-universo-afectivo.pdf" download="mi-universo-afectivo.pdf">Descargar PDF</a>
           </div>
         </li>
+        <li class="pl" id="plantilla-miedos-ansiedad-y-fobias">
+          <figure><img src="plantillas/miedos-ansiedad-y-fobias.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Miedos, ansiedad y fobias"></figure>
+          <div>
+            <p class="pl-num">34</p>
+            <h3>Miedos, ansiedad y fobias</h3>
+            <p>Enfocado en miedos concretos (ascensores, multitudes, alturas) y en cómo enfrentarlos de a poco, escalón por escalón.</p>
+            <p class="pl-meta">PDF para completar · 12 páginas</p>
+            <a class="btn btn-line" href="plantillas/miedos-ansiedad-y-fobias.pdf" download="miedos-ansiedad-y-fobias.pdf">Descargar PDF</a>
+          </div>
+        </li>
         <li class="pl" id="plantilla-orientacion-vocacional">
           <figure><img src="plantillas/orientacion-vocacional.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Orientación vocacional"></figure>
           <div>
-            <p class="pl-num">27</p>
+            <p class="pl-num">35</p>
             <h3>Orientación vocacional</h3>
             <p>Para elegir qué estudiar o hacer: tus intereses, aptitudes, gustos y valores, conocer la oferta y tomar la decisión. Con hojas para explorar, comparar opciones y armar tu plan.</p>
             <p class="pl-meta">PDF para completar · 12 páginas</p>
@@ -980,7 +1218,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-panico">
           <figure><img src="plantillas/panico.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Pánico"></figure>
           <div>
-            <p class="pl-num">28</p>
+            <p class="pl-num">36</p>
             <h3>Pánico</h3>
             <p>Qué es una crisis de pánico, ansiedad de estado y de rasgo, el miedo al miedo, qué hacer antes, durante y después, y técnicas con respaldo científico. Incluye tu círculo del pánico, registros de crisis, práctica de sensaciones y un resumen semanal.</p>
             <p class="pl-meta">PDF para completar · 12 páginas</p>
@@ -990,7 +1228,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-pareja-y-comunicacion">
           <figure><img src="plantillas/pareja-y-comunicacion.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Pareja y comunicación sana"></figure>
           <div>
-            <p class="pl-num">29</p>
+            <p class="pl-num">37</p>
             <h3>Pareja y comunicación sana</h3>
             <p>Diferencias, reclamos y pedidos, lenguajes del amor, espacios, historia y proyectos. Hojas para cada integrante y una para completar juntos.</p>
             <p class="pl-meta">PDF para completar · 13 páginas</p>
@@ -1000,7 +1238,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-perfeccionismo-y-autoexigencia">
           <figure><img src="plantillas/perfeccionismo-y-autoexigencia.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Perfeccionismo y autoexigencia"></figure>
           <div>
-            <p class="pl-num">30</p>
+            <p class="pl-num">38</p>
             <h3>Perfeccionismo y autoexigencia</h3>
             <p>Qué es el perfeccionismo, cómo se mantiene, los pensamientos típicos y la idea de “suficientemente bueno/a”. Incluye tus áreas de exigencia, un registro de situaciones y un experimento para practicar.</p>
             <p class="pl-meta">PDF para completar · 7 páginas</p>
@@ -1010,7 +1248,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-preocupacion-y-rumiacion">
           <figure><img src="plantillas/preocupacion-y-rumiacion.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Preocupación y rumiación"></figure>
           <div>
-            <p class="pl-num">31</p>
+            <p class="pl-num">39</p>
             <h3>Preocupación y rumiación</h3>
             <p>Qué es preocuparse y rumiar, cómo se mantiene, el tiempo de preocupación y cómo distinguir lo que se puede resolver de lo que conviene soltar. Incluye tus preocupaciones, la lista del día, registros del tiempo de preocupación, un plan y un resumen.</p>
             <p class="pl-meta">PDF para completar · 12 páginas</p>
@@ -1020,7 +1258,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-registro-de-pensamientos">
           <figure><img src="plantillas/registro-de-pensamientos.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Registro de pensamientos A-B-C"></figure>
           <div>
-            <p class="pl-num">32</p>
+            <p class="pl-num">40</p>
             <h3>Registro de pensamientos A-B-C</h3>
             <p>Cómo influye lo que pensamos en lo que sentimos: el modelo A-B-C, las distorsiones cognitivas y las creencias de fondo. Con un registro en dos partes, la revisión del pensamiento y un resumen semanal.</p>
             <p class="pl-meta">PDF para completar · 9 páginas</p>
@@ -1030,17 +1268,27 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-registro-de-sueno">
           <figure><img src="plantillas/registro-de-sueno.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Registro de sueño"></figure>
           <div>
-            <p class="pl-num">33</p>
+            <p class="pl-num">41</p>
             <h3>Registro de sueño</h3>
             <p>Qué es el insomnio, qué lo mantiene, la higiene del sueño y qué hacer cuando el sueño no llega. Con tu plan para dormir mejor, un registro diario y un resumen semanal.</p>
             <p class="pl-meta">PDF para completar · 10 páginas</p>
             <a class="btn btn-line" href="plantillas/registro-de-sueno.pdf" download="registro-de-sueno.pdf">Descargar PDF</a>
           </div>
         </li>
+        <li class="pl" id="plantilla-registro-diario-y-semanal">
+          <figure><img src="plantillas/registro-diario-y-semanal.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Registro diario y semanal"></figure>
+          <div>
+            <p class="pl-num">42</p>
+            <h3>Registro diario y semanal</h3>
+            <p>Una hoja breve para cada noche: ánimo, emociones, descanso y algo bueno del día. Cierra con un resumen semanal.</p>
+            <p class="pl-meta">PDF para completar · 17 páginas</p>
+            <a class="btn btn-line" href="plantillas/registro-diario-y-semanal.pdf" download="registro-diario-y-semanal.pdf">Descargar PDF</a>
+          </div>
+        </li>
         <li class="pl" id="plantilla-regulacion-emocional">
           <figure><img src="plantillas/regulacion-emocional.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Regulación emocional"></figure>
           <div>
-            <p class="pl-num">34</p>
+            <p class="pl-num">43</p>
             <h3>Regulación emocional</h3>
             <p>Cómo nace una emoción y cinco momentos para regularla, según el modelo de James Gross. Con tus disparadores, señales y estrategias, un registro breve y un resumen semanal.</p>
             <p class="pl-meta">PDF para completar · 12 páginas</p>
@@ -1050,7 +1298,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-resiliencia">
           <figure><img src="plantillas/resiliencia.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Resiliencia"></figure>
           <div>
-            <p class="pl-num">35</p>
+            <p class="pl-num">44</p>
             <h3>Resiliencia</h3>
             <p>Transformar el dolor, según Boris Cyrulnik: la herida y el relato, los tutores de resiliencia y cómo convertir el dolor en vínculo y cuidado. Con tu historia y tus recursos, tus tutores y un registro de gestos de la semana.</p>
             <p class="pl-meta">PDF para completar · 7 páginas</p>
@@ -1060,9 +1308,9 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-resolucion-de-problemas">
           <figure><img src="plantillas/resolucion-de-problemas.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Resolución de problemas"></figure>
           <div>
-            <p class="pl-num">36</p>
+            <p class="pl-num">45</p>
             <h3>Resolución de problemas</h3>
-            <p>Un método paso a paso basado en las cinco etapas del modelo de D’Zurilla y Goldfried, con un ejemplo completo. Incluye tu forma de enfrentar problemas y hojas de trabajo para aplicar el método a un problema real.</p>
+            <p>Un método paso a paso basado en las cinco etapas del modelo de D’Zurilla, Goldfried y Nezu, con un ejemplo completo. Ayuda a distinguir lo que depende de uno de lo que no. Incluye tu forma de enfrentar problemas, hojas de trabajo con plan B y una escala para medir el malestar antes y después.</p>
             <p class="pl-meta">PDF para completar · 10 páginas</p>
             <a class="btn btn-line" href="plantillas/resolucion-de-problemas.pdf" download="resolucion-de-problemas.pdf">Descargar PDF</a>
           </div>
@@ -1070,7 +1318,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-historia-personal">
           <figure><img src="plantillas/historia-personal.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Revisión de mi historia personal"></figure>
           <div>
-            <p class="pl-num">37</p>
+            <p class="pl-num">46</p>
             <h3>Revisión de mi historia personal</h3>
             <p>Luces y sombras, pasado, presente y futuro, y la gratitud. Incluye tu línea de vida, los tres vasos, lo que llevás y soltás, tu gratitud y dos cartas.</p>
             <p class="pl-meta">PDF para completar · 12 páginas</p>
@@ -1080,7 +1328,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-ser-padres">
           <figure><img src="plantillas/ser-padres.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Ser padres en estos tiempos"></figure>
           <div>
-            <p class="pl-num">38</p>
+            <p class="pl-num">47</p>
             <h3>Ser padres en estos tiempos</h3>
             <p>Para madres, padres y cuidadores: funciones de crianza, límites, animar a volar, apego, miedos y culpas. Con una mirada a tu forma de criar, un registro y un resumen.</p>
             <p class="pl-meta">PDF para completar · 9 páginas</p>
@@ -1090,37 +1338,67 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-sexualidad-afectividad-y-cuidado">
           <figure><img src="plantillas/sexualidad-afectividad-y-cuidado.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Sexualidad, afectividad y cuidado"></figure>
           <div>
-            <p class="pl-num">39</p>
+            <p class="pl-num">48</p>
             <h3>Sexualidad, afectividad y cuidado</h3>
             <p>La sexualidad más allá de la genitalidad, los cuatro holones de Eusebio Rubio, la intimidad, el consentimiento y el cuidado de la salud sexual. Con cómo estás hoy con cada holón y un registro de intimidad, respeto y cuidado.</p>
             <p class="pl-meta">PDF para completar · 8 páginas</p>
             <a class="btn btn-line" href="plantillas/sexualidad-afectividad-y-cuidado.pdf" download="sexualidad-afectividad-y-cuidado.pdf">Descargar PDF</a>
           </div>
         </li>
+        <li class="pl" id="plantilla-silencio-pausa-y-calma">
+          <figure><img src="plantillas/silencio-pausa-y-calma.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Silencio, pausa y calma"></figure>
+          <div>
+            <p class="pl-num">49</p>
+            <h3>Silencio, pausa y calma</h3>
+            <p>Para bajar el ritmo y dejar de usar pantallas o consumos como anestesia. Enseña respiración, relajación y meditación.</p>
+            <p class="pl-meta">PDF para completar · 13 páginas</p>
+            <a class="btn btn-line" href="plantillas/silencio-pausa-y-calma.pdf" download="silencio-pausa-y-calma.pdf">Descargar PDF</a>
+          </div>
+        </li>
         <li class="pl" id="plantilla-soledad">
           <figure><img src="plantillas/soledad.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Soledad"></figure>
           <div>
-            <p class="pl-num">40</p>
+            <p class="pl-num">50</p>
             <h3>Soledad</h3>
             <p>La diferencia entre estar solo/a y sentirse solo/a, el círculo de la soledad y pasos para volver a conectar. Incluye cómo te sentís, un mapa de tus vínculos y un plan de pequeños pasos.</p>
             <p class="pl-meta">PDF para completar · 7 páginas</p>
             <a class="btn btn-line" href="plantillas/soledad.pdf" download="soledad.pdf">Descargar PDF</a>
           </div>
         </li>
+        <li class="pl" id="plantilla-tipos-de-apego">
+          <figure><img src="plantillas/tipos-de-apego.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Tipos de apego"></figure>
+          <div>
+            <p class="pl-num">51</p>
+            <h3>Tipos de apego</h3>
+            <p>Explica los distintos estilos de vincularse con las personas importantes y cómo ir hacia vínculos más seguros.</p>
+            <p class="pl-meta">PDF para completar · 11 páginas</p>
+            <a class="btn btn-line" href="plantillas/tipos-de-apego.pdf" download="tipos-de-apego.pdf">Descargar PDF</a>
+          </div>
+        </li>
         <li class="pl" id="plantilla-tomar-decisiones">
           <figure><img src="plantillas/tomar-decisiones.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Tomar decisiones"></figure>
           <div>
-            <p class="pl-num">41</p>
+            <p class="pl-num">52</p>
             <h3>Tomar decisiones</h3>
             <p>El mapa de la decisión, la transición y por qué optar es también renunciar. Con tu decisión, preguntas para pensarla, tu elección y un resumen.</p>
             <p class="pl-meta">PDF para completar · 9 páginas</p>
             <a class="btn btn-line" href="plantillas/tomar-decisiones.pdf" download="tomar-decisiones.pdf">Descargar PDF</a>
           </div>
         </li>
+        <li class="pl" id="plantilla-valia-y-valor-personal">
+          <figure><img src="plantillas/valia-y-valor-personal.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Valía y valor personal"></figure>
+          <div>
+            <p class="pl-num">53</p>
+            <h3>Valía y valor personal</h3>
+            <p>Con el ejemplo del pato, el avestruz y el pingüino, ayuda a distinguir lo que hacemos (nuestras aptitudes) de lo que somos. Todos/as somos valiosos/as, aunque no hagamos bien lo mismo.</p>
+            <p class="pl-meta">PDF para completar · 9 páginas</p>
+            <a class="btn btn-line" href="plantillas/valia-y-valor-personal.pdf" download="valia-y-valor-personal.pdf">Descargar PDF</a>
+          </div>
+        </li>
         <li class="pl" id="plantilla-valores-y-metas">
           <figure><img src="plantillas/valores-y-metas.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Valores y metas"></figure>
           <div>
-            <p class="pl-num">42</p>
+            <p class="pl-num">54</p>
             <h3>Valores y metas</h3>
             <p>Descubrir lo que te importa y dar pasos hacia ahí: valores y metas, las áreas de la vida y de los valores a la acción. Con tu mapa de valores, un plan de acción y un resumen semanal.</p>
             <p class="pl-meta">PDF para completar · 10 páginas</p>
@@ -1130,7 +1408,7 @@ Estoy acá. Estoy a salvo.</p></details>
         <li class="pl" id="plantilla-vulnerabilidad">
           <figure><img src="plantillas/vulnerabilidad.jpg" width="600" height="1115" loading="lazy" alt="Portada de la plantilla Vulnerabilidad"></figure>
           <div>
-            <p class="pl-num">43</p>
+            <p class="pl-num">55</p>
             <h3>Vulnerabilidad</h3>
             <p>Por qué la vulnerabilidad no es debilidad: aceptar los propios límites, dejarse ayudar y conectar con la fragilidad. Incluye tu relación con la vulnerabilidad y un registro para practicar pedir ayuda y mostrarte.</p>
             <p class="pl-meta">PDF para completar · 7 páginas</p>
@@ -1138,6 +1416,8 @@ Estoy acá. Estoy a salvo.</p></details>
           </div>
         </li>
       </ul>
+      <p class="pl-empty" id="pl-empty" hidden>No hay plantillas que coincidan con esa búsqueda. Probá con otra palabra.</p>
+      <div class="pl-more"><button class="btn btn-line" type="button" id="pl-more">Ver las 55 plantillas</button></div>
     </div>
   </section>
 
@@ -1257,84 +1537,6 @@ Estoy acá. Estoy a salvo.</p></details>
     </div>
   </section>
 
-  <section class="block" id="quien-soy">
-    <div class="wrap">
-      <div class="split">
-        <div>
-          <p class="eyebrow">Quién soy</p>
-          <h2>Eric Terlecki</h2>
-          <div class="who-photo"><img src="cv/eric-terlecki.jpg" width="238" height="250" loading="lazy" alt="Eric Terlecki"></div>
-          <p class="who-mat">Licenciado en Psicología · Mat. N.º 4331</p>
-        </div>
-        <div class="prose">
-          <p class="big">Con valores humanos, experiencia vital y formación en psicoterapia clínica, busco acompañar procesos personales desde una perspectiva trascendente e integral.</p>
-          <p>Soy psicólogo en Rosario. Desde hace más de veinte años acompaño a personas, parejas y familias en psicoterapia clínica, y comparto contenido de psicoeducación y motivación con la idea de que cuidar la salud mental sea algo cercano y cotidiano.</p>
-          <ul class="creds">
-            <li><span>Licenciado en Psicología</span><span>Universidad Católica de La Plata</span></li>
-            <li><span>Especialización en psicoterapia cognitiva integrativa</span><span>Fundación Aiglé</span></li>
-            <li><span>Maestría en Psicooncología</span><span>Universidad Favaloro</span></li>
-          </ul>
-          <div>
-            <p class="pe-tag">Actualmente</p>
-            <ul class="now">
-              <li>Psicoterapeuta clínico</li>
-              <li>Docente universitario</li>
-              <li>Psicólogo del Seminario «San Carlos Borromeo»</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <details class="cv-more">
-        <summary>Trayectoria completa</summary>
-        <div class="cv-grid">
-          <div>
-            <h3>Clínica</h3>
-            <ul class="tl">
-              <li><b>Desde 2005</b><span>Psicoterapia individual, de pareja, familiar y grupal en consultorio particular: niños, adolescentes, adultos y adultos mayores.</span></li>
-              <li><b>2025–2026</b><span>Psicólogo del Seminario Arquidiocesano «San Carlos Borromeo», Capitán Bermúdez.</span></li>
-              <li><b>2010–2024</b><span>Tratamientos psicoterapéuticos con pacientes oncológicos y sus familias.</span></li>
-              <li><b>2020–2024</b><span>Procesos psicoterapéuticos virtuales internacionales durante la pandemia de Covid-19.</span></li>
-              <li><b>2017–2022</b><span>Psicoterapia grupal para trastornos de ansiedad y depresión.</span></li>
-              <li><b>2008–2019</b><span>Evaluación de pacientes con deterioro cognitivo. Asociación Rorschach.</span></li>
-              <li><b>2004–2018</b><span>Psicodiagnósticos y talleres grupales. Pre-noviciado, Seminario Salesiano de Funes.</span></li>
-              <li><b>2007</b><span>Gabinete psicopedagógico. Colegio Nuestra Señora de la Asunción, Rosario.</span></li>
-            </ul>
-            <h3 style="margin-top:32px">Talleres y trabajo comunitario</h3>
-            <ul class="tl">
-              <li><b>2022</b><span>Taller para padres en proceso de duelo. Fundación Cuatro Vientos, Rosario.</span></li>
-              <li><b>2010–2021</b><span>Talleres de ESI en instituciones educativas de Santa Fe, Entre Ríos, Córdoba y Formosa.</span></li>
-              <li><b>2018–2019</b><span>Comunidad Padre Misericordioso: talleres con personas transgénero en el Centro de vida del barrio Ludueña y equipo terapéutico para el tratamiento de adicciones. Rosario.</span></li>
-              <li><b>2010–2013</b><span>Taller grupal para pacientes con leucemia y sus familias. Fundación ALMA.</span></li>
-              <li><b>2005</b><span>Talleres grupales en rugby infantil. URR.</span></li>
-            </ul>
-          </div>
-          <div>
-            <h3>Formación</h3>
-            <ul class="tl">
-              <li><b></b><span>Maestría en Psicooncología. Universidad Favaloro, CABA.</span></li>
-              <li><b>2021</b><span>Taller de Gestalt con Joan Garriga. CABA.</span></li>
-              <li><b>2010–2012</b><span>Posgrado de especialización en psicología cognitiva, modelo integrativo. Fundación Aiglé, dir. Héctor Fernández Álvarez.</span></li>
-              <li><b>2004</b><span>Licenciatura en Psicología. Universidad Católica de La Plata, unidad académica Rosario.</span></li>
-              <li><b>2003</b><span>Practicanato clínico. Rosario.</span></li>
-              <li><b>2001</b><span>Formación en terapia gestáltica. Instituto Tendrel, Rosario.</span></li>
-              <li><b>2000</b><span>Seminario de terapia cognitiva posracionalista con el Lic. Juan Balbi. Rosario.</span></li>
-            </ul>
-            <h3 style="margin-top:32px">Docencia</h3>
-            <ul class="tl">
-              <li><b>2022–2025</b><span>Docente de Psicología. UCA Rosario, curso de acompañantes de adultos mayores.</span></li>
-              <li><b>2020–2025</b><span>Docente de antropología y psicología. Proyecto de acompañamiento salesiano de jóvenes, Córdoba.</span></li>
-              <li><b>2018–2022</b><span>Docente de antropología. Curso de formación misionera, Arquidiócesis de Rosario.</span></li>
-            </ul>
-            <h3 style="margin-top:32px">Gestión</h3>
-            <ul class="tl">
-              <li><b>2005–2026</b><span>Responsable de producción y recursos humanos. Ind. M. García Conde, Rosario.</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="pe-actions"><a class="btn btn-line" href="cv/eric-terlecki-cv.pdf?v=2" download="eric-terlecki-cv.pdf">Descargar CV (PDF)</a></div>
-      </details>
-    </div>
-  </section>
 </main>
 
 <section class="contact" id="contacto">
@@ -1350,14 +1552,54 @@ Estoy acá. Estoy a salvo.</p></details>
       <div class="channel"><span class="lbl">Horarios</span><span class="val">Lun a vie 8 a 21 h · Sáb 8 a 13 h</span><span class="acts"><span style="color:rgba(242,235,219,.75)">Encuentros de una hora aproximadamente, semanales o quincenales</span></span></div>
       <div class="channel"><span class="lbl">Honorarios</span><span class="val">Por sesión</span><span class="acts"><span style="color:rgba(242,235,219,.75)">Todos los medios de pago disponibles · No trabajo con obras sociales</span></span></div>
     </div>
+    <div class="sos" id="emergencias">
+      <span class="lbl">Ante una emergencia</span>
+      <h3>Si estás en peligro o en una crisis, no esperes a la sesión</h3>
+      <p>Llamá a alguno de estos números o acercate a la guardia más cercana. Este espacio no atiende urgencias.</p>
+      <ul class="sos-list">
+        <li><span class="num">911</span><span class="what">Emergencias</span><span class="det">Policía, bomberos y urgencias en general.</span></li>
+        <li><span class="num">107</span><span class="what">SIES · Emergencias médicas</span><span class="det">Ambulancia y urgencias de salud en la provincia de Santa Fe.</span></li>
+        <li><span class="num">0800-999-0091</span><span class="what">Línea Nacional de Salud Mental</span><span class="det">Orientación y apoyo en la urgencia de salud mental. Gratuita, las 24 horas, en todo el país.</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap"><span>Entre Nosotros · Lic. Eric Terlecki</span><span>Si estás en una emergencia, llamá al 107 o acercate a la guardia más cercana.</span></div>
+  <div class="wrap"><span>Entre Nosotros · Lic. Eric Terlecki · Mat. N.º 4331</span><span>Emergencias: <a href="#emergencias">911 emergencias · 107 SIES (médicas) · 0800-999-0091 salud mental</a></span></div>
 </footer>
 
+<a class="wa-float" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20un%20turno." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp para pedir turno"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg><span>Pedir turno</span></a>
 <div class="toast" id="toast" hidden>Copiado</div>
+<script>
+/* Menú del celular */
+(function(){
+  const b=document.getElementById("menu-btn"), m=document.getElementById("mobile-menu");
+  const set=o=>{m.hidden=!o;b.setAttribute("aria-expanded",String(o));b.setAttribute("aria-label",o?"Cerrar menú":"Abrir menú");};
+  b.addEventListener("click",()=>set(m.hidden));
+  m.addEventListener("click",e=>{if(e.target.closest("a"))set(false);});
+})();
+/* Plantillas: buscador y "ver todas" */
+(function(){
+  const PREVIEW=8, items=[...document.querySelectorAll(".pl-grid > .pl")], q=document.getElementById("pl-q"),
+        more=document.getElementById("pl-more"), count=document.getElementById("pl-count"), empty=document.getElementById("pl-empty");
+  const norm=t=>(t||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+  items.forEach(li=>li.dataset.text=norm(li.textContent));
+  let open=false;
+  function render(){
+    const t=norm(q.value.trim()), words=t.split(/\s+/).filter(Boolean); let n=0;
+    items.forEach((li,i)=>{const m=words.every(w=>li.dataset.text.includes(w)); if(m)n++; li.hidden=!(m&&(words.length||open||i<PREVIEW));});
+    count.textContent=words.length?n+" de "+items.length+" plantillas":items.length+" plantillas, en orden alfabético";
+    empty.hidden=n>0; more.parentElement.hidden=!!words.length;
+    more.textContent=open?"Mostrar menos":"Ver las "+items.length+" plantillas";
+  }
+  window.plShowAll=()=>{if(!open){open=true;render();}};
+  more.addEventListener("click",()=>{open=!open;render();if(!open)document.getElementById("plantillas").scrollIntoView();});
+  q.addEventListener("input",render);
+  if(location.hash.startsWith("#plantilla-"))open=true;
+  render();
+})();
+</script>
 
 <script>
 const temas = [
@@ -1583,6 +1825,7 @@ document.querySelectorAll("[data-copy]").forEach(btn=>{
     const o=cur[i]; if(!o) return; close(); inp.blur();
     let el=o.el;
     if(el.closest(".din") && el.offsetParent===null){const all=document.querySelector("#din-filters [data-f]"); if(all) all.click();}
+    if(el.closest(".pl") && el.offsetParent===null && window.plShowAll) window.plShowAll();
     el.style.scrollMarginTop=el.style.scrollMarginTop||"84px";
     el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
     if(el.tagName!=="SECTION"){el.classList.remove("s-hit"); void el.offsetWidth; el.classList.add("s-hit");}
