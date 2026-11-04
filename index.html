@@ -153,6 +153,17 @@ section.block + section.block{border-top:1px solid var(--line)}
 .pillar .more-l{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:4px;font-size:.85rem;font-weight:600;color:var(--accent)}
 .pillar .more-l svg{width:15px;height:15px}
 .pillar:hover h3{color:var(--accent)}
+.libre{margin-top:28px;background:var(--petrol);color:var(--cream);border-radius:18px;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:24px 44px;align-items:start}
+.libre .eyebrow{color:var(--terra)}
+.libre-head h3{font-size:clamp(1.6rem,3vw,2.1rem);margin-top:8px}
+.libre-head h3 em{font-style:normal;color:var(--terra)}
+.libre-head p:last-child{margin-top:10px;color:rgba(242,235,219,.8)}
+.libre-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:22px 28px}
+.libre-list li{display:flex;flex-direction:column;gap:4px;border-top:1px solid rgba(242,235,219,.2);padding-top:14px;min-width:0}
+.libre-n{font-family:var(--font-display);color:var(--terra);font-size:.95rem}
+.libre-list b{font-weight:600;font-size:1.02rem}
+.libre-list li span:last-child{color:rgba(242,235,219,.82);font-size:.95rem}
+@media (max-width:820px){.libre{grid-template-columns:1fr}.libre-list{grid-template-columns:1fr}}
 .ejes{display:flex;flex-direction:column;gap:16px;margin-top:20px}
 .eje{background:var(--surface);border-radius:16px;padding:clamp(20px,3.5vw,36px);display:grid;grid-template-columns:180px minmax(0,1fr);gap:8px 32px;scroll-margin-top:120px}
 .eje-head{display:flex;flex-direction:column;gap:4px}
@@ -625,6 +636,19 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
             </div>
           </div>
         </article>
+      </div>
+      <div class="libre">
+        <div class="libre-head">
+          <p class="eyebrow">Un espacio propio</p>
+          <h3>Decir lo que sentís, <em>sin filtro</em></h3>
+          <p>En pocos lugares podemos hablar con total libertad. La consulta es uno de ellos.</p>
+        </div>
+        <ul class="libre-list">
+          <li><span class="libre-n">01</span><b>Expresarte en libertad</b><span>Podés decir lo que pensás y sentís tal como aparece, sin cuidar las palabras ni editar lo que “queda bien”.</span></li>
+          <li><span class="libre-n">02</span><b>Lo que se habla, queda ahí</b><span>Todo lo que compartís está protegido por el secreto profesional. No sale del espacio terapéutico.</span></li>
+          <li><span class="libre-n">03</span><b>Sin juicios ni comparaciones</b><span>Nadie te va a juzgar, comparar ni evaluar. No hay respuestas correctas ni un modo “ideal” de estar.</span></li>
+          <li><span class="libre-n">04</span><b>Escucharte a vos</b><span>Más allá de lo que te digan, podés escucharte a vos mismo/a y, desde ahí, gestionar de un modo nuevo tus ideas y tus emociones.</span></li>
+        </ul>
       </div>
       <div class="find">
         <div class="find-head">
