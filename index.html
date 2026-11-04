@@ -161,7 +161,12 @@ section.block + section.block{border-top:1px solid var(--line)}
 .pillar h3{font-size:1.3rem}
 .pillar p{color:var(--muted);font-size:.95rem}
 .pillar .more-l{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:4px;font-size:.85rem;font-weight:600;color:var(--accent)}
-.pillar .more-l svg{width:15px;height:15px}
+.pillar .more-l svg{width:15px;height:15px;transition:transform .2s}
+.pillar[aria-expanded="true"] .more-l svg{transform:rotate(180deg)}
+.pillar[aria-expanded="true"] h3{color:var(--accent)}
+.ejes:not(:has(.eje:not([hidden]))){display:none}
+@media (prefers-reduced-motion: no-preference){.eje:not([hidden]){animation:ejeIn .25s ease-out}}
+@keyframes ejeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 .pillar:hover h3{color:var(--accent)}
 .libre{margin-top:28px;background:var(--petrol);color:var(--cream);border-radius:18px;padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:24px 44px;align-items:start}
 .libre .eyebrow{color:var(--terra)}
@@ -665,12 +670,12 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
         </div>
       </div>
       <div class="pillars">
-        <a class="pillar" href="#eje-hum"><svg class="il" aria-hidden="true"><use href="#il-hum"/></svg><h3>Humanista</h3><p>La persona en el centro, con su capacidad de crecer y elegir.</p><span class="more-l">Leer más <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-        <a class="pillar" href="#eje-int"><svg class="il" aria-hidden="true"><use href="#il-int"/></svg><h3>Integrativo</h3><p>Herramientas de distintos modelos, elegidas según cada proceso.</p><span class="more-l">Leer más <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-        <a class="pillar" href="#eje-tra"><svg class="il" aria-hidden="true"><use href="#il-tra"/></svg><h3>Trascendente</h3><p>Lugar para el sentido, los valores y lo espiritual de cada quien.</p><span class="more-l">Leer más <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="pillar" href="#eje-hum" aria-controls="eje-hum" aria-expanded="false"><svg class="il" aria-hidden="true"><use href="#il-hum"/></svg><h3>Humanista</h3><p>La persona en el centro, con su capacidad de crecer y elegir.</p><span class="more-l">Leer más <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="pillar" href="#eje-int" aria-controls="eje-int" aria-expanded="false"><svg class="il" aria-hidden="true"><use href="#il-int"/></svg><h3>Integrativo</h3><p>Herramientas de distintos modelos, elegidas según cada proceso.</p><span class="more-l">Leer más <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="pillar" href="#eje-tra" aria-controls="eje-tra" aria-expanded="false"><svg class="il" aria-hidden="true"><use href="#il-tra"/></svg><h3>Trascendente</h3><p>Lugar para el sentido, los valores y lo espiritual de cada quien.</p><span class="more-l">Leer más <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
       </div>
       <div class="ejes">
-        <article class="eje" id="eje-hum" aria-labelledby="eje-hum-t">
+        <article class="eje" id="eje-hum" hidden aria-labelledby="eje-hum-t">
           <header class="eje-head"><svg class="il il-lg" aria-hidden="true"><use href="#il-hum"/></svg><span class="eje-n">01</span><h3 id="eje-hum-t">Humanista</h3></header>
           <div class="eje-body">
             <p class="axis-lead">El humanismo nace a mediados del siglo XX como una “tercera fuerza” en psicología, junto al psicoanálisis y al conductismo. Su pregunta de fondo no es solo qué le pasa a una persona, sino quién es y quién puede llegar a ser.</p>
@@ -696,7 +701,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
             </div>
           </div>
         </article>
-        <article class="eje" id="eje-int" aria-labelledby="eje-int-t">
+        <article class="eje" id="eje-int" hidden aria-labelledby="eje-int-t">
           <header class="eje-head"><svg class="il il-lg" aria-hidden="true"><use href="#il-int"/></svg><span class="eje-n">02</span><h3 id="eje-int-t">Integrativo</h3></header>
           <div class="eje-body">
             <p class="axis-lead">La psicoterapia integrativa no es una escuela más, sino una forma de trabajar: parte de la persona y su situación, y desde ahí elige y articula aportes de distintos modelos, en lugar de hacer encajar a la persona en una sola teoría.</p>
@@ -718,7 +723,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
             </div>
           </div>
         </article>
-        <article class="eje" id="eje-tra" aria-labelledby="eje-tra-t">
+        <article class="eje" id="eje-tra" hidden aria-labelledby="eje-tra-t">
           <header class="eje-head"><svg class="il il-lg" aria-hidden="true"><use href="#il-tra"/></svg><span class="eje-n">03</span><h3 id="eje-tra-t">Trascendente</h3></header>
           <div class="eje-body">
             <p class="axis-lead">Trascender es ir más allá de lo inmediato: preguntarse por el sentido profundo de lo que vivimos. Muchas veces esas preguntas aparecen justamente en los momentos difíciles, y merecen un lugar en la terapia.</p>
@@ -744,19 +749,6 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           </div>
         </article>
       </div>
-      <div class="libre">
-        <div class="libre-head">
-          <p class="eyebrow">Un espacio propio</p>
-          <h3>Decir lo que sentís, <em>sin filtro</em></h3>
-          <p>En pocos lugares podemos hablar con total libertad. La consulta es uno de ellos.</p>
-        </div>
-        <ul class="libre-list">
-          <li><span class="libre-n">01</span><b>Expresarte en libertad</b><span>Podés decir lo que pensás y sentís tal como aparece, sin cuidar las palabras ni editar lo que “queda bien”.</span></li>
-          <li><span class="libre-n">02</span><b>Lo que se habla, queda ahí</b><span>Todo lo que compartís está protegido por el secreto profesional. No sale del espacio terapéutico.</span></li>
-          <li><span class="libre-n">03</span><b>Sin juicios ni comparaciones</b><span>Nadie te va a juzgar, comparar ni evaluar. No hay respuestas correctas ni un modo “ideal” de estar.</span></li>
-          <li><span class="libre-n">04</span><b>Escucharte a vos</b><span>Más allá de lo que te digan, podés escucharte a vos mismo/a y, desde ahí, gestionar de un modo nuevo tus ideas y tus emociones.</span></li>
-        </ul>
-      </div>
       <div class="find">
         <div class="find-head">
           <p class="eyebrow">Qué vas a encontrar</p>
@@ -770,6 +762,19 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           <li><a href="#plantillas"><span class="k">Plantillas</span><b>Guías y registros</b><span>Para acompañar tu proceso entre sesiones.</span></a></li>
           <li><a href="#dinamicas"><span class="k">Dinámicas</span><b>Trabajo personal</b><span>Láminas para escucharte y darle forma a lo que sentís.</span></a></li>
           <li><a href="#app"><span class="k">App</span><b>Mi registro</b><span>Un registro diario y semanal, guardado sólo en tu celular.</span></a></li>
+        </ul>
+      </div>
+      <div class="libre">
+        <div class="libre-head">
+          <p class="eyebrow">Un espacio propio</p>
+          <h3>Decir lo que sentís, <em>sin filtro</em></h3>
+          <p>En pocos lugares podemos hablar con total libertad. La consulta es uno de ellos.</p>
+        </div>
+        <ul class="libre-list">
+          <li><span class="libre-n">01</span><b>Expresarte en libertad</b><span>Podés decir lo que pensás y sentís tal como aparece, sin cuidar las palabras ni editar lo que “queda bien”.</span></li>
+          <li><span class="libre-n">02</span><b>Lo que se habla, queda ahí</b><span>Todo lo que compartís está protegido por el secreto profesional. No sale del espacio terapéutico.</span></li>
+          <li><span class="libre-n">03</span><b>Sin juicios ni comparaciones</b><span>Nadie te va a juzgar, comparar ni evaluar. No hay respuestas correctas ni un modo “ideal” de estar.</span></li>
+          <li><span class="libre-n">04</span><b>Escucharte a vos</b><span>Más allá de lo que te digan, podés escucharte a vos mismo/a y, desde ahí, gestionar de un modo nuevo tus ideas y tus emociones.</span></li>
         </ul>
       </div>
     </div>
@@ -2537,6 +2542,20 @@ document.querySelectorAll("[data-copy]").forEach(btn=>{
 <script>
 /* Mide el menú fijo para que, al saltar a una sección, el título no quede tapado */
 (function(){const n=document.querySelector(".nav");if(!n)return;const set=()=>document.documentElement.style.setProperty("--navh",n.offsetHeight+"px");set();addEventListener("resize",set);if(window.ResizeObserver)new ResizeObserver(set).observe(n);})();
+</script>
+<script>
+/* Ejes del enfoque: el detalle se abre con "Leer más" (uno a la vez) */
+(function(){
+  const pills=[...document.querySelectorAll(".pillar[aria-controls]")];if(!pills.length)return;
+  const label=(p,open)=>{const l=p.querySelector(".more-l");if(l&&l.firstChild)l.firstChild.nodeValue=open?"Cerrar ":"Leer más ";};
+  function show(id,scroll){
+    pills.forEach(p=>{const on=p.getAttribute("aria-controls")===id;const el=document.getElementById(p.getAttribute("aria-controls"));el.hidden=!on;p.setAttribute("aria-expanded",on?"true":"false");label(p,on);});
+    if(id&&scroll){const el=document.getElementById(id);const r=el.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.6)el.scrollIntoView({block:"start",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});}
+  }
+  pills.forEach(p=>p.addEventListener("click",e=>{e.preventDefault();const id=p.getAttribute("aria-controls");show(p.getAttribute("aria-expanded")==="true"?null:id,true);}));
+  const fromHash=()=>{const h=location.hash.slice(1);if(pills.some(p=>p.getAttribute("aria-controls")===h))show(h,true);};
+  addEventListener("hashchange",fromHash);fromHash();
+})();
 </script>
 </body>
 </html>
