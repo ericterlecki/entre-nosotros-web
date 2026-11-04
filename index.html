@@ -273,7 +273,8 @@ section.block + section.block{border-top:1px solid var(--line)}
 .invite-close{margin-top:16px;font-size:1.08rem;max-width:52ch;color:rgba(242,235,219,.82)}
 .invite-list{list-style:none;margin:30px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .invite-music{margin-top:28px;max-width:440px}
-.invite-music p{font-size:.92rem;color:rgba(242,235,219,.8);margin-bottom:10px}
+.mus-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}.mus-head .il{width:48px;height:48px;margin:0}
+.invite-music p{font-size:.92rem;color:rgba(242,235,219,.8)}
 .invite-music b{font-weight:600;color:var(--cream)}
 .invite-music iframe{display:block;border:0;border-radius:12px;background:rgba(242,235,219,.06)}
 .invite-list li{font-size:.86rem;padding:6px 13px;border-radius:999px;border:1px solid rgba(242,235,219,.25);color:rgba(242,235,219,.9)}
@@ -282,7 +283,7 @@ section.block + section.block{border-top:1px solid var(--line)}
 /* Lecturas */
 .books{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .book{--sp:var(--accent);background:var(--surface);border-radius:14px;padding:18px 18px 18px 22px;border-left:6px solid var(--sp);display:flex;flex-direction:column;gap:4px}
-.b-hum{--sp:#7E9A5A}.b-int{--sp:#D9906F}.b-tra{--sp:#1F4955}.b-pen{--sp:#E3B866}
+.b-hum{--sp:#7E9A5A}.b-int{--sp:#D9906F}.b-tra{--sp:#1F4955}.b-pen{--sp:#E3B866}.b-ans{--sp:#5C9AA8}
 .book-tag{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--muted)}
 .book h3{font-size:1.25rem;margin-top:2px}
 .book .book-au{font-size:.9rem;color:var(--accent);font-weight:600}
@@ -521,6 +522,28 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
       <path d="M18 50 Q32 46 46 50 L50 64 H14Z" fill="#132A35"/>
     </g>
   </symbol>
+  <symbol id="il-music" viewBox="0 0 64 64">
+    <clipPath id="c-mus"><circle cx="32" cy="32" r="32"/></clipPath>
+    <g clip-path="url(#c-mus)">
+      <rect width="64" height="64" fill="#2B6A78"/>
+      <rect x="6" y="38" width="52" height="22" rx="3" fill="#F2EBDB"/>
+      <path d="M14 38v14M22 38v14M30 38v14M38 38v14M46 38v14M54 38v14" stroke="#C9BFA9" stroke-width="1.2"/>
+      <rect x="11.5" y="38" width="5" height="12" rx="1" fill="#1F3A4A"/><rect x="19.5" y="38" width="5" height="12" rx="1" fill="#1F3A4A"/><rect x="35.5" y="38" width="5" height="12" rx="1" fill="#1F3A4A"/><rect x="43.5" y="38" width="5" height="12" rx="1" fill="#1F3A4A"/>
+      <path d="M26 30V14l14-3v16" fill="none" stroke="#E3B866" stroke-width="2.4" stroke-linejoin="round"/>
+      <ellipse cx="23" cy="30" rx="4" ry="3" fill="#E3B866"/><ellipse cx="37" cy="27" rx="4" ry="3" fill="#E3B866"/>
+    </g>
+  </symbol>
+  <symbol id="il-books" viewBox="0 0 64 64">
+    <clipPath id="c-bks"><circle cx="32" cy="32" r="32"/></clipPath>
+    <g clip-path="url(#c-bks)">
+      <rect width="64" height="64" fill="#F1C9A5"/>
+      <rect x="0" y="50" width="64" height="14" fill="#C98B78"/>
+      <rect x="12" y="43" width="40" height="7" rx="1.5" fill="#1F4955"/><rect x="14" y="45.5" width="30" height="1.6" fill="#F2EBDB" opacity=".6"/>
+      <rect x="15" y="36" width="34" height="7" rx="1.5" fill="#7E9A5A"/>
+      <rect x="10" y="29" width="38" height="7" rx="1.5" fill="#D9906F"/><rect x="12" y="31.5" width="20" height="1.6" fill="#F2EBDB" opacity=".6"/>
+      <path d="M40 29 C40 20 46 16 52 16 C52 24 47 29 40 29Z" fill="#4F6B3E"/><path d="M40 29 C42 23 45 20 49 18" stroke="#90A65C" stroke-width="1.4" fill="none"/>
+    </g>
+  </symbol>
 </svg>
 
 
@@ -621,7 +644,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
       <li>Escucharnos</li><li>Bucear dentro nuestro</li><li>Aprender</li><li>Registrar el cuerpo</li><li>Mirar el mundo interior</li><li>Observar los vínculos</li><li>Compartir deseos y proyectos</li><li>Encontrar sentido</li>
     </ul>
     <div class="invite-music">
-      <p>Para leer con calma, si querés, con música de <b>Yiruma</b>.</p>
+      <div class="mus-head"><svg class="il" aria-hidden="true"><use href="#il-music"/></svg><p>Para leer con calma, si querés, con música de <b>Yiruma</b>.</p></div>
       <iframe title="Música de Yiruma en Spotify" src="https://open.spotify.com/embed/artist/0fauHpmSHwodVYIjTqOGHz?utm_source=generator&amp;theme=0" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
   </div>
@@ -1429,6 +1452,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
     <div class="wrap">
       <div class="split">
         <div>
+          <svg class="il il-lg" aria-hidden="true"><use href="#il-books"/></svg>
           <p class="eyebrow">Lecturas</p>
           <h2>Libros para acompañar el camino</h2>
         </div>
@@ -1448,7 +1472,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
         <li class="book b-tra"><span class="book-tag">Trascendente</span><h3>El hombre en busca de sentido</h3><p class="book-au">Viktor E. Frankl</p><p>Un clásico: la experiencia en los campos de concentración y la búsqueda de sentido aun en el sufrimiento.</p></li>
         <li class="book b-tra"><span class="book-tag">Trascendente</span><h3>Los patitos feos</h3><p class="book-au">Boris Cyrulnik</p><p>La resiliencia: por qué una herida temprana no condena una vida, y el valor de los vínculos que sostienen.</p></li>
         <li class="book b-tra"><span class="book-tag">Trascendente</span><h3>Biografía del silencio</h3><p class="book-au">Pablo d’Ors</p><p>Un ensayo breve y luminoso sobre la meditación, la quietud y la escucha interior.</p></li>
-        <li class="book b-tra"><span class="book-tag">Trascendente</span><h3>Mindfulness en la vida cotidiana</h3><p class="book-au">Jon Kabat-Zinn</p><p>Prácticas sencillas para volver al presente, sin necesidad de experiencia previa.</p></li>
+        <li class="book b-ans"><span class="book-tag">Ansiedad</span><h3>Sin miedo</h3><p class="book-au">Rafael Santandreu</p><p>Un método práctico, desde la terapia cognitiva, para superar la ansiedad, los ataques de pánico y otros miedos.</p></li>
         <li class="book b-pen"><span class="book-tag">Vínculos</span><h3>¿Dónde están las monedas?</h3><p class="book-au">Joan Garriga</p><p>Las claves del vínculo con nuestros padres: tomar lo que recibimos, reconciliarnos con nuestra historia familiar y hacer con eso nuestra propia vida.</p></li>
       </ul>
     </div>
