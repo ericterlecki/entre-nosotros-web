@@ -389,6 +389,18 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
 .wa-float svg{width:20px;height:20px}
 .toast{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 
+/* Bienvenida: qué vas a encontrar */
+.find{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px;align-items:start}
+.find-head h3{font-size:1.5rem;margin-top:8px}
+.find-head p:last-child{margin-top:10px;color:var(--muted);font-size:.95rem}
+.find-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.find-grid a{display:flex;flex-direction:column;gap:4px;height:100%;padding:16px 18px;border-radius:14px;background:var(--surface);text-decoration:none;border:1px solid transparent;transition:border-color .15s}
+.find-grid a:hover{border-color:var(--terra)}
+.find-grid .k{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.find-grid b{font-family:var(--font-display);font-weight:400;font-size:1.15rem;line-height:1.2}
+.find-grid span:last-child{color:var(--muted);font-size:.88rem}
+@media (max-width:900px){.find{grid-template-columns:1fr;gap:18px}.find-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.find-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -407,7 +419,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
   <div class="wrap">
     <a class="brand" href="#inicio"><svg aria-hidden="true"><use href="#logo"/></svg>Entre Nosotros</a>
     <ul>
-      <li><a href="#enfoque">Enfoque</a></li>
+      <li><a href="#enfoque">Bienvenida</a></li>
       <li><a href="#quien-soy">Quién soy</a></li>
       <li><a href="#empezar-terapia">Empezar</a></li>
       <li><a href="#servicios">Servicios</a></li>
@@ -431,7 +443,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
   <div class="mobile-menu" id="mobile-menu" hidden>
     <div class="wrap">
       <ul>
-        <li><a href="#enfoque">Enfoque</a></li>
+        <li><a href="#enfoque">Bienvenida</a></li>
         <li><a href="#quien-soy">Quién soy</a></li>
         <li><a href="#empezar-terapia">Empezar</a></li>
         <li><a href="#servicios">Servicios</a></li>
@@ -454,7 +466,6 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
       <p class="eyebrow" style="color:var(--terra);margin-top:22px">Psicoterapia · Presencial y virtual</p>
       <h1 style="margin-top:14px">Lo que nos pasa se piensa mejor <em>entre nosotros</em>.</h1>
       <p class="common">Un espacio de <b>construcción en común</b>: un ámbito virtual de encuentro y de divulgación de material psicoterapéutico.</p>
-      <p class="lead">Un espacio para pensar lo que nos pasa, cuidar nuestros vínculos y encontrar sentido en cada proceso, acompañados.</p>
       <div class="btns">
         <a class="btn btn-terra" href="https://wa.me/5493416601847" target="_blank" rel="noopener">Escribir por WhatsApp</a>
         <a class="btn btn-ghost" href="#enfoque">Conocer el espacio</a>
@@ -476,11 +487,12 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
     <div class="wrap">
       <div class="split">
         <div>
-          <p class="eyebrow">El enfoque</p>
-          <h2>Dos personas, un encuentro y algo que nace en el medio.</h2>
+          <p class="eyebrow">Bienvenida/o</p>
+          <h2>Un espacio para escucharnos y entendernos mejor.</h2>
         </div>
         <div class="prose">
-          <p class="big">Las dos medialunas del logo representan a quien consulta y a quien acompaña. El punto del centro es lo que se construye en ese encuentro.</p>
+          <p class="big">Porque lo que nos pasa también nos une. El dolor, las dudas y las ganas de estar mejor no son sólo de una persona: son experiencias que compartimos.</p>
+          <p>Las dos medialunas del logo representan a quien consulta y a quien acompaña. El punto del centro es el lugar donde nos encontramos a pensar juntos/as. Y el nombre lleva <b>psicoterapia</b> porque este espacio nace desde la clínica.</p>
           <p>Trabajo desde la psicoterapia clínica con una mirada humanista, integrativa y trascendente. Eso significa escuchar a la persona entera: su historia, sus emociones, sus vínculos y también las preguntas por el sentido que aparecen en los momentos difíciles.</p>
         </div>
       </div>
@@ -488,6 +500,21 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
         <div><h3>Humanista</h3><p>La persona en el centro, con su capacidad de crecer y elegir.</p></div>
         <div><h3>Integrativo</h3><p>Herramientas de distintos modelos, elegidas según cada proceso.</p></div>
         <div><h3>Trascendente</h3><p>Lugar para el sentido, los valores y lo espiritual de cada quien.</p></div>
+      </div>
+      <div class="find">
+        <div class="find-head">
+          <p class="eyebrow">Qué vas a encontrar</p>
+          <h3>Un espacio psicoeducativo y motivacional</h3>
+          <p>Para entender lo que nos pasa, con explicaciones claras, y para sostener el camino cuando cuesta. Todo es contenido informativo y no reemplaza una consulta psicológica.</p>
+        </div>
+        <ul class="find-grid">
+          <li><a href="#psicoeducacion"><span class="k">Psicoeducación</span><b>La serie «¿Ahora, ahora… cómo estás?»</b><span>Carruseles sobre emociones, ansiedad, vínculos, autoestima, autocompasión y crecimiento personal.</span></a></li>
+          <li><a href="#para-pensar"><span class="k">Motivación</span><b>Ideas y frases para pensar</b><span>Reflexiones breves para guardar y volver a ellas.</span></a></li>
+          <li><a href="#calma"><span class="k">Herramientas</span><b>Tarjetas de calma</b><span>Para leer despacio cuando la angustia o la ansiedad suben.</span></a></li>
+          <li><a href="#plantillas"><span class="k">Plantillas</span><b>Guías y registros</b><span>Para acompañar tu proceso entre sesiones.</span></a></li>
+          <li><a href="#dinamicas"><span class="k">Dinámicas</span><b>Trabajo personal</b><span>Láminas para escucharte y darle forma a lo que sentís.</span></a></li>
+          <li><a href="#app"><span class="k">App</span><b>Mi registro</b><span>Un registro diario y semanal, guardado sólo en tu celular.</span></a></li>
+        </ul>
       </div>
     </div>
   </section>
