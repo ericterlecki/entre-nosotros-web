@@ -145,14 +145,39 @@ section.block + section.block{border-top:1px solid var(--line)}
 .prose{display:flex;flex-direction:column;gap:16px;max-width:62ch;color:var(--fg)}
 .prose .big{font-family:var(--font-display);font-size:1.45rem;line-height:1.35}
 
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border-top:1px solid var(--line)}
-.pillars div{padding:22px 22px 0 0}
-.pillars div + div{padding-left:22px;border-left:1px solid var(--line)}
-.pillars h3{font-size:1.3rem}
-.pillars p{color:var(--muted);margin-top:6px;font-size:.95rem}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);margin-top:40px;border-top:1px solid var(--line)}
+.pillar{text-decoration:none;color:inherit;padding:22px 22px 18px 0;display:flex;flex-direction:column;gap:6px}
+.pillar + .pillar{padding-left:22px;border-left:1px solid var(--line)}
+.pillar h3{font-size:1.3rem}
+.pillar p{color:var(--muted);font-size:.95rem}
+.pillar .more-l{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:4px;font-size:.85rem;font-weight:600;color:var(--accent)}
+.pillar .more-l svg{width:15px;height:15px}
+.pillar:hover h3{color:var(--accent)}
+.ejes{display:flex;flex-direction:column;gap:16px;margin-top:20px}
+.eje{background:var(--surface);border-radius:16px;padding:clamp(20px,3.5vw,36px);display:grid;grid-template-columns:180px minmax(0,1fr);gap:8px 32px;scroll-margin-top:120px}
+.eje-head{display:flex;flex-direction:column;gap:4px}
+.eje-n{font-family:var(--font-display);font-size:1rem;color:var(--accent)}
+.eje-head h3{font-size:1.6rem}
+.eje-body{min-width:0}
+.axis-lead{font-family:var(--font-display);font-size:clamp(1.15rem,2.2vw,1.4rem);line-height:1.4;max-width:60ch}
+.axis-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px 36px;margin-top:20px}
+.axis-cols > *{min-width:0}
+.eje h4{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--accent);margin:0 0 8px}
+.eje h4:not(:first-child){margin-top:20px}
+.eje-body p,.eje-body li{font-size:.97rem;color:var(--fg)}
+.eje-body p + p{margin-top:10px}
+.eje-body ul{margin:10px 0 0;padding-left:1.1em;display:flex;flex-direction:column;gap:8px}
+.eje-body b{font-weight:600}
+.axis-quote{margin-top:18px;background:var(--petrol);color:var(--cream);border-radius:12px;padding:18px 20px}
+.axis-quote h4{color:var(--terra)}
+.eje-body .axis-quote p{color:var(--cream)}
+.axis-quote b{color:#f0b48f}
+.eje-body .axis-ref{margin-top:14px;font-size:.9rem;color:var(--muted)}
+.axis-ref a{color:var(--accent);font-weight:600}
+@media (max-width:860px){.eje{grid-template-columns:1fr}.eje-head{flex-direction:row;align-items:baseline;gap:10px}.axis-cols{grid-template-columns:1fr}}
 @media (max-width:720px){
   .pillars{grid-template-columns:1fr}
-  .pillars div,.pillars div + div{padding:18px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .pillar,.pillar + .pillar{padding:16px 0;border-left:0;border-bottom:1px solid var(--line)}
 }
 
 /* Servicios */
@@ -208,6 +233,20 @@ section.block + section.block{border-top:1px solid var(--line)}
 .car-nav button:hover:not(:disabled){border-color:var(--fg)}
 .car-nav button:disabled{opacity:.35;cursor:default}
 @media (max-width:820px){.pe-grid{grid-template-columns:1fr;gap:32px}.car{max-width:440px;width:100%;margin:0 auto}}
+.pe-index{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.pe-index a{display:inline-block;font-size:.88rem;padding:7px 14px;border-radius:999px;border:1px solid var(--line);text-decoration:none;color:var(--fg)}
+.pe-index a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Invitación */
+.invite{background:var(--petrol-deep);color:var(--cream);border-top:1px solid rgba(242,235,219,.1)}
+.invite .wrap{padding-block:56px 60px}
+.invite .eyebrow{color:var(--terra)}
+.invite-text{margin-top:14px;font-family:var(--font-display);font-size:clamp(1.35rem,3vw,2rem);line-height:1.35;max-width:34ch}
+.invite-text b,.invite-close b{font-weight:400;color:var(--terra)}
+.invite-close{margin-top:16px;font-size:1.08rem;max-width:52ch;color:rgba(242,235,219,.82)}
+.invite-list{list-style:none;margin:30px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.invite-list li{font-size:.86rem;padding:6px 13px;border-radius:999px;border:1px solid rgba(242,235,219,.25);color:rgba(242,235,219,.9)}
+@media (max-width:820px){.invite .wrap{padding-block:40px 44px}}
 
 /* App */
 .app-card{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;background:var(--surface);border-radius:18px;padding:clamp(24px,4vw,44px)}
@@ -482,6 +521,17 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
   </div>
 </header>
 
+<section class="invite" aria-labelledby="invite-t">
+  <div class="wrap">
+    <p class="eyebrow" id="invite-t">Una invitación</p>
+    <p class="invite-text">A <b>escucharnos</b>, a “bucear” dentro nuestro, a aprender. A registrar nuestra dimensión corporal y nuestro mundo interior, a observar nuestros vínculos, a compartir deseos y proyectos.</p>
+    <p class="invite-close">Para revitalizar nuestra experiencia y profundizar nuestras motivaciones y nuestro <b>sentido vital</b>.</p>
+    <ul class="invite-list" aria-label="Lo que proponemos">
+      <li>Escucharnos</li><li>Bucear dentro nuestro</li><li>Aprender</li><li>Registrar el cuerpo</li><li>Mirar el mundo interior</li><li>Observar los vínculos</li><li>Compartir deseos y proyectos</li><li>Encontrar sentido</li>
+    </ul>
+  </div>
+</section>
+
 <main>
   <section class="block" id="enfoque">
     <div class="wrap">
@@ -497,9 +547,84 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
         </div>
       </div>
       <div class="pillars">
-        <div><h3>Humanista</h3><p>La persona en el centro, con su capacidad de crecer y elegir.</p></div>
-        <div><h3>Integrativo</h3><p>Herramientas de distintos modelos, elegidas según cada proceso.</p></div>
-        <div><h3>Trascendente</h3><p>Lugar para el sentido, los valores y lo espiritual de cada quien.</p></div>
+        <a class="pillar" href="#eje-hum"><h3>Humanista</h3><p>La persona en el centro, con su capacidad de crecer y elegir.</p><span class="more-l">Leer más <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="pillar" href="#eje-int"><h3>Integrativo</h3><p>Herramientas de distintos modelos, elegidas según cada proceso.</p><span class="more-l">Leer más <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="pillar" href="#eje-tra"><h3>Trascendente</h3><p>Lugar para el sentido, los valores y lo espiritual de cada quien.</p><span class="more-l">Leer más <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      </div>
+      <div class="ejes">
+        <article class="eje" id="eje-hum" aria-labelledby="eje-hum-t">
+          <header class="eje-head"><span class="eje-n">01</span><h3 id="eje-hum-t">Humanista</h3></header>
+          <div class="eje-body">
+            <p class="axis-lead">El humanismo nace a mediados del siglo XX como una “tercera fuerza” en psicología, junto al psicoanálisis y al conductismo. Su pregunta de fondo no es solo qué le pasa a una persona, sino quién es y quién puede llegar a ser.</p>
+            <div class="axis-cols">
+              <div>
+                <h4>Ideas centrales</h4>
+                <ul>
+                  <li><b>La persona como totalidad.</b> Cuerpo, emociones, pensamientos, vínculos y valores forman una unidad: no se trata un síntoma aislado.</li>
+                  <li><b>Tendencia al crecimiento.</b> Toda persona tiene recursos y una inclinación natural a desarrollarse cuando encuentra condiciones que la favorecen.</li>
+                  <li><b>Libertad y responsabilidad.</b> Aun con condicionamientos, siempre queda un margen para elegir cómo responder a lo que nos pasa.</li>
+                  <li><b>La experiencia presente.</b> Importa cómo se vive hoy lo que pasó, no solo su explicación.</li>
+                </ul>
+              </div>
+              <div>
+                <h4>En la consulta</h4>
+                <p>El vínculo terapéutico es el motor del cambio. Carl Rogers lo resumió en tres actitudes: <b>empatía</b>, <b>aceptación incondicional</b> y <b>autenticidad</b>. Quien consulta es protagonista y quien más sabe de su propia vida; el terapeuta acompaña, pregunta y ayuda a ampliar la mirada, sin juzgar.</p>
+                <div class="axis-quote">
+                  <h4>La fuerza de lo afectivo</h4>
+                  <p>Lo que sana no es solo la técnica: es el encuentro. Cuando alguien se siente recibido/a de manera <b>incondicional y genuina</b>, sin tener que ganarse el lugar y sin máscaras de ninguno de los dos lados, el afecto que circula en ese vínculo se vuelve terapéutico en sí mismo. Desde ahí se puede mirar lo que duele, ensayar lo nuevo y volver a confiar.</p>
+                </div>
+                <p class="axis-ref">Referentes: Carl Rogers, Abraham Maslow, Rollo May, Fritz Perls, Viktor Frankl.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="eje" id="eje-int" aria-labelledby="eje-int-t">
+          <header class="eje-head"><span class="eje-n">02</span><h3 id="eje-int-t">Integrativo</h3></header>
+          <div class="eje-body">
+            <p class="axis-lead">La psicoterapia integrativa no es una escuela más, sino una forma de trabajar: parte de la persona y su situación, y desde ahí elige y articula aportes de distintos modelos, en lugar de hacer encajar a la persona en una sola teoría.</p>
+            <div class="axis-cols">
+              <div>
+                <h4>Epistemología de la complejidad</h4>
+                <p>Desde el pensamiento complejo de Edgar Morin, lo humano no se explica por una sola causa. Somos a la vez biológicos, psicológicos, sociales, culturales y espirituales, y esas dimensiones se influyen entre sí.</p>
+                <ul>
+                  <li><b>Sin causas únicas.</b> Un malestar se entiende en su trama: historia, cuerpo, vínculos, contexto y momento vital.</li>
+                  <li><b>Recursividad.</b> Lo que sentimos influye en lo que hacemos, y lo que hacemos vuelve a cambiar lo que sentimos.</li>
+                  <li><b>Sostener tensiones.</b> Aceptación y cambio, razón y emoción, individuo y grupo pueden convivir sin anularse.</li>
+                </ul>
+              </div>
+              <div>
+                <h4>En la consulta</h4>
+                <p>Se pueden combinar recursos de la psicoterapia humanista y existencial, el enfoque psicodinámico, la terapia cognitivo-conductual, la mirada sistémica y las terapias de tercera ola (atención plena, aceptación y compromiso, habilidades DBT), siempre según lo que cada proceso necesita.</p>
+                <p>El proceso se diseña <b>junto con quien consulta</b>: después de las entrevistas iniciales se acuerdan metas, medios y ritmo, y se revisan en el camino. La investigación muestra que la calidad del vínculo terapéutico es uno de los factores que más influyen en los resultados, sea cual sea el modelo.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="eje" id="eje-tra" aria-labelledby="eje-tra-t">
+          <header class="eje-head"><span class="eje-n">03</span><h3 id="eje-tra-t">Trascendente</h3></header>
+          <div class="eje-body">
+            <p class="axis-lead">Trascender es ir más allá de lo inmediato: preguntarse por el sentido profundo de lo que vivimos. Muchas veces esas preguntas aparecen justamente en los momentos difíciles, y merecen un lugar en la terapia.</p>
+            <div class="axis-cols">
+              <div>
+                <h4>El sentido</h4>
+                <p>Viktor Frankl sostuvo que la búsqueda de sentido es una motivación central del ser humano, y que el sentido se descubre por tres caminos: en lo que hacemos y creamos, en lo que vivimos y en quienes amamos, y en la actitud que tomamos ante lo que no podemos cambiar.</p>
+                <h4>Lo espiritual</h4>
+                <p>Entendido en sentido amplio: los valores, lo que nos conmueve, lo que nos conecta con algo más grande que uno mismo. Puede incluir o no una fe religiosa. Se respeta la cosmovisión de cada persona, sin imponer ninguna.</p>
+              </div>
+              <div>
+                <h4>El silencio</h4>
+                <p>En un mundo lleno de ruido, el silencio es un espacio de interioridad: escuchar lo que se siente, contemplar, dejar que algo se aquiete. En la consulta también tiene lugar; a veces lo más importante aparece después de una pausa.</p>
+                <h4>Preguntas que abre</h4>
+                <ul>
+                  <li>¿Qué le da sentido a mi vida hoy?</li>
+                  <li>¿Qué quiero que permanezca de lo que hago y de quien soy?</li>
+                  <li>¿Cómo quiero atravesar lo que no puedo cambiar?</li>
+                </ul>
+                <p class="axis-ref">Para seguir: <a href="plantillas/el-sentido-de-mi-vida.pdf" target="_blank" rel="noopener">“El sentido de mi vida”</a> y <a href="plantillas/silencio-pausa-y-calma.pdf" target="_blank" rel="noopener">“Silencio, pausa y calma”</a>.</p>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
       <div class="find">
         <div class="find-head">
@@ -664,6 +789,21 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
       <p class="eyebrow">Psicoeducación</p>
       <h2>Entender lo que sentimos para elegir qué hacer</h2>
       <p style="margin-top:12px;color:var(--muted);max-width:52ch">Materiales breves para leer con calma, guardar y volver a ellos cuando hagan falta.</p>
+      <ul class="pe-index" aria-label="Temas de psicoeducación">
+        <li><a href="#emocion-y-reaccion">Emoción y reacción</a></li>
+        <li><a href="#miedos-fobias-y-panico">Miedos, fobias y pánico</a></li>
+        <li><a href="#ansiedad-y-cuerpo">Ansiedad y cuerpo</a></li>
+        <li><a href="#el-perdon">El perdón</a></li>
+        <li><a href="#autocompasion">Autocompasión</a></li>
+        <li><a href="#el-que-diran">El qué dirán</a></li>
+        <li><a href="#imagen-corporal">Imagen corporal</a></li>
+        <li><a href="#respetar-tu-proceso">Respetar tu propio proceso</a></li>
+        <li><a href="#atencion-plena">Vivir el presente</a></li>
+        <li><a href="#silencio-y-meditacion">Silencio y meditación</a></li>
+        <li><a href="#empatia">Empatía y neuronas espejo</a></li>
+        <li><a href="#fatiga-por-compasion">Fatiga por compasión</a></li>
+        <li><a href="#vivir-con-sentido">Vivir con sentido</a></li>
+      </ul>
       <div class="pe-grid" id="emocion-y-reaccion">
         <div>
           <div class="pe-piece">
@@ -803,6 +943,330 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
             <figure><img src="psicoeducacion/el-perdon/04.jpg" width="1080" height="1350" loading="lazy" alt="Pedir perdón. Reconocer: nombrar lo que hiciste, sin pero y sin excusas. Validar: entender cómo afectó a la otra persona. Reparar: ofrecer lo que esté a tu alcance y cambiar lo que haga falta. Y respetar su tiempo: pedir perdón no obliga a que te perdonen."></figure>
             <figure><img src="psicoeducacion/el-perdon/05.jpg" width="1080" height="1350" loading="lazy" alt="Perdonarte a vos. Hacerte cargo de un error no es lo mismo que castigarte por él. Perdonarte es aprender de lo que pasó, reparar si se puede, y hablarte con la misma comprensión que le darías a alguien que querés."></figure>
             <figure><img src="psicoeducacion/el-perdon/06.jpg" width="1080" height="1350" loading="lazy" alt="¿Qué perdón está esperando en tu vida: darlo, pedirlo o dártelo? ¡Adelante!… paso a paso. Contenido informativo, no reemplaza una consulta profesional."></figure>
+          </div>
+          <div class="car-bar">
+            <div class="car-dots"></div>
+            <div class="car-nav">
+              <span class="car-count" aria-live="polite">1 / 6</span>
+              <button type="button" class="car-prev" aria-label="Anterior">←</button>
+              <button type="button" class="car-next" aria-label="Siguiente">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pe-grid" id="autocompasion">
+        <div>
+          <div class="pe-piece">
+            <span class="pe-tag">Autocompasión</span>
+            <h3>Autocompasión</h3>
+            <p>Tratarte como tratarías a alguien que querés. Qué es (y qué no es) la autocompasión y tres pasos para practicarla, basados en el modelo de Kristin Neff.</p>
+            <ol class="pe-steps" aria-label="Tres pasos">
+              <li><span>1</span>Darte cuenta</li>
+              <li><span>2</span>Recordar que no sos la única persona</li>
+              <li><span>3</span>Ser amable con vos</li>
+            </ol>
+            <div class="pe-actions">
+              <a class="btn btn-line" href="psicoeducacion/autocompasion/autocompasion.pdf" download>Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="autocompasion" data-title="Autocompasión" data-text="Tratarte como tratarías a alguien que querés.">Compartir</button>
+            </div>
+          </div>
+        </div>
+        <div class="car" aria-roledescription="carrusel" aria-label="Autocompasión">
+          <div class="car-track" tabindex="0">
+            <figure><img src="psicoeducacion/autocompasion/01.jpg" width="1080" height="1350" loading="lazy" alt="Autocompasión: tratarte como tratarías a alguien que querés."></figure>
+            <figure><img src="psicoeducacion/autocompasion/02.jpg" width="1080" height="1350" loading="lazy" alt="01. No es lástima ni conformismo. Es responder a tu propio malestar con la misma calidez que le ofrecerías a otra persona. Y no te vuelve menos responsable: te ayuda a levantarte después de un error. Basado en el modelo de Kristin Neff."></figure>
+            <figure><img src="psicoeducacion/autocompasion/03.jpg" width="1080" height="1350" loading="lazy" alt="02. Paso 1: Darte cuenta. Reconocer esto es difícil sin exagerarlo y sin taparlo. Probá: ponerle nombre a lo que sentís. Esto es tristeza. Esto es miedo."></figure>
+            <figure><img src="psicoeducacion/autocompasion/04.jpg" width="1080" height="1350" loading="lazy" alt="03. Paso 2: Recordar que no sos la única persona. A otras personas también les pasa. Equivocarse y sufrir es parte de ser humano, no algo que te separa del resto. Probá: decirte esto también le pasa a mucha gente."></figure>
+            <figure><img src="psicoeducacion/autocompasion/05.jpg" width="1080" height="1350" loading="lazy" alt="04. Paso 3: Ser amable con vos. Hablate con el tono que usarías con alguien que querés. Apoyar una mano en el pecho mientras lo hacés puede ayudar. Probá: preguntate ¿qué necesito ahora? y date una cosa pequeña de eso."></figure>
+            <figure><img src="psicoeducacion/autocompasion/06.jpg" width="1080" height="1350" loading="lazy" alt="¿Qué te dirías hoy si fueras tu propia mejor amistad? ¡Adelante!… paso a paso. Contenido informativo. No reemplaza una consulta profesional."></figure>
+          </div>
+          <div class="car-bar">
+            <div class="car-dots"></div>
+            <div class="car-nav">
+              <span class="car-count" aria-live="polite">1 / 6</span>
+              <button type="button" class="car-prev" aria-label="Anterior">←</button>
+              <button type="button" class="car-next" aria-label="Siguiente">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pe-grid flip" id="el-que-diran">
+        <div>
+          <div class="pe-piece">
+            <span class="pe-tag">Autoestima</span>
+            <h3>El qué dirán</h3>
+            <p>Cuando la mirada ajena pesa demasiado: por qué nos importa tanto, cuándo empieza a limitarte, el efecto foco y preguntas que ayudan.</p>
+            <ol class="pe-steps" aria-label="Preguntas que ayudan">
+              <li><span>1</span>¿De quién es esa voz?</li>
+              <li><span>2</span>¿Qué es lo peor que puede pasar?</li>
+              <li><span>3</span>¿Qué elegirías si nadie mirara?</li>
+            </ol>
+            <div class="pe-actions">
+              <a class="btn btn-line" href="psicoeducacion/el-que-diran/el-que-diran.pdf" download>Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="el-que-diran" data-title="El qué dirán" data-text="Cuando la mirada ajena pesa demasiado.">Compartir</button>
+            </div>
+          </div>
+        </div>
+        <div class="car" aria-roledescription="carrusel" aria-label="El qué dirán">
+          <div class="car-track" tabindex="0">
+            <figure><img src="psicoeducacion/el-que-diran/01.jpg" width="1080" height="1350" loading="lazy" alt="Autoestima. El qué dirán: cuando la mirada ajena pesa demasiado."></figure>
+            <figure><img src="psicoeducacion/el-que-diran/02.jpg" width="1080" height="1350" loading="lazy" alt="01. Un miedo muy humano. Somos seres sociales: durante mucho tiempo, pertenecer al grupo fue clave para sobrevivir. Por eso nos importa cómo nos ven. El problema aparece cuando ese miedo decide por nosotros."></figure>
+            <figure><img src="psicoeducacion/el-que-diran/03.jpg" width="1080" height="1350" loading="lazy" alt="02. Cuando empieza a limitarte. Dejás de hacer cosas que querés. Decís que sí cuando querés decir que no. Pensás mucho lo que vas a decir, y después lo repasás una y otra vez."></figure>
+            <figure><img src="psicoeducacion/el-que-diran/04.jpg" width="1080" height="1350" loading="lazy" alt="03. El efecto foco. Las investigaciones muestran que tendemos a sobreestimar cuánto notan los demás lo que hacemos o cómo nos vemos. La mayoría de las personas está más ocupada pensando en sí misma."></figure>
+            <figure><img src="psicoeducacion/el-que-diran/05.jpg" width="1080" height="1350" loading="lazy" alt="04. Preguntas que ayudan. ¿De quién es esa voz? A veces es una crítica que aprendimos hace mucho. ¿Qué es lo peor que puede pasar? ¿Y podrías atravesarlo? ¿Qué elegirías si nadie mirara? Ahí suele haber una pista de lo que te importa."></figure>
+            <figure><img src="psicoeducacion/el-que-diran/06.jpg" width="1080" height="1350" loading="lazy" alt="¿Qué harías distinto si no te importara tanto lo que van a decir? ¡Adelante!… paso a paso. Contenido informativo. No reemplaza una consulta profesional."></figure>
+          </div>
+          <div class="car-bar">
+            <div class="car-dots"></div>
+            <div class="car-nav">
+              <span class="car-count" aria-live="polite">1 / 6</span>
+              <button type="button" class="car-prev" aria-label="Anterior">←</button>
+              <button type="button" class="car-next" aria-label="Siguiente">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pe-grid" id="imagen-corporal">
+        <div>
+          <div class="pe-piece">
+            <span class="pe-tag">Cuerpo</span>
+            <h3>Imagen corporal</h3>
+            <p>Hacer las paces con tu cuerpo: qué es la imagen corporal, qué la afecta y pequeños cambios para tratarlo con más respeto.</p>
+            <ol class="pe-steps" aria-label="Pequeños cambios">
+              <li><span>1</span>Cuidá lo que mirás</li>
+              <li><span>2</span>Agradecé lo que hace</li>
+              <li><span>3</span>Cambiá la conversación</li>
+            </ol>
+            <div class="pe-actions">
+              <a class="btn btn-line" href="psicoeducacion/imagen-corporal/imagen-corporal.pdf" download>Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="imagen-corporal" data-title="Imagen corporal" data-text="Hacer las paces con tu cuerpo.">Compartir</button>
+            </div>
+          </div>
+        </div>
+        <div class="car" aria-roledescription="carrusel" aria-label="Imagen corporal">
+          <div class="car-track" tabindex="0">
+            <figure><img src="psicoeducacion/imagen-corporal/01.jpg" width="1080" height="1350" loading="lazy" alt="Cuerpo. Imagen corporal: hacer las paces con tu cuerpo."></figure>
+            <figure><img src="psicoeducacion/imagen-corporal/02.jpg" width="1080" height="1350" loading="lazy" alt="01. ¿Qué es la imagen corporal? Es cómo percibimos, pensamos y sentimos nuestro cuerpo. No siempre coincide con cómo es en realidad. Se forma con nuestra historia, los comentarios que recibimos y los mensajes de la cultura."></figure>
+            <figure><img src="psicoeducacion/imagen-corporal/03.jpg" width="1080" height="1350" loading="lazy" alt="02. Lo que la afecta: compararse con imágenes editadas en redes; comentarios sobre el cuerpo, aunque sean en broma; la idea de que hay un solo tipo de cuerpo válido."></figure>
+            <figure><img src="psicoeducacion/imagen-corporal/04.jpg" width="1080" height="1350" loading="lazy" alt="03. Un cuerpo para vivir, no solo para mirar. Tu cuerpo es lo que te permite abrazar, caminar, sentir y descansar. No hace falta que te encante todo de él para tratarlo con respeto."></figure>
+            <figure><img src="psicoeducacion/imagen-corporal/05.jpg" width="1080" height="1350" loading="lazy" alt="04. Pequeños cambios. Cuidá lo que mirás: dejá de seguir cuentas que te hacen sentir mal. Agradecé lo que hace: una cosa por día que tu cuerpo te permite. Cambiá la conversación: hablá menos de cuerpos y más de personas."></figure>
+            <figure><img src="psicoeducacion/imagen-corporal/06.jpg" width="1080" height="1350" loading="lazy" alt="¿Qué le agradecerías hoy a tu cuerpo? ¡Adelante!… paso a paso. Contenido informativo. No reemplaza una consulta profesional."></figure>
+          </div>
+          <div class="car-bar">
+            <div class="car-dots"></div>
+            <div class="car-nav">
+              <span class="car-count" aria-live="polite">1 / 6</span>
+              <button type="button" class="car-prev" aria-label="Anterior">←</button>
+              <button type="button" class="car-next" aria-label="Siguiente">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pe-grid flip" id="respetar-tu-proceso">
+        <div>
+          <div class="pe-piece">
+            <span class="pe-tag">Crecimiento personal</span>
+            <h3>Respetar tu propio proceso</h3>
+            <p>Cada proceso tiene su ritmo. Avanzar no es una línea recta, compararte es una trampa y hay formas de acompañarte con paciencia.</p>
+            <ol class="pe-steps" aria-label="Cómo acompañarte">
+              <li><span>1</span>Registrá lo pequeño</li>
+              <li><span>2</span>Hablate con paciencia</li>
+              <li><span>3</span>Pedí ayuda</li>
+            </ol>
+            <div class="pe-actions">
+              <a class="btn btn-line" href="psicoeducacion/respetar-tu-proceso/respetar-tu-proceso.pdf" download>Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="respetar-tu-proceso" data-title="Respetar tu propio proceso" data-text="Cada proceso tiene su ritmo.">Compartir</button>
+            </div>
+          </div>
+        </div>
+        <div class="car" aria-roledescription="carrusel" aria-label="Respetar tu propio proceso">
+          <div class="car-track" tabindex="0">
+            <figure><img src="psicoeducacion/respetar-tu-proceso/01.jpg" width="1080" height="1350" loading="lazy" alt="Crecimiento personal. El valor de respetar tu propio proceso."></figure>
+            <figure><img src="psicoeducacion/respetar-tu-proceso/02.jpg" width="1080" height="1350" loading="lazy" alt="01. Cada proceso tiene su ritmo. Sanar, cambiar o aprender algo nuevo no sigue un camino recto ni un calendario fijo. Lo que a alguien le lleva semanas, a otra persona le puede llevar años. Y está bien."></figure>
+            <figure><img src="psicoeducacion/respetar-tu-proceso/03.jpg" width="1080" height="1350" loading="lazy" alt="02. Avanzar no es una línea recta. Hay días de avance y días de retroceso. Una recaída no borra lo que ya aprendiste. A veces el cambio es invisible por un tiempo, como una semilla bajo tierra."></figure>
+            <figure><img src="psicoeducacion/respetar-tu-proceso/04.jpg" width="1080" height="1350" loading="lazy" alt="03. La trampa de compararte. Cuando te comparás, ponés tu proceso completo al lado de lo poco que se ve del de otra persona. Una pregunta más justa: ¿cómo estoy hoy en comparación con hace un tiempo?"></figure>
+            <figure><img src="psicoeducacion/respetar-tu-proceso/05.jpg" width="1080" height="1350" loading="lazy" alt="04. Cómo acompañarte. Registrá lo pequeño: anotar avances chicos ayuda a verlos. Hablate con paciencia, como le hablarías a alguien que querés. Pedí ayuda: un proceso no tiene por qué recorrerse en soledad."></figure>
+            <figure><img src="psicoeducacion/respetar-tu-proceso/06.jpg" width="1080" height="1350" loading="lazy" alt="¿Qué parte de tu proceso merece hoy un poco más de paciencia? ¡Adelante!… paso a paso. Contenido informativo. No reemplaza una consulta profesional."></figure>
+          </div>
+          <div class="car-bar">
+            <div class="car-dots"></div>
+            <div class="car-nav">
+              <span class="car-count" aria-live="polite">1 / 6</span>
+              <button type="button" class="car-prev" aria-label="Anterior">←</button>
+              <button type="button" class="car-next" aria-label="Siguiente">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pe-grid" id="atencion-plena">
+        <div>
+          <div class="pe-piece">
+            <span class="pe-tag">Atención plena</span>
+            <h3>Vivir el presente</h3>
+            <p>El piloto automático, qué es (y qué no es) estar presente, un ancla para volver al cuerpo y pequeñas prácticas para el día a día.</p>
+            <ol class="pe-steps" aria-label="Un ancla para volver">
+              <li><span>1</span>5 cosas que ves, 4 que podés tocar</li>
+              <li><span>2</span>3 sonidos, 2 olores, 1 sabor</li>
+              <li><span>3</span>Una cosa a la vez</li>
+            </ol>
+            <div class="pe-actions">
+              <a class="btn btn-line" href="psicoeducacion/atencion-plena/atencion-plena.pdf" download>Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="atencion-plena" data-title="Vivir el presente" data-text="Volver a donde estás.">Compartir</button>
+            </div>
+          </div>
+        </div>
+        <div class="car" aria-roledescription="carrusel" aria-label="Vivir el presente">
+          <div class="car-track" tabindex="0">
+            <figure><img src="psicoeducacion/atencion-plena/01.jpg" width="1080" height="1350" loading="lazy" alt="Atención plena. Vivir el presente: volver a donde estás."></figure>
+            <figure><img src="psicoeducacion/atencion-plena/02.jpg" width="1080" height="1350" loading="lazy" alt="01. El piloto automático. Gran parte del día la mente está en otro lado: repasando lo que pasó o anticipando lo que viene. No es un error, es cómo funciona. Pero si vivimos siempre así, el día pasa sin que lo registremos."></figure>
+            <figure><img src="psicoeducacion/atencion-plena/03.jpg" width="1080" height="1350" loading="lazy" alt="02. ¿Qué es estar presente? No es poner la mente en blanco: es notar lo que pasa ahora, adentro y afuera. No es estar siempre bien: también se puede estar presente con algo difícil. Es volver: darte cuenta de que te fuiste y regresar, una y otra vez."></figure>
+            <figure><img src="psicoeducacion/atencion-plena/04.jpg" width="1080" height="1350" loading="lazy" alt="03. Un ancla para volver: 5 cosas que ves, 4 cosas que podés tocar, 3 sonidos que escuchás, 2 olores que notás, 1 sabor que sentís. Sirve cuando la mente se acelera y necesitás bajar al cuerpo."></figure>
+            <figure><img src="psicoeducacion/atencion-plena/05.jpg" width="1080" height="1350" loading="lazy" alt="04. En lo cotidiano. Una cosa a la vez: comer sin pantalla, aunque sea un rato. Los sentidos: el agua en la ducha, el sabor del mate, el sol en la cara. Pausas breves: tres respiraciones antes de abrir el celular."></figure>
+            <figure><img src="psicoeducacion/atencion-plena/06.jpg" width="1080" height="1350" loading="lazy" alt="¿Qué momento de hoy podrías vivir con más atención? ¡Adelante!… paso a paso. Contenido informativo. No reemplaza una consulta profesional."></figure>
+          </div>
+          <div class="car-bar">
+            <div class="car-dots"></div>
+            <div class="car-nav">
+              <span class="car-count" aria-live="polite">1 / 6</span>
+              <button type="button" class="car-prev" aria-label="Anterior">←</button>
+              <button type="button" class="car-next" aria-label="Siguiente">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pe-grid flip" id="silencio-y-meditacion">
+        <div>
+          <div class="pe-piece">
+            <span class="pe-tag">Bienestar</span>
+            <h3>Silencio y meditación</h3>
+            <p>Para qué sirve el silencio en un mundo lleno de ruido, por qué meditar no es dejar la mente en blanco y una práctica de tres minutos.</p>
+            <ol class="pe-steps" aria-label="Probá 3 minutos">
+              <li><span>1</span>Postura</li>
+              <li><span>2</span>Respiración</li>
+              <li><span>3</span>Volver, con amabilidad</li>
+            </ol>
+            <div class="pe-actions">
+              <a class="btn btn-line" href="psicoeducacion/silencio-y-meditacion/silencio-y-meditacion.pdf" download>Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="silencio-y-meditacion" data-title="Silencio y meditación" data-text="Un lugar para volver a vos.">Compartir</button>
+            </div>
+          </div>
+        </div>
+        <div class="car" aria-roledescription="carrusel" aria-label="Silencio y meditación">
+          <div class="car-track" tabindex="0">
+            <figure><img src="psicoeducacion/silencio-y-meditacion/01.jpg" width="1080" height="1350" loading="lazy" alt="Bienestar. Silencio y meditación: un lugar para volver a vos."></figure>
+            <figure><img src="psicoeducacion/silencio-y-meditacion/02.jpg" width="1080" height="1350" loading="lazy" alt="01. Vivimos con ruido. Notificaciones, pantallas, conversaciones, pendientes. Casi no quedan momentos sin estímulos. El silencio se vuelve raro, y a veces hasta incómodo."></figure>
+            <figure><img src="psicoeducacion/silencio-y-meditacion/03.jpg" width="1080" height="1350" loading="lazy" alt="02. ¿Para qué sirve el silencio? Darle un descanso a la atención. Escuchar lo que sentís y pensás. Bajar el ritmo y registrar el cuerpo. No hace falta irse lejos: alcanza con unos minutos sin estímulos."></figure>
+            <figure><img src="psicoeducacion/silencio-y-meditacion/04.jpg" width="1080" height="1350" loading="lazy" alt="03. Meditar no es dejar la mente en blanco. Es entrenar la atención: elegir un punto de apoyo, como la respiración, y volver a él cada vez que la mente se va. Distraerse no es hacerlo mal. Volver es la práctica."></figure>
+            <figure><img src="psicoeducacion/silencio-y-meditacion/05.jpg" width="1080" height="1350" loading="lazy" alt="04. Probá 3 minutos. 1, postura: sentate cómodo/a, con la espalda erguida y los hombros sueltos. 2, respiración: notá el aire entrar y salir, sin cambiarlo. 3, volver: cuando te distraigas, volvé a la respiración con amabilidad."></figure>
+            <figure><img src="psicoeducacion/silencio-y-meditacion/06.jpg" width="1080" height="1350" loading="lazy" alt="¿En qué momento del día podrías regalarte unos minutos de silencio? ¡Adelante!… paso a paso. Contenido informativo. No reemplaza una consulta profesional."></figure>
+          </div>
+          <div class="car-bar">
+            <div class="car-dots"></div>
+            <div class="car-nav">
+              <span class="car-count" aria-live="polite">1 / 6</span>
+              <button type="button" class="car-prev" aria-label="Anterior">←</button>
+              <button type="button" class="car-next" aria-label="Siguiente">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pe-grid" id="empatia">
+        <div>
+          <div class="pe-piece">
+            <span class="pe-tag">Vínculos</span>
+            <h3>Empatía y neuronas espejo</h3>
+            <p>Las tres formas de la empatía, lo que sabemos (y lo que no) sobre las neuronas espejo y cómo practicar una escucha más empática.</p>
+            <ol class="pe-steps" aria-label="Practicar la empatía">
+              <li><span>1</span>Escuchar sin apurarte</li>
+              <li><span>2</span>Preguntar en lugar de suponer</li>
+              <li><span>3</span>Validar</li>
+            </ol>
+            <div class="pe-actions">
+              <a class="btn btn-line" href="psicoeducacion/empatia/empatia.pdf" download>Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="empatia" data-title="Empatía y neuronas espejo" data-text="Sentir con otras personas.">Compartir</button>
+            </div>
+          </div>
+        </div>
+        <div class="car" aria-roledescription="carrusel" aria-label="Empatía y neuronas espejo">
+          <div class="car-track" tabindex="0">
+            <figure><img src="psicoeducacion/empatia/01.jpg" width="1080" height="1350" loading="lazy" alt="Vínculos. Empatía y neuronas espejo: sentir con otros."></figure>
+            <figure><img src="psicoeducacion/empatia/02.jpg" width="1080" height="1350" loading="lazy" alt="01. Tres formas de empatía. Cognitiva: entender lo que la otra persona piensa o siente. Emocional: resonar con lo que siente, sentirlo en parte con ella. Compasiva: además de entender y sentir, querer aliviar su malestar."></figure>
+            <figure><img src="psicoeducacion/empatia/03.jpg" width="1080" height="1350" loading="lazy" alt="02. Las neuronas espejo. En los años 90, un equipo de la Universidad de Parma encontró en monos neuronas que se activan tanto al hacer una acción como al ver a otro hacerla. En personas se observaron áreas del cerebro con una actividad parecida."></figure>
+            <figure><img src="psicoeducacion/empatia/04.jpg" width="1080" height="1350" loading="lazy" alt="03. Lo que sabemos (y lo que no). Este sistema podría participar en cómo comprendemos las acciones y emociones de los demás. Pero la empatía no se reduce a un grupo de neuronas: intervienen muchas áreas del cerebro, la historia de cada persona y el vínculo."></figure>
+            <figure><img src="psicoeducacion/empatia/05.jpg" width="1080" height="1350" loading="lazy" alt="04. Practicar la empatía. Escuchar sin apurarte, antes de responder o aconsejar. Preguntar ¿Cómo lo estás viviendo? en lugar de suponer. Validar: Tiene sentido que te sientas así."></figure>
+            <figure><img src="psicoeducacion/empatia/06.jpg" width="1080" height="1350" loading="lazy" alt="¿Cuándo fue la última vez que sentiste que alguien te escuchó de verdad? ¡Adelante!… paso a paso. Contenido informativo. No reemplaza una consulta profesional."></figure>
+          </div>
+          <div class="car-bar">
+            <div class="car-dots"></div>
+            <div class="car-nav">
+              <span class="car-count" aria-live="polite">1 / 6</span>
+              <button type="button" class="car-prev" aria-label="Anterior">←</button>
+              <button type="button" class="car-next" aria-label="Siguiente">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pe-grid flip" id="fatiga-por-compasion">
+        <div>
+          <div class="pe-piece">
+            <span class="pe-tag">Cuidar a quien cuida</span>
+            <h3>Fatiga por compasión</h3>
+            <p>Cuando cuidar te desgasta: qué es, algunas señales para reconocerla y cómo cuidarte para poder seguir cuidando.</p>
+            <ol class="pe-steps" aria-label="Cuidarte para poder cuidar">
+              <li><span>1</span>Límites</li>
+              <li><span>2</span>Espacios propios</li>
+              <li><span>3</span>Compartirlo</li>
+            </ol>
+            <div class="pe-actions">
+              <a class="btn btn-line" href="psicoeducacion/fatiga-por-compasion/fatiga-por-compasion.pdf" download>Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="fatiga-por-compasion" data-title="Fatiga por compasión" data-text="Cuando cuidar te desgasta.">Compartir</button>
+            </div>
+          </div>
+        </div>
+        <div class="car" aria-roledescription="carrusel" aria-label="Fatiga por compasión">
+          <div class="car-track" tabindex="0">
+            <figure><img src="psicoeducacion/fatiga-por-compasion/01.jpg" width="1080" height="1350" loading="lazy" alt="Cuidar a quien cuida. Fatiga por compasión: cuando cuidar te desgasta."></figure>
+            <figure><img src="psicoeducacion/fatiga-por-compasion/02.jpg" width="1080" height="1350" loading="lazy" alt="01. ¿Qué es? Es el desgaste físico y emocional que puede aparecer al estar en contacto, de forma sostenida, con el sufrimiento de otras personas. Puede afectar a profesionales de la salud, docentes, cuidadores y familiares de personas enfermas."></figure>
+            <figure><img src="psicoeducacion/fatiga-por-compasion/03.jpg" width="1080" height="1350" loading="lazy" alt="02. Algunas señales: cansancio que no se va con el descanso; irritabilidad o sensación de estar al límite; distancia emocional, cuesta conectar como antes; el sufrimiento ajeno te sigue fuera del horario de cuidado."></figure>
+            <figure><img src="psicoeducacion/fatiga-por-compasion/04.jpg" width="1080" height="1350" loading="lazy" alt="03. No es falta de vocación. Suele aparecer justamente en quienes se involucran y se preocupan por los demás. No es debilidad: es una señal de que tus propios recursos necesitan reponerse."></figure>
+            <figure><img src="psicoeducacion/fatiga-por-compasion/05.jpg" width="1080" height="1350" loading="lazy" alt="04. Cuidarte para poder cuidar. Límites: horarios, pausas y momentos sin estar disponible. Espacios propios: actividades que no tengan que ver con cuidar. Compartirlo: supervisión, terapia o personas de confianza."></figure>
+            <figure><img src="psicoeducacion/fatiga-por-compasion/06.jpg" width="1080" height="1350" loading="lazy" alt="¿Qué hacés para cuidarte mientras cuidás a otras personas? ¡Adelante!… paso a paso. Contenido informativo. No reemplaza una consulta profesional."></figure>
+          </div>
+          <div class="car-bar">
+            <div class="car-dots"></div>
+            <div class="car-nav">
+              <span class="car-count" aria-live="polite">1 / 6</span>
+              <button type="button" class="car-prev" aria-label="Anterior">←</button>
+              <button type="button" class="car-next" aria-label="Siguiente">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pe-grid" id="vivir-con-sentido">
+        <div>
+          <div class="pe-piece">
+            <span class="pe-tag">Valores</span>
+            <h3>Vivir con sentido</h3>
+            <p>Una idea de Viktor Frankl, la diferencia entre metas y valores y preguntas para orientarte hacia lo que te importa.</p>
+            <ol class="pe-steps" aria-label="Preguntas para orientarte">
+              <li><span>1</span>¿Qué querés que signifique tu presencia?</li>
+              <li><span>2</span>¿Qué te hace perder la noción del tiempo?</li>
+              <li><span>3</span>¿Qué harías aunque nadie lo viera?</li>
+            </ol>
+            <div class="pe-actions">
+              <a class="btn btn-line" href="psicoeducacion/vivir-con-sentido/vivir-con-sentido.pdf" download>Descargar PDF</a>
+              <button class="btn btn-line" type="button" data-share="vivir-con-sentido" data-title="Vivir con sentido" data-text="Saber hacia dónde vas.">Compartir</button>
+            </div>
+          </div>
+        </div>
+        <div class="car" aria-roledescription="carrusel" aria-label="Vivir con sentido">
+          <div class="car-track" tabindex="0">
+            <figure><img src="psicoeducacion/vivir-con-sentido/01.jpg" width="1080" height="1350" loading="lazy" alt="Valores. Vivir con sentido: saber hacia dónde vas."></figure>
+            <figure><img src="psicoeducacion/vivir-con-sentido/02.jpg" width="1080" height="1350" loading="lazy" alt="01. Una idea de Viktor Frankl. Psiquiatra y sobreviviente de los campos de concentración, sostuvo que la búsqueda de sentido es una motivación central del ser humano. El sentido se descubre en lo que hacemos, en quienes amamos y en la actitud ante lo que no podemos cambiar."></figure>
+            <figure><img src="psicoeducacion/vivir-con-sentido/03.jpg" width="1080" height="1350" loading="lazy" alt="02. Metas y valores no son lo mismo. Una meta se cumple y se termina: recibirte, mudarte, terminar un proyecto. Un valor es una dirección que no se agota: ser una persona presente, honesta, solidaria."></figure>
+            <figure><img src="psicoeducacion/vivir-con-sentido/04.jpg" width="1080" height="1350" loading="lazy" alt="03. Como un faro. Los valores no te dicen exactamente qué hacer, pero te ayudan a orientarte cuando hay tormenta. Aun en días difíciles, se puede dar un paso en la dirección que importa."></figure>
+            <figure><img src="psicoeducacion/vivir-con-sentido/05.jpg" width="1080" height="1350" loading="lazy" alt="04. Preguntas para orientarte. ¿Qué querés que signifique tu presencia para las personas que querés? ¿Qué te hace perder la noción del tiempo? ¿Qué harías aunque nadie lo viera?"></figure>
+            <figure><img src="psicoeducacion/vivir-con-sentido/06.jpg" width="1080" height="1350" loading="lazy" alt="¿Qué pequeño paso podés dar hoy hacia lo que te importa? ¡Adelante!… paso a paso. Contenido informativo. No reemplaza una consulta profesional."></figure>
           </div>
           <div class="car-bar">
             <div class="car-dots"></div>
