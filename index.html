@@ -478,6 +478,17 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
 /* WhatsApp flotante */
 .wa-float{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:7;display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:var(--petrol);text-decoration:none;font-weight:600;font-size:.92rem;padding:12px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(14,49,56,.28)}
 .wa-float svg{width:20px;height:20px}
+.faq{display:flex;flex-direction:column}
+.faq-q{border-top:1px solid var(--line);padding:16px 0}
+.faq-q:last-child{border-bottom:1px solid var(--line)}
+.faq-q > summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:1.05rem}
+.faq-q > summary::-webkit-details-marker{display:none}
+.faq-q > summary::after{content:"+";color:var(--accent);font-size:1.4rem;line-height:1;transition:transform .2s}
+.faq-q[open] > summary::after{transform:rotate(45deg)}
+.faq-q p{margin-top:10px;color:var(--muted);max-width:60ch}
+.wa-float.is-hidden{opacity:0;pointer-events:none;transform:translateY(12px)}
+.wa-float{transition:opacity .25s,transform .25s}
+
 .toast{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 
 /* Bienvenida: qué vas a encontrar */
@@ -493,6 +504,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
 @media (max-width:900px){.find{grid-template-columns:1fr;gap:18px}.find-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.find-grid{grid-template-columns:1fr}}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cómo pido un turno?", "acceptedAnswer": {"@type": "Answer", "text": "Escribime por WhatsApp al 341 660-1847 o por mail a ericterlecki@gmail.com. Acordamos día, horario y modalidad; según tu disponibilidad, buscamos un espacio para la próxima semana o la siguiente."}}, {"@type": "Question", "name": "¿Cómo es la primera entrevista?", "acceptedAnswer": {"@type": "Answer", "text": "Es la primera de una serie de tres entrevistas iniciales, en las que exploramos los motivos de consulta: qué te trae y qué esperás. Después, definimos juntos el diseño, las metas y los medios del proceso."}}, {"@type": "Question", "name": "¿Cuánto dura cada sesión y cada cuánto nos vemos?", "acceptedAnswer": {"@type": "Answer", "text": "Los encuentros duran una hora aproximadamente, con frecuencia semanal o quincenal."}}, {"@type": "Question", "name": "¿Cuánto dura un tratamiento?", "acceptedAnswer": {"@type": "Answer", "text": "Depende de cada persona y de lo que la trae. Lo vamos pensando juntos al definir las metas del proceso, después de las entrevistas iniciales, y lo revisamos en el camino."}}, {"@type": "Question", "name": "¿Atendés de forma virtual?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Además del consultorio de Pasaje Rizzuto 3451, en Rosario, atiendo de forma virtual por Meet o Zoom, desde cualquier lugar."}}, {"@type": "Question", "name": "¿Trabajás con obras sociales? ¿Cómo se paga?", "acceptedAnswer": {"@type": "Answer", "text": "No trabajo con obras sociales. Los honorarios son por sesión y podés pagar con todos los medios de pago. Si querés saber el valor, consultame por WhatsApp."}}, {"@type": "Question", "name": "¿Qué días y horarios atendés?", "acceptedAnswer": {"@type": "Answer", "text": "De lunes a viernes de 8 a 21 h y los sábados de 8 a 13 h."}}, {"@type": "Question", "name": "¿Atendés parejas y familias?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Además de psicoterapia individual, trabajo con parejas y familias, y doy conferencias y talleres para instituciones, escuelas y grupos."}}, {"@type": "Question", "name": "¿Lo que hablo en sesión es confidencial?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Lo que conversamos está protegido por el secreto profesional, salvo las excepciones que prevé la ley ante situaciones de riesgo."}}]}</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -604,6 +616,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
         <li><a href="#plantillas">Plantillas</a></li>
         <li><a href="#dinamicas">Dinámicas</a></li>
         <li><a href="#app">App de registro</a></li>
+        <li><a href="#preguntas">Preguntas</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
@@ -2270,6 +2283,29 @@ Estoy acá. Estoy a salvo.</p></details>
     </div>
   </section>
 
+  <section class="block" id="preguntas">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Antes de empezar</h2>
+          <p style="margin-top:12px;color:var(--muted);max-width:40ch">Lo que más me consultan antes de la primera entrevista. Si tenés otra duda, escribime.</p>
+        </div>
+        <div class="faq">
+        <details class="faq-q"><summary>¿Cómo pido un turno?</summary><p>Escribime por WhatsApp al 341 660-1847 o por mail a ericterlecki@gmail.com. Acordamos día, horario y modalidad; según tu disponibilidad, buscamos un espacio para la próxima semana o la siguiente.</p></details>
+        <details class="faq-q"><summary>¿Cómo es la primera entrevista?</summary><p>Es la primera de una serie de tres entrevistas iniciales, en las que exploramos los motivos de consulta: qué te trae y qué esperás. Después, definimos juntos el diseño, las metas y los medios del proceso.</p></details>
+        <details class="faq-q"><summary>¿Cuánto dura cada sesión y cada cuánto nos vemos?</summary><p>Los encuentros duran una hora aproximadamente, con frecuencia semanal o quincenal.</p></details>
+        <details class="faq-q"><summary>¿Cuánto dura un tratamiento?</summary><p>Depende de cada persona y de lo que la trae. Lo vamos pensando juntos al definir las metas del proceso, después de las entrevistas iniciales, y lo revisamos en el camino.</p></details>
+        <details class="faq-q"><summary>¿Atendés de forma virtual?</summary><p>Sí. Además del consultorio de Pasaje Rizzuto 3451, en Rosario, atiendo de forma virtual por Meet o Zoom, desde cualquier lugar.</p></details>
+        <details class="faq-q"><summary>¿Trabajás con obras sociales? ¿Cómo se paga?</summary><p>No trabajo con obras sociales. Los honorarios son por sesión y podés pagar con todos los medios de pago. Si querés saber el valor, consultame por WhatsApp.</p></details>
+        <details class="faq-q"><summary>¿Qué días y horarios atendés?</summary><p>De lunes a viernes de 8 a 21 h y los sábados de 8 a 13 h.</p></details>
+        <details class="faq-q"><summary>¿Atendés parejas y familias?</summary><p>Sí. Además de psicoterapia individual, trabajo con parejas y familias, y doy conferencias y talleres para instituciones, escuelas y grupos.</p></details>
+        <details class="faq-q"><summary>¿Lo que hablo en sesión es confidencial?</summary><p>Sí. Lo que conversamos está protegido por el secreto profesional, salvo las excepciones que prevé la ley ante situaciones de riesgo.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <section class="contact" id="contacto">
@@ -2302,7 +2338,7 @@ Estoy acá. Estoy a salvo.</p></details>
   <div class="wrap"><span>Entre Nosotros · Lic. Eric Terlecki · Mat. N.º 4331</span><span>Emergencias: <a href="#emergencias">911 emergencias · 107 SIES (médicas) · 0800-999-0091 salud mental</a></span></div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20consultar%20por%20un%20turno." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp para pedir turno"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg><span>Pedir turno</span></a>
+<a class="wa-float" href="https://wa.me/5493416601847?text=Hola%20Eric%2C%20quisiera%20coordinar%20una%20primera%20entrevista." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp para pedir una primera entrevista"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg><span>Pedir primera entrevista</span></a>
 <div class="toast" id="toast" hidden>Copiado</div>
 <script>
 /* Menú del celular */
@@ -2605,6 +2641,10 @@ const open=h=>{const el=h&&document.getElementById(h);if(el&&el.classList.contai
 sec.querySelectorAll(".pe-index a").forEach(a=>a.addEventListener("click",()=>open(a.getAttribute("href").slice(1))));
 addEventListener("hashchange",()=>open(location.hash.slice(1)));open(location.hash.slice(1));
 })();
+</script>
+<script>
+(()=>{const f=document.querySelector(".wa-float"),c=document.getElementById("contacto");if(!f||!c||!("IntersectionObserver" in window))return;
+new IntersectionObserver(e=>f.classList.toggle("is-hidden",e[0].isIntersecting),{threshold:.15}).observe(c);})();
 </script>
 </body>
 </html>
