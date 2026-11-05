@@ -440,6 +440,19 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 .mobile-menu ul{list-style:none;margin:0;padding:6px 0 14px;display:flex;flex-direction:column;gap:0;align-items:stretch;width:100%}
 .mobile-menu li{width:100%}
 .mobile-menu a{display:block;padding:11px 0;font-size:1.05rem;text-decoration:none;color:var(--cream);border-bottom:1px solid rgba(242,235,219,.1)}
+.nav-dd details{position:relative}
+.nav-dd summary{list-style:none;cursor:pointer;opacity:.85;white-space:nowrap;display:flex;align-items:center;gap:4px}
+.nav-dd summary::-webkit-details-marker{display:none}
+.nav-dd summary::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+.nav-dd details[open] summary::after{transform:rotate(225deg) translateY(-1px)}
+.nav-dd summary:hover,.nav-dd details[open] summary{opacity:1}
+.nav .dd{position:absolute;top:calc(100% + 12px);left:-14px;z-index:30;display:flex;flex-direction:column;gap:0;min-width:200px;background:var(--petrol);border:1px solid rgba(242,235,219,.16);border-radius:12px;padding:6px;box-shadow:0 14px 36px rgba(0,0,0,.3)}
+.nav .dd a{display:block;padding:9px 12px;border-radius:8px;opacity:.9}
+.nav .dd a:hover{background:rgba(242,235,219,.08);text-decoration:none;opacity:1}
+@media (max-width:1320px){.nav > .wrap > ul{overflow:visible;flex-wrap:wrap;row-gap:6px}}
+.mobile-menu .mm-h{padding:14px 0 4px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--terra)}
+.mobile-menu .mm-sub a{padding-left:14px}
+
 @media (max-width:720px){.menu-btn{display:inline-flex}}
 @media (min-width:721px){.mobile-menu{display:none!important}}
 /* Inicio: espacio en común */
@@ -585,11 +598,15 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
       <li><a href="#empezar-terapia">Empezar</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#psicoeducacion">Psicoeducación</a></li>
-      <li><a href="#para-pensar">Para pensar</a></li>
-      <li><a href="#lecturas">Lecturas</a></li>
-      <li><a href="#calma">Calma</a></li>
-      <li><a href="#plantillas">Plantillas</a></li>
-      <li><a href="#dinamicas">Dinámicas</a></li>
+      <li class="nav-dd"><details><summary>Recursos</summary><ul class="dd">
+        <li><a href="#para-pensar">Para pensar</a></li>
+        <li><a href="#lecturas">Lecturas</a></li>
+        <li><a href="#calma">Calma</a></li>
+        <li><a href="#plantillas">Plantillas</a></li>
+        <li><a href="#dinamicas">Dinámicas</a></li>
+        <li><a href="#app">App de registro</a></li>
+      </ul></details></li>
+      <li><a href="#preguntas">Preguntas</a></li>
     </ul>
     <form class="search" role="search" id="search" autocomplete="off" onsubmit="return false">
       <label for="s-in" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Buscar en el sitio</label>
@@ -610,12 +627,13 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
         <li><a href="#empezar-terapia">Empezar</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#psicoeducacion">Psicoeducación</a></li>
-        <li><a href="#para-pensar">Para pensar</a></li>
-      <li><a href="#lecturas">Lecturas</a></li>
-        <li><a href="#calma">Calma</a></li>
-        <li><a href="#plantillas">Plantillas</a></li>
-        <li><a href="#dinamicas">Dinámicas</a></li>
-        <li><a href="#app">App de registro</a></li>
+        <li class="mm-h">Recursos</li>
+        <li class="mm-sub"><a href="#para-pensar">Para pensar</a></li>
+        <li class="mm-sub"><a href="#lecturas">Lecturas</a></li>
+        <li class="mm-sub"><a href="#calma">Calma</a></li>
+        <li class="mm-sub"><a href="#plantillas">Plantillas</a></li>
+        <li class="mm-sub"><a href="#dinamicas">Dinámicas</a></li>
+        <li class="mm-sub"><a href="#app">App de registro</a></li>
         <li><a href="#preguntas">Preguntas</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
@@ -2255,6 +2273,7 @@ Estoy acá. Estoy a salvo.</p></details>
           </div>
         </li>
       </ul>
+      <div class="pl-more"><button class="btn btn-line" type="button" id="din-more" aria-expanded="false">Ver las 9 dinámicas</button></div>
       <p class="din-note">Las dinámicas son recursos para el trabajo personal y no reemplazan una consulta profesional. Si alguna te moviliza más de lo esperado, frená y hablalo con alguien de confianza o en sesión.</p>
     </div>
   </section>
@@ -2516,11 +2535,18 @@ document.querySelectorAll(".car").forEach(car=>{
   track.addEventListener("keydown",e=>{if(e.key==="ArrowRight"){e.preventDefault();go(cur+1);}if(e.key==="ArrowLeft"){e.preventDefault();go(cur-1);}});
   sync();
 });
+(()=>{let dinF="todas",dinOpen=false;const dm=document.getElementById("din-more"),cards=[...document.querySelectorAll(".din")],N=3;
+const sync=()=>{let i=0;cards.forEach(c=>{const m=dinF==="todas"||c.dataset.cat===dinF;c.hidden=!m||(dinF==="todas"&&!dinOpen&&i++>=N);});
+  if(dm){dm.parentElement.hidden=dinF!=="todas"||cards.length<=N;dm.textContent=dinOpen?"Mostrar menos":"Ver las "+cards.length+" dinámicas";dm.setAttribute("aria-expanded",String(dinOpen));}};
 document.querySelectorAll("#din-filters [data-f]").forEach(b=>b.addEventListener("click",()=>{
-  const f=b.dataset.f;
+  dinF=b.dataset.f;
   document.querySelectorAll("#din-filters [data-f]").forEach(x=>x.setAttribute("aria-pressed",x===b));
-  document.querySelectorAll(".din").forEach(c=>c.hidden=!(f==="todas"||c.dataset.cat===f));
+  sync();
 }));
+if(dm)dm.addEventListener("click",()=>{dinOpen=!dinOpen;sync();if(!dinOpen)document.getElementById("dinamicas").scrollIntoView({behavior:"smooth"});});
+window.dinShowAll=()=>{dinF="todas";dinOpen=true;document.querySelectorAll("#din-filters [data-f]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.f==="todas"));sync();};
+const fromHash=()=>{const el=document.getElementById(location.hash.slice(1));if(el&&el.classList.contains("din")&&el.hidden){window.dinShowAll();el.scrollIntoView();}};
+addEventListener("hashchange",fromHash);sync();fromHash();})();
 document.querySelectorAll("[data-share]").forEach(btn=>{
   btn.addEventListener("click",()=>{
     const url=location.origin+location.pathname+"#"+btn.dataset.share;
@@ -2593,7 +2619,7 @@ document.querySelectorAll("[data-copy]").forEach(btn=>{
   function go(i){
     const o=cur[i]; if(!o) return; close(); inp.blur();
     let el=o.el;
-    if(el.closest(".din") && el.offsetParent===null){const all=document.querySelector("#din-filters [data-f]"); if(all) all.click();}
+    if(el.closest(".din") && el.offsetParent===null && window.dinShowAll) window.dinShowAll();
     if(el.closest(".pl") && el.offsetParent===null && window.plShowAll) window.plShowAll();
     el.style.scrollMarginTop=el.style.scrollMarginTop||"84px";
     el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
@@ -2645,6 +2671,13 @@ addEventListener("hashchange",()=>open(location.hash.slice(1)));open(location.ha
 <script>
 (()=>{const f=document.querySelector(".wa-float"),c=document.getElementById("contacto");if(!f||!c||!("IntersectionObserver" in window))return;
 new IntersectionObserver(e=>f.classList.toggle("is-hidden",e[0].isIntersecting),{threshold:.15}).observe(c);})();
+</script>
+<script>
+(()=>{const mm=document.getElementById("mobile-menu"),wf=document.querySelector(".wa-float");if(mm&&wf)new MutationObserver(()=>wf.style.display=mm.hidden?"":"none").observe(mm,{attributes:true,attributeFilter:["hidden"]});})();
+(()=>{const d=document.querySelector(".nav-dd details");if(!d)return;
+d.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>d.open=false));
+document.addEventListener("click",e=>{if(d.open&&!d.contains(e.target))d.open=false;});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&d.open){d.open=false;d.querySelector("summary").focus();}});})();
 </script>
 </body>
 </html>
