@@ -459,6 +459,8 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 .pl-count{font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}
 .pl-tools + .pl-grid{margin-top:20px}
 .pl-more{margin-top:22px;display:flex;justify-content:center}
+#psicoeducacion:not(.pe-open) .pe-grid.pe-extra{display:none}
+.pe-more{margin-top:48px}
 .pl-empty{margin-top:18px;color:var(--muted)}
 /* Emergencias */
 .sos{margin-top:40px;background:rgba(242,235,219,.07);border:1px solid rgba(242,235,219,.18);border-radius:16px;padding:22px clamp(18px,3vw,28px)}
@@ -1017,7 +1019,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
         </div>
       </div>
 
-      <div class="pe-grid" id="ansiedad-y-cuerpo">
+      <div class="pe-grid pe-extra" id="ansiedad-y-cuerpo">
         <div>
           <div class="pe-piece">
             <span class="pe-tag">Ansiedad</span>
@@ -1054,7 +1056,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
         </div>
       </div>
 
-      <div class="pe-grid flip" id="el-perdon">
+      <div class="pe-grid pe-extra flip" id="el-perdon">
         <div>
           <div class="pe-piece">
             <span class="pe-tag">Vínculos</span>
@@ -1090,7 +1092,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           </div>
         </div>
       </div>
-      <div class="pe-grid" id="autocompasion">
+      <div class="pe-grid pe-extra" id="autocompasion">
         <div>
           <div class="pe-piece">
             <span class="pe-tag">Autocompasión</span>
@@ -1126,7 +1128,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           </div>
         </div>
       </div>
-      <div class="pe-grid flip" id="el-que-diran">
+      <div class="pe-grid pe-extra flip" id="el-que-diran">
         <div>
           <div class="pe-piece">
             <span class="pe-tag">Autoestima</span>
@@ -1162,7 +1164,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           </div>
         </div>
       </div>
-      <div class="pe-grid" id="imagen-corporal">
+      <div class="pe-grid pe-extra" id="imagen-corporal">
         <div>
           <div class="pe-piece">
             <span class="pe-tag">Cuerpo</span>
@@ -1198,7 +1200,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           </div>
         </div>
       </div>
-      <div class="pe-grid flip" id="respetar-tu-proceso">
+      <div class="pe-grid pe-extra flip" id="respetar-tu-proceso">
         <div>
           <div class="pe-piece">
             <span class="pe-tag">Crecimiento personal</span>
@@ -1234,7 +1236,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           </div>
         </div>
       </div>
-      <div class="pe-grid" id="atencion-plena">
+      <div class="pe-grid pe-extra" id="atencion-plena">
         <div>
           <div class="pe-piece">
             <span class="pe-tag">Atención plena</span>
@@ -1270,7 +1272,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           </div>
         </div>
       </div>
-      <div class="pe-grid flip" id="silencio-y-meditacion">
+      <div class="pe-grid pe-extra flip" id="silencio-y-meditacion">
         <div>
           <div class="pe-piece">
             <span class="pe-tag">Bienestar</span>
@@ -1306,7 +1308,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           </div>
         </div>
       </div>
-      <div class="pe-grid" id="empatia">
+      <div class="pe-grid pe-extra" id="empatia">
         <div>
           <div class="pe-piece">
             <span class="pe-tag">Vínculos</span>
@@ -1342,7 +1344,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           </div>
         </div>
       </div>
-      <div class="pe-grid flip" id="fatiga-por-compasion">
+      <div class="pe-grid pe-extra flip" id="fatiga-por-compasion">
         <div>
           <div class="pe-piece">
             <span class="pe-tag">Cuidar a quien cuida</span>
@@ -1378,7 +1380,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           </div>
         </div>
       </div>
-      <div class="pe-grid" id="vivir-con-sentido">
+      <div class="pe-grid pe-extra" id="vivir-con-sentido">
         <div>
           <div class="pe-piece">
             <span class="pe-tag">Valores</span>
@@ -1414,6 +1416,7 @@ footer .wrap{padding-bottom:calc(22px + 64px)}
           </div>
         </div>
       </div>
+      <div class="pl-more pe-more"><button class="btn btn-line" type="button" id="pe-more" aria-expanded="false">Ver los 13 temas</button></div>
     </div>
   </section>
 
@@ -2591,6 +2594,16 @@ document.querySelectorAll("[data-copy]").forEach(btn=>{
   pills.forEach(p=>p.addEventListener("click",e=>{e.preventDefault();const id=p.getAttribute("aria-controls");show(p.getAttribute("aria-expanded")==="true"?null:id,true);}));
   const fromHash=()=>{const h=location.hash.slice(1);if(pills.some(p=>p.getAttribute("aria-controls")===h))show(h,true);};
   addEventListener("hashchange",fromHash);fromHash();
+})();
+</script>
+<script>
+(()=>{const sec=document.getElementById("psicoeducacion"),b=document.getElementById("pe-more");if(!sec||!b)return;
+const lbl=b.textContent;
+const set=o=>{sec.classList.toggle("pe-open",o);b.setAttribute("aria-expanded",String(o));b.textContent=o?"Mostrar menos":lbl;};
+b.addEventListener("click",()=>{const o=!sec.classList.contains("pe-open");set(o);if(!o)sec.scrollIntoView({behavior:"smooth"});});
+const open=h=>{const el=h&&document.getElementById(h);if(el&&el.classList.contains("pe-extra")){set(true);requestAnimationFrame(()=>el.scrollIntoView());}};
+sec.querySelectorAll(".pe-index a").forEach(a=>a.addEventListener("click",()=>open(a.getAttribute("href").slice(1))));
+addEventListener("hashchange",()=>open(location.hash.slice(1)));open(location.hash.slice(1));
 })();
 </script>
 </body>
